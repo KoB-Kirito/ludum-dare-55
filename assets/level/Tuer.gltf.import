@@ -34,7 +34,6 @@ _subresources={
 "nodes": {
 "PATH:Tuer": {
 "generate/physics": true,
-"physics/body_type": 1,
 "physics/shape_type": 1
 }
 }
