@@ -25,7 +25,8 @@ buses/default_bus_layout="res://assets/audio/bus_layout.tres"
 
 Events="*res://autoloads/global_events.gd"
 PauseMenu="*res://menu/pause/pause_menu.tscn"
-InteractionManager="*res://game/interactables/interaction_manager.gd"
+InteractionManager="*res://game/interactables/system/interaction_manager.gd"
+Bgm="*res://autoloads/bgm.tscn"
 
 [display]
 

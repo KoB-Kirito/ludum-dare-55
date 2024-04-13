@@ -2,5 +2,6 @@ extends Triggerable
 
 
 func trigger() -> void:
-	queue_free()
-	#TODO: Play animation of door -> Remove/move collision
+	%Placeholder.visible = !%Placeholder.visible
+	%CollisionShape3D.disabled = !%Placeholder.visible
+	#TODO: Play animation of door

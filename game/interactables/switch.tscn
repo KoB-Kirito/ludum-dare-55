@@ -29,3 +29,4 @@ mesh = SubResource("BoxMesh_rvhl8")
 [node name="snd_press" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("3_7e3b1")
+bus = &"Sounds"

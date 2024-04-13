@@ -41,3 +41,9 @@ targets = [NodePath("../Door")]
 
 [node name="Door" parent="." instance=ExtResource("5_ua1yt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 2, 2)
+
+[node name="Switch2" parent="." instance=ExtResource("4_o4y7a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 1.5, -3.5)
+
+[node name="Door" parent="Switch2" instance=ExtResource("5_ua1yt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 1)
