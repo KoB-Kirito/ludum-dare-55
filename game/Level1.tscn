@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://nygoyoewxi7b"]
+[gd_scene load_steps=7 format=3 uid="uid://bhssjshhg7awb"]
 
 [ext_resource type="MeshLibrary" uid="uid://dcl27y21ygg87" path="res://game/catacomb_library.tres" id="1_mysrg"]
 [ext_resource type="PackedScene" uid="uid://dl2ed4gkybggf" path="res://game/player/player.tscn" id="2_7cfva"]

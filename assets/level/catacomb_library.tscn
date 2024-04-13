@@ -27,7 +27,7 @@
 [ext_resource type="PackedScene" uid="uid://bntfschoy6bsg" path="res://assets/level/Säule_Eckig_2x4m.gltf" id="25_fhoif"]
 [ext_resource type="PackedScene" uid="uid://c8lowa6fr6t0s" path="res://assets/level/Säule_Eckig_4x1.gltf" id="26_nwi0g"]
 [ext_resource type="PackedScene" uid="uid://dekbv8on8aky3" path="res://assets/level/Treppe_2m.gltf" id="27_uk0m6"]
-[ext_resource type="PackedScene" uid="uid://bia8cqsls4es2" path="res://assets/level/Treppe_2x2m.gltf" id="28_qmfhk"]
+[ext_resource type="PackedScene" uid="uid://bmydtosy75yla" path="res://assets/level/Prefabs/treppe_2x_2m_2.tscn" id="28_2dy4p"]
 [ext_resource type="PackedScene" uid="uid://bhyodj6isrm57" path="res://assets/level/Treppe_4m.gltf" id="29_ly8nf"]
 [ext_resource type="PackedScene" uid="uid://16no51iokbbl" path="res://assets/level/Wand_1m.gltf" id="30_hxj3q"]
 [ext_resource type="PackedScene" uid="uid://cdfsjf00ah1gk" path="res://assets/level/Wand_1m_V2.gltf" id="31_b5cq6"]
@@ -92,7 +92,7 @@
 
 [node name="Treppe_2m2" parent="." instance=ExtResource("27_uk0m6")]
 
-[node name="Treppe_2x2m2" parent="." instance=ExtResource("28_qmfhk")]
+[node name="Treppe_2x2m3" parent="." instance=ExtResource("28_2dy4p")]
 
 [node name="Treppe_4m2" parent="." instance=ExtResource("29_ly8nf")]
 

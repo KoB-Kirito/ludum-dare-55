@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bmydtosy75yla"]
+
+[ext_resource type="PackedScene" uid="uid://bia8cqsls4es2" path="res://assets/level/Treppe_2x2m.gltf" id="1_2gg5r"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_vua3b"]
+data = PackedVector3Array(-2.1, -1, -2, 2, -1, -2, 2, 1, -2, 2, -1, -2, 2, 1, 1.9999, 2, 1, -2, 2, -1, -2, 2, -1, 1.9999, 2, 1, 1.9999, 2, -1, 1.9999, -2.1, -1, 1.9999, 2, 1, 1.9999, -2.1, -1, -2, 2, -1, 1.9999, 2, -1, -2, -2.1, -1, -2, -2.1, -1, 1.9999, 2, -1, 1.9999, 2, 1, -2, -2.1, -1, 1.9999, -2.1, -1, -2, 2, 1, -2, 2, 1, 1.9999, -2.1, -1, 1.9999)
+
+[node name="Treppe_2x2m2" instance=ExtResource("1_2gg5r")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Treppe_2x2m" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Treppe_2x2m/StaticBody3D" index="0"]
+transform = Transform3D(-4.26186e-08, 0, -1, 0, 1, 0, 0.975, 0, -4.37114e-08, 0, 1, 0.05)
+shape = SubResource("ConcavePolygonShape3D_vua3b")
