@@ -1,0 +1,36 @@
+[gd_scene load_steps=3 format=3 uid="uid://dewvte3cn8lv5"]
+
+[ext_resource type="Texture2D" uid="uid://ccmlvx5xrxny6" path="res://menu/splash/godot_splash.png" id="1_asda8"]
+[ext_resource type="Script" path="res://menu/splash/splash_screen.gd" id="1_fgtng"]
+
+[node name="SplashScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fgtng")
+fade_in_transition = 4
+fade_out_transition = 4
+fade_out_ease = 1
+
+[node name="GodotSplash" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_asda8")
+expand_mode = 3
+
+[node name="Fade" type="ColorRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.141176, 0.141176, 0.141176, 1)
