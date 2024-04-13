@@ -145,6 +145,8 @@ func handle_controls(_delta):
 	# Jumping
 	
 	if Input.is_action_just_pressed("jump"):
+		if jump_strength <= 0:
+			return
 		
 		if jump_single or jump_double:
 			%snd_jump.play()

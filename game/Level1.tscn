@@ -38,7 +38,7 @@ data = {
 metadata/_editor_floor_ = Vector3(0, 0, 0)
 
 [node name="Player" parent="." node_paths=PackedStringArray("hud") instance=ExtResource("2_7cfva")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.3589, 0.631208, -6.50735)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.3589, 10.1312, -6.50735)
 hud = NodePath("../Hud")
 
 [node name="Hud" parent="." instance=ExtResource("3_fb0ls")]
