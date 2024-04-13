@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=3 uid="uid://bhssjshhg7awb"]
+
+[ext_resource type="MeshLibrary" uid="uid://o442e3xfqvwl" path="res://game/catacomb_library.tres" id="1_mysrg"]
+[ext_resource type="PackedScene" uid="uid://dl2ed4gkybggf" path="res://game/player/player.tscn" id="2_7cfva"]
+[ext_resource type="PackedScene" uid="uid://drmowkyyr6rjn" path="res://game/hud.tscn" id="3_fb0ls"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_x15p8"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_1y8n6"]
+sky_material = SubResource("ProceduralSkyMaterial_x15p8")
+
+[sub_resource type="Environment" id="Environment_lf4lc"]
+sky = SubResource("Sky_1y8n6")
+tonemap_mode = 2
+
+[node name="Level1" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_lf4lc")
+
+[node name="GridMap" type="GridMap" parent="."]
+mesh_library = ExtResource("1_mysrg")
+cell_size = Vector3(2, 0.5, 2)
+data = {
+"cells": PackedInt32Array(65534, 65528, 1441820, 2, 65528, 1441820, 4, 65530, 655388, 4, 65534, 655388, 4, 2, 655388, 4, 6, 655388, 2, 8, 1048604, 65534, 8, 1048604, 65532, 6, 28, 65532, 65534, 28, 65530, 0, 1441820, 65530, 4, 1048604, 65528, 2, 28, 196602, 2, 12, 196606, 2, 12, 131074, 2, 12, 196606, 6, 12, 131074, 6, 12, 196606, 65534, 12, 131074, 65534, 12, 196606, 65530, 12, 131074, 65530, 12, 131076, 65530, 28, 131076, 65534, 28, 131076, 2, 28, 131076, 6, 28, 131074, 8, 1441820, 196606, 8, 1441820, 196604, 6, 655388, 196602, 4, 1441820, 196600, 2, 655388, 196602, 0, 1048604, 196604, 65534, 655388, 196606, 65528, 1048604, 131074, 65528, 1048604, 65536, 65532, 1048595, 65536, 0, 1048595, 65540, 0, 1048595, 65536, 4, 1048595, 65540, 4, 1048595, 65540, 8, 1048595, 65536, 8, 1048595, 131064, 0, 1048595, 131064, 4, 1048595, 131068, 4, 1048595, 131068, 0, 1048595, 131068, 65532, 1048595, 131068, 65528, 1048595, 65536, 65528, 1048595, 65540, 65528, 1048595, 65540, 65532, 1048595, 131068, 8, 1048595, -2, 6, 2, -65534, 6, 2, -2, 2, 2, -65534, 2, 2, -6, 2, 2, -6, 65534, 2, -6, 65530, 2, -2, 65530, 2, -2, 65534, 2, -65534, 65534, 2, -65534, 65530, 2, 65530, 65528, 4, 65524, 65530, 29, -10, 65534, 1441794, -10, 65530, 1441794, 65526, 0, 1441820, 65524, 65534, 655388, 65532, 65526, 28, 65532, 65522, 28, 65530, 65520, 1048604, 65526, 65520, 1048604, 65524, 65522, 655388, 65524, 65526, 655388, 65522, 65528, 1048604, 65522, 65532, 1441820, 65520, 65530, 655388, -14, 65530, 655362, -196619, 65527, 24, -196617, 65527, 24, -458763, 65525, 24, -458761, 65525, 24, -458764, 65526, 28, -458764, 65522, 28, -458762, 65520, 1441820, -458758, 65520, 1441820, -458756, 65526, 655388, -458756, 65522, 29, -524298, 65522, 655362, -524294, 65522, 655362, -524294, 65526, 655362, -524298, 65526, 655362, -524294, 65528, 1048604, -458760, 65528, 1048597, 65528, 65528, 1048597)
+}
+metadata/_editor_floor_ = Vector3(0, 0, 0)
+
+[node name="Player" parent="." node_paths=PackedStringArray("hud") instance=ExtResource("2_7cfva")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.3589, 0.631208, -6.50735)
+hud = NodePath("../Hud")
+
+[node name="Hud" parent="." instance=ExtResource("3_fb0ls")]
