@@ -1,6 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://bhssjshhg7awb"]
+[gd_scene load_steps=7 format=3 uid="uid://nygoyoewxi7b"]
 
-[ext_resource type="MeshLibrary" uid="uid://o442e3xfqvwl" path="res://game/catacomb_library.tres" id="1_mysrg"]
+[ext_resource type="MeshLibrary" uid="uid://dcl27y21ygg87" path="res://game/catacomb_library.tres" id="1_mysrg"]
 [ext_resource type="PackedScene" uid="uid://dl2ed4gkybggf" path="res://game/player/player.tscn" id="2_7cfva"]
 [ext_resource type="PackedScene" uid="uid://drmowkyyr6rjn" path="res://game/hud.tscn" id="3_fb0ls"]
 

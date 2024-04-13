@@ -1,0 +1,109 @@
+[gd_scene load_steps=36 format=3 uid="uid://cpv18d3w0hq5u"]
+
+[ext_resource type="PackedScene" uid="uid://rt3iwyakqo" path="res://assets/level/Ceil_Rund_4m.gltf" id="1_cgn75"]
+[ext_resource type="PackedScene" uid="uid://daa7eeupsffdh" path="res://assets/level/Fassadenbögen_4x1.gltf" id="2_50wfu"]
+[ext_resource type="PackedScene" uid="uid://bkw1mod74sc44" path="res://assets/level/Floor_1m.gltf" id="3_x3p0c"]
+[ext_resource type="PackedScene" uid="uid://bfabctnw8q8am" path="res://assets/level/Floor_2m.gltf" id="4_m5ja5"]
+[ext_resource type="PackedScene" uid="uid://sfv3nt7w8xt8" path="res://assets/level/Floor_4m.gltf" id="5_yun7q"]
+[ext_resource type="PackedScene" uid="uid://fdcuuwp424q0" path="res://assets/level/Floor_half_1m.gltf" id="6_s5g48"]
+[ext_resource type="PackedScene" uid="uid://dkving3kmfitl" path="res://assets/level/Floor_half_4m.gltf" id="7_5mdi5"]
+[ext_resource type="PackedScene" uid="uid://70f47kwaojil" path="res://assets/level/Geländer_8m.gltf" id="8_cgjqi"]
+[ext_resource type="PackedScene" uid="uid://crx0jmn6rdf5a" path="res://assets/level/Lampenhalter.gltf" id="9_vsn1x"]
+[ext_resource type="PackedScene" uid="uid://rkwackkh4ji1" path="res://assets/level/Laufsteg.gltf" id="10_3ms2d"]
+[ext_resource type="PackedScene" uid="uid://d050eio8betgy" path="res://assets/level/Laufsteg_Kreuzung.gltf" id="11_0mhn0"]
+[ext_resource type="PackedScene" uid="uid://bj3h8o2fvqlqh" path="res://assets/level/Laufsteg_T-Stück.gltf" id="12_yidwo"]
+[ext_resource type="PackedScene" uid="uid://bn2kf57b3kk06" path="res://assets/level/Poller.gltf" id="13_fyfne"]
+[ext_resource type="PackedScene" uid="uid://tn4o7ilqlatq" path="res://assets/level/Rampe_2m.gltf" id="14_mt7o2"]
+[ext_resource type="PackedScene" uid="uid://b8nboo5oji1gq" path="res://assets/level/Rampe_4m.gltf" id="15_l6s4x"]
+[ext_resource type="PackedScene" uid="uid://0xuj8sdxui0" path="res://assets/level/Rundbogendecke-V2.gltf" id="16_tfx8w"]
+[ext_resource type="PackedScene" uid="uid://dktj7o7imi7bi" path="res://assets/level/Rundsäule.gltf" id="17_nrtls"]
+[ext_resource type="PackedScene" uid="uid://8pbpnkusla8f" path="res://assets/level/Spitzbogendecke_Groß.gltf" id="18_mkdck"]
+[ext_resource type="PackedScene" uid="uid://bvqvrij6d26xc" path="res://assets/level/Strebebogen_8m.gltf" id="19_mra8r"]
+[ext_resource type="PackedScene" uid="uid://c824fqk8pyex2" path="res://assets/level/Säulenfuß_2m.gltf" id="20_bgo36"]
+[ext_resource type="PackedScene" uid="uid://ejjk88n78cvp" path="res://assets/level/Säulenfuß_4m.gltf" id="21_qaj7e"]
+[ext_resource type="PackedScene" uid="uid://dd8xa727bpll3" path="res://assets/level/Säulenwand.gltf" id="22_nnjgu"]
+[ext_resource type="PackedScene" uid="uid://d07acs4yo7c3g" path="res://assets/level/Säule_2m.gltf" id="23_imgi4"]
+[ext_resource type="PackedScene" uid="uid://dhm35ej05882n" path="res://assets/level/Säule_4m.gltf" id="24_6fus7"]
+[ext_resource type="PackedScene" uid="uid://bntfschoy6bsg" path="res://assets/level/Säule_Eckig_2x4m.gltf" id="25_fhoif"]
+[ext_resource type="PackedScene" uid="uid://c8lowa6fr6t0s" path="res://assets/level/Säule_Eckig_4x1.gltf" id="26_nwi0g"]
+[ext_resource type="PackedScene" uid="uid://dekbv8on8aky3" path="res://assets/level/Treppe_2m.gltf" id="27_uk0m6"]
+[ext_resource type="PackedScene" uid="uid://bia8cqsls4es2" path="res://assets/level/Treppe_2x2m.gltf" id="28_qmfhk"]
+[ext_resource type="PackedScene" uid="uid://bhyodj6isrm57" path="res://assets/level/Treppe_4m.gltf" id="29_ly8nf"]
+[ext_resource type="PackedScene" uid="uid://16no51iokbbl" path="res://assets/level/Wand_1m.gltf" id="30_hxj3q"]
+[ext_resource type="PackedScene" uid="uid://cdfsjf00ah1gk" path="res://assets/level/Wand_1m_V2.gltf" id="31_b5cq6"]
+[ext_resource type="PackedScene" uid="uid://bskl6k7s8wdci" path="res://assets/level/Wand_4m.gltf" id="32_e6mmn"]
+[ext_resource type="PackedScene" uid="uid://b7wbp7avq1s5" path="res://assets/level/Wand_4m_Tuer.gltf" id="33_poide"]
+[ext_resource type="PackedScene" uid="uid://dnp2x1uk43pvh" path="res://assets/level/Wand_Fenster_4m.gltf" id="34_ea65q"]
+[ext_resource type="PackedScene" uid="uid://sid381letuqa" path="res://assets/level/Wand_Rampe_2m.gltf" id="35_e0gw6"]
+
+[node name="CatacombLibrary" type="Node3D"]
+
+[node name="Ceil_Rund_4m2" parent="." instance=ExtResource("1_cgn75")]
+
+[node name="Fassadenbögen_4x1" parent="." instance=ExtResource("2_50wfu")]
+
+[node name="Floor_1m2" parent="." instance=ExtResource("3_x3p0c")]
+
+[node name="Floor_2m2" parent="." instance=ExtResource("4_m5ja5")]
+
+[node name="Floor_4m2" parent="." instance=ExtResource("5_yun7q")]
+
+[node name="Floor_half_1m2" parent="." instance=ExtResource("6_s5g48")]
+
+[node name="Floor_half_4m2" parent="." instance=ExtResource("7_5mdi5")]
+
+[node name="Geländer_8m2" parent="." instance=ExtResource("8_cgjqi")]
+
+[node name="Lampenhalter2" parent="." instance=ExtResource("9_vsn1x")]
+
+[node name="Laufsteg2" parent="." instance=ExtResource("10_3ms2d")]
+
+[node name="Laufsteg_Kreuzung2" parent="." instance=ExtResource("11_0mhn0")]
+
+[node name="Laufsteg_T-Stück2" parent="." instance=ExtResource("12_yidwo")]
+
+[node name="Poller2" parent="." instance=ExtResource("13_fyfne")]
+
+[node name="Rampe_2m2" parent="." instance=ExtResource("14_mt7o2")]
+
+[node name="Rampe_4m2" parent="." instance=ExtResource("15_l6s4x")]
+
+[node name="Rundbogendecke-V2" parent="." instance=ExtResource("16_tfx8w")]
+
+[node name="Rundsäule2" parent="." instance=ExtResource("17_nrtls")]
+
+[node name="Spitzbogendecke_Groß2" parent="." instance=ExtResource("18_mkdck")]
+
+[node name="Strebebogen_8m2" parent="." instance=ExtResource("19_mra8r")]
+
+[node name="Säulenfuß_2m2" parent="." instance=ExtResource("20_bgo36")]
+
+[node name="Säulenfuß_4m2" parent="." instance=ExtResource("21_qaj7e")]
+
+[node name="Säulenwand2" parent="." instance=ExtResource("22_nnjgu")]
+
+[node name="Säule_2m2" parent="." instance=ExtResource("23_imgi4")]
+
+[node name="Säule_4m2" parent="." instance=ExtResource("24_6fus7")]
+
+[node name="Säule_Eckig_2x4m2" parent="." instance=ExtResource("25_fhoif")]
+
+[node name="Säule_Eckig_4x12" parent="." instance=ExtResource("26_nwi0g")]
+
+[node name="Treppe_2m2" parent="." instance=ExtResource("27_uk0m6")]
+
+[node name="Treppe_2x2m2" parent="." instance=ExtResource("28_qmfhk")]
+
+[node name="Treppe_4m2" parent="." instance=ExtResource("29_ly8nf")]
+
+[node name="Wand_1m2" parent="." instance=ExtResource("30_hxj3q")]
+
+[node name="Wand_1m_V22" parent="." instance=ExtResource("31_b5cq6")]
+
+[node name="Wand_4m2" parent="." instance=ExtResource("32_e6mmn")]
+
+[node name="Wand_4m_Tuer2" parent="." instance=ExtResource("33_poide")]
+
+[node name="Wand_Fenster_4m2" parent="." instance=ExtResource("34_ea65q")]
+
+[node name="Wand_Rampe_2m2" parent="." instance=ExtResource("35_e0gw6")]
