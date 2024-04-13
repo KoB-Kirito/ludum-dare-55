@@ -17,10 +17,16 @@
 		{
 			"mesh":0,
 			"name":"Spitzbogendecke_Gro\u00df",
+			"rotation":[
+				0.5,
+				0.5,
+				-0.5,
+				0.5
+			],
 			"translation":[
-				-4,
+				-2,
 				-6,
-				4
+				2
 			]
 		}
 	],
@@ -93,29 +99,29 @@
 		{
 			"bufferView":0,
 			"componentType":5126,
-			"count":718,
+			"count":713,
 			"max":[
-				7.999998092651367,
-				12.010002136230469,
-				0.0002574920654296875
+				6.000001907348633,
+				5.999999046325684,
+				0.004280184395611286
 			],
 			"min":[
-				-0.0002574920654296875,
-				-0.004280096851289272,
-				-8.000001907348633
+				-2.0002574920654297,
+				-2.0002570152282715,
+				-12.010001182556152
 			],
 			"type":"VEC3"
 		},
 		{
 			"bufferView":1,
 			"componentType":5126,
-			"count":718,
+			"count":713,
 			"type":"VEC3"
 		},
 		{
 			"bufferView":2,
 			"componentType":5126,
-			"count":718,
+			"count":713,
 			"type":"VEC2"
 		},
 		{
@@ -128,26 +134,26 @@
 	"bufferViews":[
 		{
 			"buffer":0,
-			"byteLength":8616,
+			"byteLength":8556,
 			"byteOffset":0,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":8616,
-			"byteOffset":8616,
+			"byteLength":8556,
+			"byteOffset":8556,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":5744,
-			"byteOffset":17232,
+			"byteLength":5704,
+			"byteOffset":17112,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":4572,
-			"byteOffset":22976,
+			"byteOffset":22816,
 			"target":34963
 		}
 	],
@@ -159,7 +165,7 @@
 	],
 	"buffers":[
 		{
-			"byteLength":27548,
+			"byteLength":27388,
 			"uri":"Spitzbogendecke_Gro%C3%9F.bin"
 		}
 	]
