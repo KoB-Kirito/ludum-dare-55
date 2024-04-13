@@ -1,22 +1,20 @@
-[gd_scene load_steps=8 format=3 uid="uid://clp26l3bpj647"]
+[gd_scene load_steps=11 format=3 uid="uid://clp26l3bpj647"]
 
 [ext_resource type="PackedScene" uid="uid://dl2ed4gkybggf" path="res://game/player/player.tscn" id="1_cpip2"]
 [ext_resource type="PackedScene" uid="uid://drmowkyyr6rjn" path="res://game/hud.tscn" id="2_62dec"]
+[ext_resource type="PackedScene" uid="uid://btp2qpl3226ys" path="res://game/player/zauberer.tscn" id="2_ybrf1"]
+[ext_resource type="PackedScene" uid="uid://ldbgk14nhrf1" path="res://game/_test/floor.tscn" id="3_ogp2y"]
+[ext_resource type="PackedScene" uid="uid://ccpnbtxrfnhpx" path="res://game/_test/wall.tscn" id="4_lw2xd"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7grjw"]
-sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
-ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+[sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_48xnr"]
 
-[sub_resource type="Sky" id="Sky_jjlme"]
-sky_material = SubResource("ProceduralSkyMaterial_7grjw")
+[sub_resource type="Sky" id="Sky_js0pi"]
+sky_material = SubResource("PhysicalSkyMaterial_48xnr")
 
-[sub_resource type="Environment" id="Environment_wyvd0"]
-background_mode = 2
-sky = SubResource("Sky_jjlme")
-tonemap_mode = 2
+[sub_resource type="Environment" id="Environment_l11y0"]
+sky = SubResource("Sky_js0pi")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eh5lw"]
-albedo_color = Color(0.213134, 0.443853, 0, 1)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w06wc"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_krffu"]
 albedo_color = Color(0.713086, 0, 0.149716, 1)
@@ -24,39 +22,63 @@ albedo_color = Color(0.713086, 0, 0.149716, 1)
 [node name="TestLevel" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_wyvd0")
+environment = SubResource("Environment_l11y0")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+transform = Transform3D(0.284015, -0.461915, 0.84022, 0, 0.876307, 0.481754, -0.95882, -0.136825, 0.248885, 0, 0, 0)
+light_energy = 1.5
 shadow_enabled = true
 
-[node name="Floor" type="CSGBox3D" parent="."]
+[node name="Player" parent="." node_paths=PackedStringArray("hud") instance=ExtResource("1_cpip2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.83233, 1.6445, -34.1042)
+hud = NodePath("../Hud")
+jump_strength = 12
+
+[node name="Hud" parent="." instance=ExtResource("2_62dec")]
+
+[node name="Room" type="Node3D" parent="."]
+
+[node name="Floor" parent="Room" instance=ExtResource("3_ogp2y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, -0.5, 3)
+
+[node name="Wall" parent="Room" instance=ExtResource("4_lw2xd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 2, 0.5)
+
+[node name="Wall2" parent="Room" instance=ExtResource("4_lw2xd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 2, 5.5)
+
+[node name="Wall3" parent="Room" instance=ExtResource("4_lw2xd")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.5, 2, 3)
+
+[node name="Wall4" parent="Room" instance=ExtResource("4_lw2xd")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5.5, 2, 3)
+
+[node name="Platform" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5979, 1.90735e-06, -40.7983)
+
+[node name="Floor" type="CSGBox3D" parent="Platform"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.505232, 0)
 use_collision = true
 size = Vector3(20, 1, 20)
-material = SubResource("StandardMaterial3D_eh5lw")
+material = SubResource("StandardMaterial3D_w06wc")
 
-[node name="Floor2" type="CSGBox3D" parent="."]
+[node name="Floor2" type="CSGBox3D" parent="Platform"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.36171, 1.57795, -5.37584)
 use_collision = true
 size = Vector3(5, 1, 5)
 material = SubResource("StandardMaterial3D_krffu")
 
-[node name="Floor3" type="CSGBox3D" parent="."]
+[node name="Floor3" type="CSGBox3D" parent="Platform"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.94446, 1.57795, 5.66933)
 use_collision = true
 size = Vector3(5, 1, 5)
 material = SubResource("StandardMaterial3D_krffu")
 
-[node name="Floor4" type="CSGBox3D" parent="."]
+[node name="Floor4" type="CSGBox3D" parent="Platform"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.70403, 1.57795, 2.03026)
 use_collision = true
 size = Vector3(5, 1, 5)
 material = SubResource("StandardMaterial3D_krffu")
 
-[node name="Player" parent="." node_paths=PackedStringArray("hud") instance=ExtResource("1_cpip2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.83233, 1.6445, 0.895803)
-hud = NodePath("../Hud")
-jump_strength = 12
-
-[node name="Hud" parent="." instance=ExtResource("2_62dec")]
+[node name="Zauberer" parent="." instance=ExtResource("2_ybrf1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, -41)

@@ -1,0 +1,72 @@
+[gd_scene load_steps=14 format=3 uid="uid://dse5kh32tby3v"]
+
+[ext_resource type="Texture2D" uid="uid://brguuxx2yuohx" path="res://assets/textures/prototyping/red.png" id="1_1cpwk"]
+[ext_resource type="Texture2D" uid="uid://bjam1m8v42yqx" path="res://assets/textures/prototyping/black.png" id="1_3frff"]
+[ext_resource type="Texture2D" uid="uid://dq5nfdg3m7fbj" path="res://assets/textures/prototyping/white.png" id="2_85vf6"]
+[ext_resource type="Texture2D" uid="uid://dki3pbjewgxvg" path="res://assets/textures/prototyping/green.png" id="4_1vv0i"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q3ftg"]
+albedo_texture = ExtResource("1_3frff")
+uv1_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_6l543"]
+lightmap_size_hint = Vector2i(14, 21)
+material = SubResource("StandardMaterial3D_q3ftg")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_t5wwf"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_58j0i"]
+albedo_texture = ExtResource("2_85vf6")
+uv1_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_betbe"]
+material = SubResource("StandardMaterial3D_58j0i")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e7geg"]
+albedo_texture = ExtResource("1_1cpwk")
+uv1_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_5gtxf"]
+material = SubResource("StandardMaterial3D_e7geg")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r6sgo"]
+albedo_texture = ExtResource("4_1vv0i")
+uv1_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_865uj"]
+material = SubResource("StandardMaterial3D_r6sgo")
+
+[node name="MeshLibrary" type="Node3D"]
+
+[node name="CubeBlack" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_6l543")
+skeleton = NodePath("StaticBody3D")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="CubeBlack"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CubeBlack/StaticBody3D"]
+shape = SubResource("BoxShape3D_t5wwf")
+
+[node name="CubeWhite" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_betbe")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="CubeWhite"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CubeWhite/StaticBody3D"]
+shape = SubResource("BoxShape3D_t5wwf")
+
+[node name="CubeRed" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_5gtxf")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="CubeRed"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CubeRed/StaticBody3D"]
+shape = SubResource("BoxShape3D_t5wwf")
+
+[node name="CubeGreen" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_865uj")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="CubeGreen"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CubeGreen/StaticBody3D"]
+shape = SubResource("BoxShape3D_t5wwf")
