@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://btpe2cqml8uyi"]
+
+[ext_resource type="Script" path="res://game/interactables/door.gd" id="1_mf0jy"]
+[ext_resource type="Texture2D" uid="uid://dki3pbjewgxvg" path="res://assets/textures/prototyping/green.png" id="1_spfnn"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vxdhb"]
+albedo_texture = ExtResource("1_spfnn")
+uv1_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_qab2i"]
+material = SubResource("StandardMaterial3D_vxdhb")
+size = Vector3(2, 2, 0.2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ey1j3"]
+size = Vector3(2, 2, 0.2)
+
+[node name="Door" type="Node3D"]
+script = ExtResource("1_mf0jy")
+
+[node name="Placeholder" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_qab2i")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Placeholder"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Placeholder/StaticBody3D"]
+shape = SubResource("BoxShape3D_ey1j3")
