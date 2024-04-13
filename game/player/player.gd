@@ -44,6 +44,8 @@ var tween:Tween
 # Functions
 
 func _ready():
+	PauseMenu.game_paused.connect(on_game_paused)
+	PauseMenu.game_unpaused.connect(on_game_unpaused)
 	
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	
@@ -101,8 +103,18 @@ func _physics_process(delta):
 	if position.y < -10:
 		get_tree().reload_current_scene()
 
-# Mouse movement
 
+# Mouse capture
+func on_game_unpaused() -> void:
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	mouse_captured = true
+
+func on_game_paused() -> void:
+	mouse_captured = false
+	input_mouse = Vector2.ZERO
+
+
+# Mouse movement
 func _input(event):
 	if event is InputEventMouseMotion and mouse_captured:
 		
@@ -112,19 +124,6 @@ func _input(event):
 		rotation_target.x -= event.relative.y / mouse_sensitivity
 
 func handle_controls(_delta):
-	
-	# Mouse capture
-	
-	if Input.is_action_just_pressed("mouse_capture"):
-		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-		mouse_captured = true
-	
-	if Input.is_action_just_pressed("mouse_capture_exit"):
-		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-		mouse_captured = false
-		
-		input_mouse = Vector2.ZERO
-	
 	# Movement
 	
 	var input := Input.get_vector("move_left", "move_right", "move_forward", "move_back")

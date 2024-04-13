@@ -63,8 +63,10 @@ func toggle() -> void:
 	visible = !visible
 	get_tree().paused = visible
 	if visible:
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		game_paused.emit()
 	else:
+		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 		%snd_music.stop()
 		%snd_sounds.stop()
 		%snd_voices.stop()
