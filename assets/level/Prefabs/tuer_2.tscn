@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://btrwvbyqytry1"]
+
+[ext_resource type="PackedScene" uid="uid://5greqgt8porj" path="res://assets/level/Tuer.gltf" id="1_tuh5i"]
+[ext_resource type="Script" path="res://assets/level/Prefabs/tuer_2.gd" id="2_fp7yj"]
+
+[node name="Tuer2" instance=ExtResource("1_tuh5i")]
+script = ExtResource("2_fp7yj")
+
+[node name="CollisionShape3D" parent="Tuer" index="1"]
+unique_name_in_owner = true
