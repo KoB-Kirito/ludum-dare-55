@@ -1,0 +1,109 @@
+[gd_scene load_steps=2 format=3 uid="uid://cor4ubf7eshiu"]
+
+[ext_resource type="Script" path="res://menu/pause/pause_menu.gd" id="1_pkut6"]
+
+[node name="PauseMenu" type="CanvasLayer"]
+process_mode = 3
+layer = 128
+script = ExtResource("1_pkut6")
+
+[node name="Fade" type="ColorRect" parent="."]
+unique_name_in_owner = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.752941)
+
+[node name="TitleLabel" type="Label" parent="Fade"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 36
+text = "PAUSE"
+
+[node name="GridContainer" type="GridContainer" parent="Fade"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 2
+
+[node name="MusicLabel" type="Label" parent="Fade/GridContainer"]
+custom_minimum_size = Vector2(0, 26)
+layout_mode = 2
+text = "Music"
+
+[node name="MusicSlider" type="HSlider" parent="Fade/GridContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(220, 0)
+layout_mode = 2
+size_flags_vertical = 4
+min_value = -60.0
+max_value = 6.0
+step = 6.0
+
+[node name="SoundsLabel" type="Label" parent="Fade/GridContainer"]
+auto_translate_mode = 1
+custom_minimum_size = Vector2(0, 26)
+layout_mode = 2
+text = "Sounds
+"
+
+[node name="SoundsSlider" type="HSlider" parent="Fade/GridContainer"]
+unique_name_in_owner = true
+auto_translate_mode = 1
+custom_minimum_size = Vector2(220, 0)
+layout_mode = 2
+size_flags_vertical = 4
+min_value = -60.0
+max_value = 6.0
+step = 6.0
+
+[node name="VoicesLabel" type="Label" parent="Fade/GridContainer"]
+auto_translate_mode = 1
+custom_minimum_size = Vector2(0, 26)
+layout_mode = 2
+text = "Voices"
+
+[node name="VoicesSlider" type="HSlider" parent="Fade/GridContainer"]
+unique_name_in_owner = true
+auto_translate_mode = 1
+custom_minimum_size = Vector2(220, 0)
+layout_mode = 2
+size_flags_vertical = 4
+min_value = -60.0
+max_value = 6.0
+step = 6.0
+
+[node name="snd_music" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+
+[node name="snd_sounds" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+
+[node name="snd_voices" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+
+[connection signal="gui_input" from="Fade" to="." method="_on_fade_gui_input"]
+[connection signal="drag_started" from="Fade/GridContainer/MusicSlider" to="." method="_on_music_slider_drag_started"]
+[connection signal="focus_entered" from="Fade/GridContainer/MusicSlider" to="." method="_on_music_slider_drag_started"]
+[connection signal="drag_started" from="Fade/GridContainer/SoundsSlider" to="." method="_on_sounds_slider_drag_started"]
+[connection signal="focus_entered" from="Fade/GridContainer/SoundsSlider" to="." method="_on_sounds_slider_drag_started"]
+[connection signal="drag_started" from="Fade/GridContainer/VoicesSlider" to="." method="_on_voices_slider_drag_started"]
+[connection signal="focus_entered" from="Fade/GridContainer/VoicesSlider" to="." method="_on_voices_slider_drag_started"]
