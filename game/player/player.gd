@@ -15,6 +15,7 @@ signal health_updated
 @export_subgroup("Weapons")
 @export var weapons: Array[Weapon] = []
 @export var impact_scene: PackedScene
+@export var portal_scene: PackedScene
 
 var weapon: Weapon
 var weapon_index := 0
@@ -188,7 +189,8 @@ func action_shoot():
 	
 	if Input.is_action_pressed("shoot"):
 	
-		if %Cooldown.is_stopped(): return # Cooldown for shooting
+		if !%Cooldown.is_stopped():
+			return # Cooldown for shooting
 		
 		%snd_shoot.play()
 		
@@ -210,14 +212,16 @@ func action_shoot():
 		
 		for n in weapon.shot_count:
 		
-			%Raycast.target_position.x = randf_range(-weapon.spread, weapon.spread)
-			%Raycast.target_position.y = randf_range(-weapon.spread, weapon.spread)
+			%RayCast.target_position.x = randf_range(-weapon.spread, weapon.spread)
+			%RayCast.target_position.y = randf_range(-weapon.spread, weapon.spread)
 			
-			%Raycast.force_raycast_update()
+			%RayCast.force_raycast_update()
 			
-			if !%Raycast.is_colliding(): continue # Don't create impact when %Raycast didn't hit
+			if !%RayCast.is_colliding():
+				continue # Don't create impact when %RayCast didn't hit
 			
-			var collider = %Raycast.get_collider()
+			var collider = %RayCast.get_collider()
+			var collision_point = %RayCast.get_collision_point()
 			
 			# Hitting an enemy
 			
@@ -232,8 +236,13 @@ func action_shoot():
 			
 			get_tree().root.add_child(impact)
 			
-			impact.position = %Raycast.get_collision_point() + (%Raycast.get_collision_normal() / 10)
-			impact.look_at(%Camera.global_transform.origin, Vector3.UP, true) 
+			impact.position = collision_point + (%RayCast.get_collision_normal() / 10)
+			impact.look_at(%Camera.global_transform.origin, Vector3.UP, true)
+			
+			# Portal
+			
+			var portal = portal_scene.instantiate()
+			portal.look_at(collision_point - (%RayCast.get_collision_normal()))
 
 # Toggle between available weapons (listed in 'weapons')
 
