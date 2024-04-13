@@ -1,0 +1,36 @@
+[gd_scene load_steps=10 format=3 uid="uid://bm32nuprjimv7"]
+
+[ext_resource type="PackedScene" uid="uid://5greqgt8porj" path="res://assets/level/Tuer.gltf" id="1_tuh5i"]
+[ext_resource type="Script" path="res://game/interactables/tuer_2.gd" id="2_fp7yj"]
+[ext_resource type="AudioStream" uid="uid://d24p4xdsyvab8" path="res://assets/audio/sounds/metal-squeak-door-a.wav" id="3_oy247"]
+[ext_resource type="AudioStream" uid="uid://c0imdtvmy71uv" path="res://assets/audio/sounds/metal-squeak-door-b.wav" id="4_rype6"]
+[ext_resource type="AudioStream" uid="uid://c3dulwwmtj846" path="res://assets/audio/sounds/metal-squeak-door-c.wav" id="5_h57ry"]
+[ext_resource type="AudioStream" uid="uid://biqgtonjf68ux" path="res://assets/audio/sounds/metal-squeak-door-d.wav" id="6_ncluu"]
+[ext_resource type="AudioStream" uid="uid://cppjc7ucud65o" path="res://assets/audio/sounds/metal-squeak-door-e.wav" id="7_rjt6h"]
+[ext_resource type="AudioStream" uid="uid://bpx3ocwtnaaub" path="res://assets/audio/sounds/metal-squeak-door-f.wav" id="8_vdsau"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_urnl4"]
+streams_count = 6
+stream_0/stream = ExtResource("3_oy247")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("4_rype6")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("5_h57ry")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("6_ncluu")
+stream_3/weight = 1.0
+stream_4/stream = ExtResource("7_rjt6h")
+stream_4/weight = 1.0
+stream_5/stream = ExtResource("8_vdsau")
+stream_5/weight = 1.0
+
+[node name="Tuer2" instance=ExtResource("1_tuh5i")]
+script = ExtResource("2_fp7yj")
+
+[node name="CollisionShape3D" parent="Tuer/StaticBody3D" index="0"]
+unique_name_in_owner = true
+
+[node name="snd_squeak" type="AudioStreamPlayer3D" parent="." index="1"]
+unique_name_in_owner = true
+stream = SubResource("AudioStreamRandomizer_urnl4")
+bus = &"Sounds"

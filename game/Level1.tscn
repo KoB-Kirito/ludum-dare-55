@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://drmowkyyr6rjn" path="res://game/hud.tscn" id="3_fb0ls"]
 [ext_resource type="PackedScene" path="res://assets/level/Prefabs/lampenhalter_2.tscn" id="4_salf3"]
 [ext_resource type="PackedScene" path="res://assets/level/Prefabs/lampenhalter_doppelt.tscn" id="5_47apb"]
-[ext_resource type="PackedScene" uid="uid://bm32nuprjimv7" path="res://assets/level/Prefabs/tuer_2.tscn" id="8_74b0g"]
+[ext_resource type="PackedScene" uid="uid://bm32nuprjimv7" path="res://game/interactables/tuer_2.tscn" id="8_74b0g"]
 [ext_resource type="PackedScene" uid="uid://xf17rtpdoi25" path="res://game/interactables/switch.tscn" id="8_hbskh"]
 [ext_resource type="LightmapGIData" path="res://game/Level1.lmbake" id="18_l8o08"]
 

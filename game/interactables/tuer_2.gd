@@ -2,7 +2,7 @@ extends Triggerable
 
 
 ## Duration for closing/opening
-@export var duration: float = 2.0
+@export var duration: float = 3.0
 ## Opening in which direction
 @export_enum("Left", "Right") var direction: int = 0
 ## Already open?
@@ -29,6 +29,8 @@ func trigger() -> void:
 	if moving:
 		return
 	moving = true
+	
+	%snd_squeak.play()
 	
 	var tween = create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_QUAD)
 	if open:
