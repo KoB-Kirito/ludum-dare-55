@@ -32,6 +32,8 @@ environment = SubResource("Environment_lf4lc")
 [node name="Player" parent="." node_paths=PackedStringArray("hud") instance=ExtResource("2_tpiof")]
 transform = Transform3D(-0.993032, 0, 0.117849, 0, 1, 0, -0.117849, 0, -0.993032, -0.584488, 3.31226, -24.3091)
 hud = NodePath("../Hud")
+movement_speed = 3
+jump_strength = 0
 
 [node name="Hud" parent="." instance=ExtResource("3_77r7b")]
 
