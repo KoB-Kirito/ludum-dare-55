@@ -1,6 +1,19 @@
-[gd_scene load_steps=2 format=3 uid="uid://cor4ubf7eshiu"]
+[gd_scene load_steps=7 format=3 uid="uid://cor4ubf7eshiu"]
 
 [ext_resource type="Script" path="res://menu/pause/pause_menu.gd" id="1_pkut6"]
+[ext_resource type="AudioStream" uid="uid://btmk2f0kpcy3e" path="res://assets/audio/music/Think_About_It.ogg" id="2_odayp"]
+[ext_resource type="AudioStream" uid="uid://ipk0wnx82mgh" path="res://assets/audio/sounds/hoi.wav" id="3_xk0hs"]
+[ext_resource type="AudioStream" uid="uid://cvqyu2dho5wd" path="res://assets/audio/sounds/huh.wav" id="4_jx7l5"]
+[ext_resource type="AudioStream" uid="uid://by3ftyfxxk6uu" path="res://assets/audio/sounds/pressed_button.wav" id="5_88ngg"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_76akw"]
+streams_count = 3
+stream_0/stream = ExtResource("3_xk0hs")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("4_jx7l5")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("5_88ngg")
+stream_2/weight = 1.0
 
 [node name="PauseMenu" type="CanvasLayer"]
 process_mode = 3
@@ -77,6 +90,7 @@ step = 6.0
 
 [node name="VoicesLabel" type="Label" parent="Fade/GridContainer"]
 auto_translate_mode = 1
+visible = false
 custom_minimum_size = Vector2(0, 26)
 layout_mode = 2
 text = "Voices"
@@ -84,6 +98,7 @@ text = "Voices"
 [node name="VoicesSlider" type="HSlider" parent="Fade/GridContainer"]
 unique_name_in_owner = true
 auto_translate_mode = 1
+visible = false
 custom_minimum_size = Vector2(220, 0)
 layout_mode = 2
 size_flags_vertical = 4
@@ -93,17 +108,25 @@ step = 6.0
 
 [node name="snd_music" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
+stream = ExtResource("2_odayp")
+bus = &"Music"
 
 [node name="snd_sounds" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
+stream = SubResource("AudioStreamRandomizer_76akw")
+bus = &"Sounds"
 
 [node name="snd_voices" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
+bus = &"Voices"
 
 [connection signal="gui_input" from="Fade" to="." method="_on_fade_gui_input"]
 [connection signal="drag_started" from="Fade/GridContainer/MusicSlider" to="." method="_on_music_slider_drag_started"]
 [connection signal="focus_entered" from="Fade/GridContainer/MusicSlider" to="." method="_on_music_slider_drag_started"]
+[connection signal="value_changed" from="Fade/GridContainer/MusicSlider" to="." method="_on_music_slider_value_changed"]
 [connection signal="drag_started" from="Fade/GridContainer/SoundsSlider" to="." method="_on_sounds_slider_drag_started"]
 [connection signal="focus_entered" from="Fade/GridContainer/SoundsSlider" to="." method="_on_sounds_slider_drag_started"]
+[connection signal="value_changed" from="Fade/GridContainer/SoundsSlider" to="." method="_on_sounds_slider_value_changed"]
 [connection signal="drag_started" from="Fade/GridContainer/VoicesSlider" to="." method="_on_voices_slider_drag_started"]
 [connection signal="focus_entered" from="Fade/GridContainer/VoicesSlider" to="." method="_on_voices_slider_drag_started"]
+[connection signal="value_changed" from="Fade/GridContainer/VoicesSlider" to="." method="_on_voices_slider_value_changed"]

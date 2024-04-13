@@ -36,11 +36,11 @@ func _on_music_slider_value_changed(value: float) -> void:
 	AudioServer.set_bus_volume_db(music_bus, value)
 
 
-func _on_effect_slider_value_changed(value: float) -> void:
+func _on_sounds_slider_value_changed(value: float) -> void:
 	AudioServer.set_bus_volume_db(sounds_bus, value)
 
 
-func _on_voice_slider_value_changed(value: float) -> void:
+func _on_voices_slider_value_changed(value: float) -> void:
 	AudioServer.set_bus_volume_db(voices_bus, value)
 
 

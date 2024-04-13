@@ -1,10 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://dl2ed4gkybggf"]
+[gd_scene load_steps=13 format=3 uid="uid://dl2ed4gkybggf"]
 
 [ext_resource type="Script" path="res://game/player/player.gd" id="1_ffboj"]
 [ext_resource type="PackedScene" uid="uid://b7070gfoko4mo" path="res://game/weapons/impact.tscn" id="2_eptbn"]
 [ext_resource type="PackedScene" uid="uid://nqhnarpow5vv" path="res://game/weapons/blaster/blaster.glb" id="2_m7qvp"]
 [ext_resource type="Texture2D" uid="uid://v7x1bf5ooqxa" path="res://game/weapons/blaster/crosshair.png" id="2_sjm3x"]
 [ext_resource type="Script" path="res://game/weapons/weapon.gd" id="2_xonqh"]
+[ext_resource type="AudioStream" uid="uid://ipk0wnx82mgh" path="res://assets/audio/sounds/hoi.wav" id="6_jndfm"]
+[ext_resource type="PackedScene" uid="uid://dfv2oi8kmmq5s" path="res://game/portal/portal.tscn" id="6_wpp0n"]
+[ext_resource type="AudioStream" uid="uid://cvqyu2dho5wd" path="res://assets/audio/sounds/huh.wav" id="7_ohqny"]
 
 [sub_resource type="Resource" id="Resource_e0ywr"]
 script = ExtResource("2_xonqh")
@@ -25,11 +28,23 @@ crosshair = ExtResource("2_sjm3x")
 radius = 0.3
 height = 1.0
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_ommok"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_xnwv2"]
+playback_mode = 1
+random_pitch = 1.1
+streams_count = 2
+stream_0/stream = ExtResource("6_jndfm")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("7_ohqny")
+stream_1/weight = 1.0
+
 [node name="Player" type="CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 script = ExtResource("1_ffboj")
 weapons = Array[ExtResource("2_xonqh")]([SubResource("Resource_e0ywr")])
 impact_scene = ExtResource("2_eptbn")
+portal_scene = ExtResource("6_wpp0n")
 
 [node name="Collider" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.55, 0)
@@ -65,8 +80,9 @@ fov = 40.0
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2, -1, -2.25)
 
-[node name="Muzzle" type="Sprite3D" parent="Head/Camera/SubViewportContainer/SubViewport/CameraItem"]
+[node name="Muzzle" type="AnimatedSprite3D" parent="Head/Camera/SubViewportContainer/SubViewport/CameraItem"]
 unique_name_in_owner = true
+sprite_frames = SubResource("SpriteFrames_ommok")
 
 [node name="RayCast" type="RayCast3D" parent="Head/Camera"]
 unique_name_in_owner = true
@@ -77,6 +93,8 @@ unique_name_in_owner = true
 
 [node name="snd_jump" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
+stream = SubResource("AudioStreamRandomizer_xnwv2")
+bus = &"Sounds"
 
 [node name="snd_shoot" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
@@ -86,3 +104,4 @@ unique_name_in_owner = true
 
 [node name="Cooldown" type="Timer" parent="."]
 unique_name_in_owner = true
+wait_time = 2.0

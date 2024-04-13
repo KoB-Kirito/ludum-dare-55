@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://c7g5qo47fb6wt"]
+
+[ext_resource type="AudioStream" uid="uid://btmk2f0kpcy3e" path="res://assets/audio/music/Think_About_It.ogg" id="1_271ik"]
+[ext_resource type="Script" path="res://autoloads/bgm.gd" id="2_j57m7"]
+
+[node name="Bgm" type="AudioStreamPlayer"]
+stream = ExtResource("1_271ik")
+volume_db = -16.0
+bus = &"Music"
+script = ExtResource("2_j57m7")
