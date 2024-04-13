@@ -20,10 +20,10 @@
 	"nodes":[
 		{
 			"mesh":0,
-			"name":"Floor_1m",
+			"name":"Floor_2m",
 			"translation":[
 				0,
-				-0.5,
+				-1,
 				0
 			]
 		}
@@ -72,7 +72,7 @@
 	],
 	"meshes":[
 		{
-			"name":"Floor_1m",
+			"name":"Floor_2m",
 			"primitives":[
 				{
 					"attributes":{
@@ -160,12 +160,12 @@
 			"count":548,
 			"max":[
 				4,
-				0.5299999713897705,
+				1.0299999713897705,
 				4
 			],
 			"min":[
 				-4,
-				-0.5,
+				-1,
 				-4
 			],
 			"type":"VEC3"
@@ -194,12 +194,12 @@
 			"count":16,
 			"max":[
 				4,
-				0.5,
+				1,
 				4
 			],
 			"min":[
 				-4,
-				-0.5,
+				-1,
 				-4
 			],
 			"type":"VEC3"
@@ -282,7 +282,7 @@
 	"buffers":[
 		{
 			"byteLength":21948,
-			"uri":"Floor_1m.bin"
+			"uri":"Floor_2m.bin"
 		}
 	]
 }

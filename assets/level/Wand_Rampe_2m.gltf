@@ -16,11 +16,12 @@
 	"nodes":[
 		{
 			"mesh":0,
-			"name":"Spitzbogendecke_Gro\u00df",
-			"translation":[
-				-4,
-				-6,
-				4
+			"name":"Wand_Rampe_2m",
+			"rotation":[
+				0,
+				-1,
+				0,
+				7.549790126404332e-08
 			]
 		}
 	],
@@ -44,7 +45,7 @@
 	],
 	"meshes":[
 		{
-			"name":"Spitzbogendecke_Gro\u00df",
+			"name":"Cube.024",
 			"primitives":[
 				{
 					"attributes":{
@@ -93,61 +94,61 @@
 		{
 			"bufferView":0,
 			"componentType":5126,
-			"count":718,
+			"count":30,
 			"max":[
-				7.999998092651367,
-				12.010002136230469,
-				0.0002574920654296875
+				4,
+				2,
+				0.24000033736228943
 			],
 			"min":[
-				-0.0002574920654296875,
-				-0.004280096851289272,
-				-8.000001907348633
+				-4,
+				-1.9411244833733576e-10,
+				-0.24000032246112823
 			],
 			"type":"VEC3"
 		},
 		{
 			"bufferView":1,
 			"componentType":5126,
-			"count":718,
+			"count":30,
 			"type":"VEC3"
 		},
 		{
 			"bufferView":2,
 			"componentType":5126,
-			"count":718,
+			"count":30,
 			"type":"VEC2"
 		},
 		{
 			"bufferView":3,
 			"componentType":5123,
-			"count":2286,
+			"count":48,
 			"type":"SCALAR"
 		}
 	],
 	"bufferViews":[
 		{
 			"buffer":0,
-			"byteLength":8616,
+			"byteLength":360,
 			"byteOffset":0,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":8616,
-			"byteOffset":8616,
+			"byteLength":360,
+			"byteOffset":360,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":5744,
-			"byteOffset":17232,
+			"byteLength":240,
+			"byteOffset":720,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":4572,
-			"byteOffset":22976,
+			"byteLength":96,
+			"byteOffset":960,
 			"target":34963
 		}
 	],
@@ -159,8 +160,8 @@
 	],
 	"buffers":[
 		{
-			"byteLength":27548,
-			"uri":"Spitzbogendecke_Gro%C3%9F.bin"
+			"byteLength":1056,
+			"uri":"Wand_Rampe_2m.bin"
 		}
 	]
 }

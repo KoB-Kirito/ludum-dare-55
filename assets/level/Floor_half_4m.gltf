@@ -20,12 +20,7 @@
 	"nodes":[
 		{
 			"mesh":0,
-			"name":"Floor_1m",
-			"translation":[
-				0,
-				-0.5,
-				0
-			]
+			"name":"Floor_half_4m"
 		}
 	],
 	"materials":[
@@ -72,7 +67,7 @@
 	],
 	"meshes":[
 		{
-			"name":"Floor_1m",
+			"name":"Floor_4m.004",
 			"primitives":[
 				{
 					"attributes":{
@@ -157,15 +152,15 @@
 		{
 			"bufferView":0,
 			"componentType":5126,
-			"count":548,
+			"count":284,
 			"max":[
-				4,
-				0.5299999713897705,
+				2,
+				2.0299999713897705,
 				4
 			],
 			"min":[
-				-4,
-				-0.5,
+				-2,
+				-2,
 				-4
 			],
 			"type":"VEC3"
@@ -173,19 +168,19 @@
 		{
 			"bufferView":1,
 			"componentType":5126,
-			"count":548,
+			"count":284,
 			"type":"VEC3"
 		},
 		{
 			"bufferView":2,
 			"componentType":5126,
-			"count":548,
+			"count":284,
 			"type":"VEC2"
 		},
 		{
 			"bufferView":3,
 			"componentType":5123,
-			"count":1926,
+			"count":966,
 			"type":"SCALAR"
 		},
 		{
@@ -193,13 +188,13 @@
 			"componentType":5126,
 			"count":16,
 			"max":[
-				4,
-				0.5,
+				2,
+				2,
 				4
 			],
 			"min":[
-				-4,
-				-0.5,
+				-2,
+				-2,
 				-4
 			],
 			"type":"VEC3"
@@ -226,50 +221,50 @@
 	"bufferViews":[
 		{
 			"buffer":0,
-			"byteLength":6576,
+			"byteLength":3408,
 			"byteOffset":0,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":6576,
-			"byteOffset":6576,
+			"byteLength":3408,
+			"byteOffset":3408,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":4384,
-			"byteOffset":13152,
+			"byteLength":2272,
+			"byteOffset":6816,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":3852,
-			"byteOffset":17536,
+			"byteLength":1932,
+			"byteOffset":9088,
 			"target":34963
 		},
 		{
 			"buffer":0,
 			"byteLength":192,
-			"byteOffset":21388,
+			"byteOffset":11020,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":192,
-			"byteOffset":21580,
+			"byteOffset":11212,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":128,
-			"byteOffset":21772,
+			"byteOffset":11404,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":48,
-			"byteOffset":21900,
+			"byteOffset":11532,
 			"target":34963
 		}
 	],
@@ -281,8 +276,8 @@
 	],
 	"buffers":[
 		{
-			"byteLength":21948,
-			"uri":"Floor_1m.bin"
+			"byteLength":11580,
+			"uri":"Floor_half_4m.bin"
 		}
 	]
 }

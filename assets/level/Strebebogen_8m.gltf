@@ -88,29 +88,29 @@
 		{
 			"bufferView":0,
 			"componentType":5126,
-			"count":412,
+			"count":414,
 			"max":[
-				2.1999988555908203,
 				8,
-				0.400001585483551
+				6.000000476837158,
+				0.40000104904174805
 			],
 			"min":[
-				-6,
 				-4.76837158203125e-07,
-				-0.40000051259994507
+				-2.1999988555908203,
+				-0.40000027418136597
 			],
 			"type":"VEC3"
 		},
 		{
 			"bufferView":1,
 			"componentType":5126,
-			"count":412,
+			"count":414,
 			"type":"VEC3"
 		},
 		{
 			"bufferView":2,
 			"componentType":5126,
-			"count":412,
+			"count":414,
 			"type":"VEC2"
 		},
 		{
@@ -123,26 +123,26 @@
 	"bufferViews":[
 		{
 			"buffer":0,
-			"byteLength":4944,
+			"byteLength":4968,
 			"byteOffset":0,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":4944,
-			"byteOffset":4944,
+			"byteLength":4968,
+			"byteOffset":4968,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":3296,
-			"byteOffset":9888,
+			"byteLength":3312,
+			"byteOffset":9936,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":2160,
-			"byteOffset":13184,
+			"byteOffset":13248,
 			"target":34963
 		}
 	],
@@ -154,7 +154,7 @@
 	],
 	"buffers":[
 		{
-			"byteLength":15344,
+			"byteLength":15408,
 			"uri":"Strebebogen_8m.bin"
 		}
 	]
