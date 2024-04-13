@@ -1,8 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://bhssjshhg7awb"]
+[gd_scene load_steps=11 format=3 uid="uid://bhssjshhg7awb"]
 
 [ext_resource type="MeshLibrary" uid="uid://dcl27y21ygg87" path="res://game/catacomb_library.tres" id="1_mysrg"]
 [ext_resource type="PackedScene" uid="uid://dl2ed4gkybggf" path="res://game/player/player.tscn" id="2_7cfva"]
-[ext_resource type="PackedScene" uid="uid://drmowkyyr6rjn" path="res://game/hud.tscn" id="3_fb0ls"]
 [ext_resource type="PackedScene" path="res://assets/level/Prefabs/lampenhalter_2.tscn" id="4_salf3"]
 [ext_resource type="PackedScene" path="res://assets/level/Prefabs/lampenhalter_doppelt.tscn" id="5_47apb"]
 [ext_resource type="PackedScene" uid="uid://bm32nuprjimv7" path="res://game/interactables/tuer_2.tscn" id="8_74b0g"]
@@ -46,9 +45,7 @@ metadata/_editor_floor_ = Vector3(0, -8, 0)
 [node name="Player" parent="." node_paths=PackedStringArray("hud") instance=ExtResource("2_7cfva")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.3589, 8.63121, -6.50735)
 floor_max_angle = 0.820305
-hud = NodePath("../Hud")
-
-[node name="Hud" parent="." instance=ExtResource("3_fb0ls")]
+hud = NodePath("Hud")
 
 [node name="Lichter" type="Node3D" parent="."]
 visible = false

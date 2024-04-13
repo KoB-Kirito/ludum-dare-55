@@ -18,3 +18,23 @@ offset_right = 20.0
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Countdown" type="Label" parent="."]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -76.0
+offset_top = 16.0
+offset_right = -24.0
+offset_bottom = 52.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 36
+text = "10.0"
+
+[node name="CountdownTimer" type="Timer" parent="Countdown"]
+unique_name_in_owner = true
+one_shot = true
+
+[connection signal="timeout" from="Countdown/CountdownTimer" to="." method="_on_countdown_timer_timeout"]

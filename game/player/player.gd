@@ -192,6 +192,9 @@ func action_shoot():
 		if !%Cooldown.is_stopped():
 			return # Cooldown for shooting
 		
+		if is_ghost:
+			return
+		
 		%snd_shoot.play()
 		
 		%Container.position.z += 0.25 # Knockback of weapon visual
@@ -242,15 +245,39 @@ func action_shoot():
 			
 			# Portal
 			
+			# create portal
 			var portal: Node3D = portal_scene.instantiate()
+			portal.duration = ghost_duration
 			get_tree().root.add_child(portal)
 			portal.global_transform = align_with_normal(portal.global_transform, collision_normal)
 			portal.position = collision_point + (collision_normal / 10)
 			
+			#TODO: Check collision at spawn area
 			
+			# save current position, teleport to portal "taking over the ghost"
+			var host_position = global_position
+			global_position = collision_point + (collision_normal)
+			is_ghost = true
+			
+			# create a placeholder at the old position "the player"
+			var host_placeholder = host_placeholder_scene.instantiate()
+			get_tree().root.add_child(host_placeholder)
+			host_placeholder.global_position = host_position
+			#TODO: Rotate
+			hud.start_countdown(ghost_duration)
+			
+			# wait for end
+			await get_tree().create_timer(ghost_duration).timeout
+			
+			# remove placeholder, teleport back to origin
+			host_placeholder.queue_free()
+			global_position = host_position
+			is_ghost = false
 
 var is_ghost: bool
-var host_position: Vector3
+@export var host_placeholder_scene: PackedScene
+@export var ghost_duration: float = 10.0
+
 
 func align_with_normal(xform: Transform3D, n2: Vector3) -> Transform3D:
 	var n1 = xform.basis.y.normalized()

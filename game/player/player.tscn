@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dl2ed4gkybggf"]
+[gd_scene load_steps=15 format=3 uid="uid://dl2ed4gkybggf"]
 
 [ext_resource type="Script" path="res://game/player/player.gd" id="1_ffboj"]
 [ext_resource type="PackedScene" uid="uid://b7070gfoko4mo" path="res://game/weapons/impact.tscn" id="2_eptbn"]
@@ -7,7 +7,9 @@
 [ext_resource type="Script" path="res://game/weapons/weapon.gd" id="2_xonqh"]
 [ext_resource type="AudioStream" uid="uid://ipk0wnx82mgh" path="res://assets/audio/sounds/hoi.wav" id="6_jndfm"]
 [ext_resource type="PackedScene" uid="uid://dfv2oi8kmmq5s" path="res://game/portal/portal.tscn" id="6_wpp0n"]
+[ext_resource type="PackedScene" uid="uid://sqwih5142yaw" path="res://game/player/host_placeholder.tscn" id="7_nhyq0"]
 [ext_resource type="AudioStream" uid="uid://cvqyu2dho5wd" path="res://assets/audio/sounds/huh.wav" id="7_ohqny"]
+[ext_resource type="PackedScene" uid="uid://drmowkyyr6rjn" path="res://game/hud.tscn" id="10_jvc7i"]
 
 [sub_resource type="Resource" id="Resource_e0ywr"]
 script = ExtResource("2_xonqh")
@@ -39,12 +41,14 @@ stream_0/weight = 1.0
 stream_1/stream = ExtResource("7_ohqny")
 stream_1/weight = 1.0
 
-[node name="Player" type="CharacterBody3D"]
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("hud")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 script = ExtResource("1_ffboj")
+hud = NodePath("Hud")
 weapons = Array[ExtResource("2_xonqh")]([SubResource("Resource_e0ywr")])
 impact_scene = ExtResource("2_eptbn")
 portal_scene = ExtResource("6_wpp0n")
+host_placeholder_scene = ExtResource("7_nhyq0")
 
 [node name="Collider" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.55, 0)
@@ -106,3 +110,5 @@ unique_name_in_owner = true
 unique_name_in_owner = true
 wait_time = 2.0
 one_shot = true
+
+[node name="Hud" parent="." instance=ExtResource("10_jvc7i")]
