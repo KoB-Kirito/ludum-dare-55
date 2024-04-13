@@ -6,6 +6,7 @@ signal health_updated
 
 
 @export var hud:Hud
+@export var death_height: int = -15
 
 @export_subgroup("Properties")
 @export var movement_speed = 5
@@ -100,7 +101,7 @@ func _physics_process(delta):
 	
 	# Falling/respawning
 	
-	if position.y < -10:
+	if position.y < death_height:
 		get_tree().reload_current_scene()
 
 
