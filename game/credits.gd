@@ -13,4 +13,4 @@ func _process(delta):
 #beendet das Credits Level und zeigt einen Endscreen
 func _on_area_3d_body_entered(body):
 	if body is Player:
-		get_tree().change_scene_to_file("res://game/Level1.tscn")
+		get_tree().change_scene_to_file("res://game/endscene.tscn")
