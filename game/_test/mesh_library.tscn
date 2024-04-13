@@ -1,9 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://dse5kh32tby3v"]
+[gd_scene load_steps=17 format=3 uid="uid://dse5kh32tby3v"]
 
 [ext_resource type="Texture2D" uid="uid://brguuxx2yuohx" path="res://assets/textures/prototyping/red.png" id="1_1cpwk"]
 [ext_resource type="Texture2D" uid="uid://bjam1m8v42yqx" path="res://assets/textures/prototyping/black.png" id="1_3frff"]
 [ext_resource type="Texture2D" uid="uid://dq5nfdg3m7fbj" path="res://assets/textures/prototyping/white.png" id="2_85vf6"]
 [ext_resource type="Texture2D" uid="uid://dki3pbjewgxvg" path="res://assets/textures/prototyping/green.png" id="4_1vv0i"]
+[ext_resource type="Texture2D" uid="uid://xh6nwai0a2yp" path="res://assets/textures/bricks_grey.png" id="5_iqwhx"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q3ftg"]
 albedo_texture = ExtResource("1_3frff")
@@ -35,6 +36,13 @@ uv1_triplanar = true
 
 [sub_resource type="BoxMesh" id="BoxMesh_865uj"]
 material = SubResource("StandardMaterial3D_r6sgo")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ibxby"]
+albedo_texture = ExtResource("5_iqwhx")
+uv1_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_104c4"]
+material = SubResource("StandardMaterial3D_ibxby")
 
 [node name="MeshLibrary" type="Node3D"]
 
@@ -69,4 +77,12 @@ mesh = SubResource("BoxMesh_865uj")
 [node name="StaticBody3D" type="StaticBody3D" parent="CubeGreen"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CubeGreen/StaticBody3D"]
+shape = SubResource("BoxShape3D_t5wwf")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_104c4")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
 shape = SubResource("BoxShape3D_t5wwf")
