@@ -196,7 +196,7 @@ func action_shoot():
 		
 		%Container.position.z += 0.25 # Knockback of weapon visual
 		%Camera.rotation.x += 0.025 # Knockback of %Camera
-		#movement_velocity += Vector3(0, 0, weapon.knockback) # Knockback
+		movement_velocity += Vector3(0, 0, weapon.knockback) # Knockback
 		
 		# Set %Muzzle flash position, play animation
 		
@@ -222,6 +222,7 @@ func action_shoot():
 			
 			var collider = %RayCast.get_collider()
 			var collision_point = %RayCast.get_collision_point()
+			var collision_normal = %RayCast.get_collision_normal()
 			
 			# Hitting an enemy
 			
@@ -236,16 +237,34 @@ func action_shoot():
 			
 			get_tree().root.add_child(impact)
 			
-			impact.position = collision_point + (%RayCast.get_collision_normal() / 10)
+			impact.position = collision_point + (collision_normal / 10)
 			impact.look_at(%Camera.global_transform.origin, Vector3.UP, true)
 			
 			# Portal
 			
-			var portal = portal_scene.instantiate()
-			portal.look_at(collision_point - (%RayCast.get_collision_normal()))
+			var portal: Node3D = portal_scene.instantiate()
+			get_tree().root.add_child(portal)
+			portal.global_transform = align_with_normal(portal.global_transform, collision_normal)
+			portal.position = collision_point + (collision_normal / 10)
+			
+			
+
+var is_ghost: bool
+var host_position: Vector3
+
+func align_with_normal(xform: Transform3D, n2: Vector3) -> Transform3D:
+	var n1 = xform.basis.y.normalized()
+	var cosa = n1.dot(n2)
+	if cosa >= 0.99:
+		return xform
+	var alpha = acos(cosa)
+	var axis = n1.cross(n2).normalized()
+	if axis == Vector3.ZERO:
+		axis = Vector3.FORWARD # normals are in opposite directions
+	return xform.rotated(axis, alpha)
+
 
 # Toggle between available weapons (listed in 'weapons')
-
 func action_weapon_toggle():
 	
 	if Input.is_action_just_pressed("weapon_toggle"):
@@ -255,8 +274,8 @@ func action_weapon_toggle():
 		
 		%snd_weapon_change.play()
 
-# Initiates the weapon changing animation (tween)
 
+# Initiates the weapon changing animation (tween)
 func initiate_change_weapon(index):
 	
 	weapon_index = index
@@ -266,8 +285,8 @@ func initiate_change_weapon(index):
 	tween.tween_property(%Container, "position", container_offset - Vector3(0, 1, 0), 0.1)
 	tween.tween_callback(change_weapon) # Changes the model
 
-# Switches the weapon model (off-screen)
 
+# Switches the weapon model (off-screen)
 func change_weapon():
 	
 	weapon = weapons[weapon_index]
@@ -297,7 +316,6 @@ func change_weapon():
 
 
 func damage(amount):
-	
 	health -= amount
 	health_updated.emit(health) # Update health on HUD
 	

@@ -19,7 +19,7 @@ extends Control
 
 func _ready() -> void:
 	var tween := create_tween()
-	tween.tween_interval(1.0)
+	
 	# godot
 	tween.tween_property(%Fade, "modulate", Color.TRANSPARENT, fade_in_duration).set_trans(fade_in_transition).set_ease(fade_in_ease)
 	tween.tween_interval(stay_duration)

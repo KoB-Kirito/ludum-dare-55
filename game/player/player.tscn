@@ -15,12 +15,12 @@ model = ExtResource("2_m7qvp")
 position = Vector3(0, 0, 0)
 rotation = Vector3(0, 0, 0)
 muzzle_position = Vector3(0, 0, 0)
-cooldown = 0.1
+cooldown = 1.0
 max_distance = 10
 damage = 25.0
 spread = 0.0
 shot_count = 1
-knockback = 20
+knockback = 5
 sound_shoot = ""
 crosshair = ExtResource("2_sjm3x")
 
@@ -105,3 +105,4 @@ unique_name_in_owner = true
 [node name="Cooldown" type="Timer" parent="."]
 unique_name_in_owner = true
 wait_time = 2.0
+one_shot = true

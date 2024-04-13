@@ -9,7 +9,7 @@ extends Resource
 @export var muzzle_position: Vector3  # On-screen position of muzzle flash
 
 @export_subgroup("Properties")
-@export_range(0.1, 1) var cooldown: float = 0.1  # Firerate
+@export_range(0.1, 10.0) var cooldown: float = 0.1  # Firerate
 @export_range(1, 20) var max_distance: int = 10  # Fire distance
 @export_range(0, 100) var damage: float = 25  # Damage per hit
 @export_range(0, 5) var spread: float = 0  # Spread of each shot

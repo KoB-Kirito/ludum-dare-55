@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://dfv2oi8kmmq5s"]
+[gd_scene load_steps=5 format=3 uid="uid://dfv2oi8kmmq5s"]
 
 [ext_resource type="Texture2D" uid="uid://dki3pbjewgxvg" path="res://assets/textures/prototyping/green.png" id="1_ccqjy"]
+[ext_resource type="Script" path="res://game/portal/portal.gd" id="1_evp4g"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ruqnv"]
 albedo_texture = ExtResource("1_ccqjy")
@@ -13,6 +14,14 @@ radial_segments = 32
 rings = 1
 
 [node name="Portal" type="Node3D"]
+script = ExtResource("1_evp4g")
 
 [node name="Placeholder" type="MeshInstance3D" parent="."]
 mesh = SubResource("CylinderMesh_lcdol")
+
+[node name="Timer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 10.0
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
