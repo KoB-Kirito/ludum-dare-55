@@ -20,7 +20,12 @@
 	"nodes":[
 		{
 			"mesh":0,
-			"name":"S\u00e4ulenfu\u00df_4m"
+			"name":"S\u00e4ulenfu\u00df_4m",
+			"scale":[
+				2,
+				2,
+				2
+			]
 		}
 	],
 	"materials":[

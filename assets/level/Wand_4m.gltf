@@ -56,9 +56,10 @@
 					"attributes":{
 						"POSITION":0,
 						"NORMAL":1,
-						"TEXCOORD_0":2
+						"TEXCOORD_0":2,
+						"TEXCOORD_1":3
 					},
-					"indices":3,
+					"indices":4,
 					"material":0
 				}
 			]
@@ -99,7 +100,7 @@
 		{
 			"bufferView":0,
 			"componentType":5126,
-			"count":811,
+			"count":851,
 			"max":[
 				0.2800000309944153,
 				4,
@@ -115,17 +116,23 @@
 		{
 			"bufferView":1,
 			"componentType":5126,
-			"count":811,
+			"count":851,
 			"type":"VEC3"
 		},
 		{
 			"bufferView":2,
 			"componentType":5126,
-			"count":811,
+			"count":851,
 			"type":"VEC2"
 		},
 		{
 			"bufferView":3,
+			"componentType":5126,
+			"count":851,
+			"type":"VEC2"
+		},
+		{
+			"bufferView":4,
 			"componentType":5123,
 			"count":2304,
 			"type":"SCALAR"
@@ -134,26 +141,32 @@
 	"bufferViews":[
 		{
 			"buffer":0,
-			"byteLength":9732,
+			"byteLength":10212,
 			"byteOffset":0,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":9732,
-			"byteOffset":9732,
+			"byteLength":10212,
+			"byteOffset":10212,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":6488,
-			"byteOffset":19464,
+			"byteLength":6808,
+			"byteOffset":20424,
+			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":6808,
+			"byteOffset":27232,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":4608,
-			"byteOffset":25952,
+			"byteOffset":34040,
 			"target":34963
 		}
 	],
@@ -165,7 +178,7 @@
 	],
 	"buffers":[
 		{
-			"byteLength":30560,
+			"byteLength":38648,
 			"uri":"Wand_4m.bin"
 		}
 	]
