@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dp6sg6cpfoapb" path="res://game/interactables/switch.tscn" id="4_o4y7a"]
 [ext_resource type="PackedScene" uid="uid://w4dr7ggk5vd0" path="res://game/levels/level_change.tscn" id="5_ed0nm"]
 [ext_resource type="PackedScene" uid="uid://dngecpumrjuld" path="res://game/levels/start_position.tscn" id="6_gx4lu"]
-[ext_resource type="PackedScene" uid="uid://c2pof5fu2gsu4" path="res://game/interactables/tuer_3.tscn" id="7_3bl10"]
+[ext_resource type="PackedScene" uid="uid://c2pof5fu2gsu4" path="res://game/interactables/prison_door.tscn" id="7_3bl10"]
 
 [sub_resource type="Environment" id="Environment_w0m8w"]
 ambient_light_source = 2
