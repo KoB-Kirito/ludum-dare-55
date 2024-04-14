@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://qvgyfqnahbwn" path="res://assets/level/Prefabs/lampenhalter_2.tscn" id="3_p1587"]
 [ext_resource type="PackedScene" uid="uid://c0aj316lafapy" path="res://assets/level/Prefabs/lampenhalter_doppelt.tscn" id="4_u2tk6"]
 [ext_resource type="LightmapGIData" uid="uid://d37bn2qr5xgir" path="res://game/levels/Level1.lmbake" id="5_o32nn"]
-[ext_resource type="PackedScene" uid="uid://xf17rtpdoi25" path="res://game/interactables/switch.tscn" id="6_nm2ba"]
+[ext_resource type="PackedScene" uid="uid://xf17rtpdoi25" path="res://game/interactables/switch_old.tscn" id="6_nm2ba"]
 [ext_resource type="PackedScene" uid="uid://bm32nuprjimv7" path="res://game/interactables/tuer_2.tscn" id="7_jfpxs"]
 [ext_resource type="PackedScene" uid="uid://bjk027kb5bktk" path="res://game/player/ZaubererNurArmature.glb" id="9_3wouw"]
 

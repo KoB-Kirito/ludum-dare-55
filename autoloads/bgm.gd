@@ -30,3 +30,10 @@ func fade_to(new_stream: AudioStream, volume: float, duration: float) -> void:
 		tween.tween_property(self, "volume_db", volume, duration / 2)
 	else:
 		tween.tween_callback(func(): volume_db = volume)
+
+
+## Fades out current song and stops
+func fade_out(duration: float) -> void:
+	var tween = create_tween()
+	tween.tween_property(self, "volume_db", SILENCE, duration / 2)
+	tween.tween_callback(func(): stop())

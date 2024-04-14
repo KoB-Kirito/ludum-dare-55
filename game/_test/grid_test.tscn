@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://bhm4336wirfm5"]
+[gd_scene load_steps=9 format=3 uid="uid://bhm4336wirfm5"]
 
 [ext_resource type="MeshLibrary" uid="uid://dvy5ohb3m0mni" path="res://game/_test/cube_library.tres" id="1_43td0"]
 [ext_resource type="PackedScene" uid="uid://dl2ed4gkybggf" path="res://game/player/player.tscn" id="2_8h88w"]
 [ext_resource type="PackedScene" uid="uid://bm32nuprjimv7" path="res://game/interactables/tuer_2.tscn" id="4_gg8c1"]
 [ext_resource type="PackedScene" uid="uid://dp6sg6cpfoapb" path="res://game/interactables/switch.tscn" id="4_o4y7a"]
 [ext_resource type="PackedScene" uid="uid://cvl374iuiqu58" path="res://game/levels/level_change.tscn" id="5_ed0nm"]
+[ext_resource type="PackedScene" uid="uid://dngecpumrjuld" path="res://game/levels/start_position.tscn" id="6_gx4lu"]
 
 [sub_resource type="Environment" id="Environment_w0m8w"]
 ambient_light_source = 2
@@ -68,3 +69,6 @@ next_level = "res://game/levels/Level1.tscn"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Interactables/LevelChange"]
 shape = SubResource("SphereShape3D_quguc")
+
+[node name="StartPosition" parent="Interactables" instance=ExtResource("6_gx4lu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8233, 4.13649, 21.2477)
