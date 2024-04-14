@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://b52ww5w5nxiux"]
+
+[ext_resource type="PackedScene" uid="uid://bpqje5i0p3rp1" path="res://assets/ghost/Ghost.Wizard.gltf" id="1_o8u8k"]
+[ext_resource type="Material" uid="uid://sfu3xqiyysis" path="res://materials/mat_ghost.tres" id="2_medfx"]
+
+[node name="Ghost_Wizard" instance=ExtResource("1_o8u8k")]
+
+[node name="Ghost" parent="GhostControl" index="0"]
+material_override = ExtResource("2_medfx")

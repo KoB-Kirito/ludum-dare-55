@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://sfu3xqiyysis"]
+
+[ext_resource type="Shader" uid="uid://ud4j2j8vdu0o" path="res://materials/shader_ghost.tres" id="1_xrb8k"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_xrb8k")
+shader_parameter/Raue = 0.5
+shader_parameter/Emission = Color(0.308902, 0.750095, 0.805934, 1)
