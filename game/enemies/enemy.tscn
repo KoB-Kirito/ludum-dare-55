@@ -1,7 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://dv4h4ta8mesar"]
+[gd_scene load_steps=8 format=3 uid="uid://l8apobayljhy"]
 
 [ext_resource type="Script" path="res://game/enemies/enemy.gd" id="1_ucyes"]
-[ext_resource type="PackedScene" uid="uid://bh724ydv661sp" path="res://game/enemies/Enemy.gltf" id="2_gd8ey"]
+[ext_resource type="Shader" uid="uid://ud4j2j8vdu0o" path="res://materials/shader_ghost.tres" id="2_qgpn5"]
+[ext_resource type="ArrayMesh" uid="uid://bp4tdukeg3rhc" path="res://game/enemies/EnemyMesh.res" id="3_68qw5"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_888as"]
+render_priority = 0
+shader = ExtResource("2_qgpn5")
+shader_parameter/Color = Color(0, 0, 0, 1)
+shader_parameter/Raue = 0.5
+shader_parameter/Emission = Color(1, 0, 0, 1)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_v70lx"]
 radius = 0.336101
@@ -18,11 +26,9 @@ radius = 0.380865
 [node name="Enemy" type="CharacterBody3D"]
 script = ExtResource("1_ucyes")
 
-[node name="Node3D" type="Node3D" parent="."]
-metadata/_edit_group_ = true
-
-[node name="Enemy2" parent="Node3D" instance=ExtResource("2_gd8ey")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+[node name="Mesh" type="MeshInstance3D" parent="."]
+material_override = SubResource("ShaderMaterial_888as")
+mesh = ExtResource("3_68qw5")
 
 [node name="Collision" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.951236, 0)
