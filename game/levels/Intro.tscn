@@ -1,12 +1,13 @@
-[gd_scene load_steps=13 format=3 uid="uid://bqlddqobw8i33"]
+[gd_scene load_steps=15 format=3 uid="uid://bqlddqobw8i33"]
 
 [ext_resource type="MeshLibrary" uid="uid://dcl27y21ygg87" path="res://game/levels/catacomb_library.tres" id="1_g3xuq"]
-[ext_resource type="PackedScene" uid="uid://dl2ed4gkybggf" path="res://game/player/player.tscn" id="2_dvn5m"]
+[ext_resource type="PackedScene" uid="uid://d1htal1nhmtti" path="res://assets/level/Prefabs/gitter.tscn" id="2_cowrd"]
 [ext_resource type="PackedScene" uid="uid://qvgyfqnahbwn" path="res://assets/level/Prefabs/lampenhalter_2.tscn" id="3_p1587"]
 [ext_resource type="PackedScene" uid="uid://c0aj316lafapy" path="res://assets/level/Prefabs/lampenhalter_doppelt.tscn" id="4_u2tk6"]
 [ext_resource type="LightmapGIData" uid="uid://d37bn2qr5xgir" path="res://game/levels/Level1.lmbake" id="5_o32nn"]
 [ext_resource type="PackedScene" uid="uid://xf17rtpdoi25" path="res://game/interactables/switch.tscn" id="6_nm2ba"]
 [ext_resource type="PackedScene" uid="uid://bm32nuprjimv7" path="res://game/interactables/tuer_2.tscn" id="7_jfpxs"]
+[ext_resource type="PackedScene" uid="uid://bjk027kb5bktk" path="res://game/player/ZaubererNurArmature.glb" id="9_3wouw"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_x15p8"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -26,10 +27,87 @@ fog_density = 0.05
 
 [sub_resource type="Animation" id="Animation_ygj86"]
 resource_name = "Intro"
+length = 15.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera3D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2, 4, 6, 8, 10, 12),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 3.14159, 0), Vector3(0, 2.18166, 0), Vector3(0, 1.22173, 0), Vector3(0, 0.349066, 0), Vector3(0, 1.22173, 0), Vector3(-0.174533, 1.22173, 0), Vector3(-0.287979, 0.802851, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera3D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2, 4, 6, 8, 10, 12),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(4.41854, 10.289, 0), Vector3(5.069, 10.289, 9.536), Vector3(1.46875, 10.289, 12.7925), Vector3(-0.937219, 10.289, 12.7925), Vector3(-0.937219, 10.289, 9.39269), Vector3(-4.997, 10.289, 7.058), Vector3(-11.787, 9.284, 6.563)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Camera3D:fov")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 10, 12),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [41.0, 41.0, 41.0]
+}
+
+[sub_resource type="Animation" id="Animation_vweyc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera3D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 3.14159, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera3D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(4.41854, 10.289, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Camera3D:fov")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [41.0]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3g18y"]
 _data = {
-"Intro": SubResource("Animation_ygj86")
+"Intro": SubResource("Animation_ygj86"),
+"RESET": SubResource("Animation_vweyc")
 }
 
 [node name="Level1" type="Node3D"]
@@ -50,9 +128,14 @@ data = {
 }
 metadata/_editor_floor_ = Vector3(0, -8, 0)
 
-[node name="Player" parent="." instance=ExtResource("2_dvn5m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.0422, 8.63121, 5.21328)
-floor_max_angle = 0.820305
+[node name="Gitter" parent="GridMap" instance=ExtResource("2_cowrd")]
+transform = Transform3D(-0.0175397, 0, -0.999846, 0, 1, 0, 0.999846, 0, -0.0175397, -7, 0.25, 5)
+
+[node name="Gitter2" parent="GridMap" instance=ExtResource("2_cowrd")]
+transform = Transform3D(-0.0175397, 0, -0.999846, 0, 1, 0, 0.999846, 0, -0.0175397, -7, 0.25, 7)
+
+[node name="Gitter3" parent="GridMap" instance=ExtResource("2_cowrd")]
+transform = Transform3D(-0.0175397, 0, -0.999846, 0, 1, 0, 0.999846, 0, -0.0175397, -7, 0.25, 3)
 
 [node name="Lichter" type="Node3D" parent="."]
 visible = false
@@ -180,3 +263,11 @@ direction = 1
 libraries = {
 "": SubResource("AnimationLibrary_3g18y")
 }
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-1, 0, 2.53518e-06, 0, 1, 0, -2.53518e-06, 0, -1, 4.41854, 10.289, 0)
+fov = 41.0
+near = 0.001
+
+[node name="ZaubererNurArmature" parent="." instance=ExtResource("9_3wouw")]
+transform = Transform3D(0.0228968, -7.27596e-10, 0.999738, -7.29869e-11, 1, 0, -0.999739, -8.44011e-10, 0.0228968, -11.1995, 9.15316, 6.01479)
