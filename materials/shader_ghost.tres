@@ -1,4 +1,6 @@
-[gd_resource type="VisualShader" load_steps=15 format=3 uid="uid://ud4j2j8vdu0o"]
+[gd_resource type="VisualShader" load_steps=14 format=3 uid="uid://ud4j2j8vdu0o"]
+
+[ext_resource type="Texture2D" uid="uid://b7d6l421y3gmc" path="res://materials/generic_noise_2d.tres" id="1_2tqd2"]
 
 [sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_xiu8j"]
 operator = 2
@@ -25,15 +27,8 @@ input_name = "view"
 [sub_resource type="VisualShaderNodeColorParameter" id="VisualShaderNodeColorParameter_khuwg"]
 parameter_name = "Color"
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_ron3s"]
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_hj0ad"]
-in_3d_space = true
-seamless = true
-noise = SubResource("FastNoiseLite_ron3s")
-
 [sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_72ydc"]
-texture = SubResource("NoiseTexture2D_hj0ad")
+texture = ExtResource("1_2tqd2")
 
 [sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_0m57m"]
 input_name = "time"
@@ -119,7 +114,6 @@ void fragment() {
 
 }
 "
-graph_offset = Vector2(-183.405, 112.597)
 nodes/fragment/0/position = Vector2(1760, 80)
 nodes/fragment/2/node = SubResource("VisualShaderNodeFresnel_l6y27")
 nodes/fragment/2/position = Vector2(860, 340)

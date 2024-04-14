@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://c4ic65psp40vp"]
+
+[ext_resource type="Shader" uid="uid://b8pg3l8rx31qt" path="res://materials/shader_strudel.tres" id="1_0shyn"]
+[ext_resource type="Texture2D" uid="uid://k1we0yln4d0l" path="res://assets/props/Strudel_Emit.png" id="2_8qb0b"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_0shyn")
+shader_parameter/RotationSpeed = 0.25
+shader_parameter/Color = ExtResource("2_8qb0b")

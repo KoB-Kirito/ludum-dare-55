@@ -55,7 +55,7 @@
 
 [node name="Floor_half_1m2" parent="." instance=ExtResource("6_s5g48")]
 
-[node name="Floor_half_4m2" parent="." instance=ExtResource("7_5mdi5")]
+[node name="Floor_half_4m3" parent="." instance=ExtResource("7_5mdi5")]
 
 [node name="Geländer_8m2" parent="." instance=ExtResource("8_cgjqi")]
 

@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://dby1i5lwkb3yv"]
+
+[ext_resource type="PackedScene" uid="uid://ctjyf6ey53yhv" path="res://assets/props/StrudelPortal.glb" id="1_g4wjf"]
+[ext_resource type="Material" uid="uid://c4ic65psp40vp" path="res://materials/mat_strudel.tres" id="2_jhe0t"]
+
+[node name="StrudelPortal" instance=ExtResource("1_g4wjf")]
+
+[node name="Circle" parent="." index="0"]
+material_override = ExtResource("2_jhe0t")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -5, 0)
+light_color = Color(0.535794, 0.354502, 0.821213, 1)
+light_energy = 150.0
+shadow_enabled = true
+spot_range = 30.0
+spot_angle = 50.0

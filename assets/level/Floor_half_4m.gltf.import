@@ -42,6 +42,12 @@ _subresources={
 "save_to_file/make_streamable": "",
 "save_to_file/path": ""
 }
+},
+"nodes": {
+"PATH:Floor_half_4m": {
+"generate/physics": true,
+"physics/shape_type": 1
+}
 }
 }
 fbx/importer=0

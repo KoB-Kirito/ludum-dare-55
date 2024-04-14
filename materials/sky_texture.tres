@@ -1,0 +1,8 @@
+[gd_resource type="GradientTexture1D" load_steps=2 format=3 uid="uid://cl1o5gfh5yk2e"]
+
+[ext_resource type="Gradient" uid="uid://dkwrmtvtteyei" path="res://materials/sky_gradient.tres" id="1_3gre0"]
+
+[resource]
+gradient = ExtResource("1_3gre0")
+width = 512
+use_hdr = true
