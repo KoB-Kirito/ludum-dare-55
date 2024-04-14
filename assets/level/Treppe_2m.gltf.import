@@ -33,7 +33,6 @@ import_script/path=""
 _subresources={
 "nodes": {
 "PATH:Treppe_2m": {
-"generate/physics": true,
 "physics/shape_type": 2
 }
 }

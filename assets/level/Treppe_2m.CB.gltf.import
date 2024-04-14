@@ -45,7 +45,6 @@ _subresources={
 },
 "nodes": {
 "PATH:Treppe_2m_CB": {
-"generate/physics": true,
 "physics/shape_type": 2
 }
 }

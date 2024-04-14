@@ -26,7 +26,7 @@
 [ext_resource type="PackedScene" uid="uid://dhm35ej05882n" path="res://assets/level/Säule_4m.gltf" id="24_6fus7"]
 [ext_resource type="PackedScene" uid="uid://bntfschoy6bsg" path="res://assets/level/Säule_Eckig_2x4m.gltf" id="25_fhoif"]
 [ext_resource type="PackedScene" uid="uid://c8lowa6fr6t0s" path="res://assets/level/Säule_Eckig_4x1.gltf" id="26_nwi0g"]
-[ext_resource type="PackedScene" uid="uid://dekbv8on8aky3" path="res://assets/level/Treppe_2m.gltf" id="27_uk0m6"]
+[ext_resource type="PackedScene" uid="uid://cerrcg0pcxjxq" path="res://assets/level/Prefabs/treppe_2m_2.tscn" id="27_v5wkr"]
 [ext_resource type="PackedScene" uid="uid://bmydtosy75yla" path="res://assets/level/Prefabs/treppe_2x_2m_2.tscn" id="28_2dy4p"]
 [ext_resource type="PackedScene" uid="uid://bua00mdvohbk3" path="res://assets/level/Prefabs/treppe_4m_2.tscn" id="29_6pk5e"]
 [ext_resource type="PackedScene" uid="uid://16no51iokbbl" path="res://assets/level/Wand_1m.gltf" id="30_hxj3q"]
@@ -58,7 +58,7 @@
 
 [node name="Lampenhalter3" parent="." instance=ExtResource("9_qgk1e")]
 
-[node name="Laufsteg2" parent="." instance=ExtResource("10_3ms2d")]
+[node name="Laufsteg3" parent="." instance=ExtResource("10_3ms2d")]
 
 [node name="Laufsteg_Kreuzung2" parent="." instance=ExtResource("11_0mhn0")]
 
@@ -92,7 +92,7 @@
 
 [node name="Säule_Eckig_4x12" parent="." instance=ExtResource("26_nwi0g")]
 
-[node name="Treppe_2m2" parent="." instance=ExtResource("27_uk0m6")]
+[node name="Treppe_2m2" parent="." instance=ExtResource("27_v5wkr")]
 
 [node name="Treppe_2x2m3" parent="." instance=ExtResource("28_2dy4p")]
 

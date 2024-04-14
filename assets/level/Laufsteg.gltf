@@ -20,12 +20,7 @@
 	"nodes":[
 		{
 			"mesh":0,
-			"name":"Laufsteg",
-			"translation":[
-				-6,
-				0,
-				0
-			]
+			"name":"Laufsteg"
 		}
 	],
 	"materials":[
@@ -106,14 +101,14 @@
 		{
 			"bufferView":0,
 			"componentType":5126,
-			"count":1715,
+			"count":1701,
 			"max":[
-				4,
+				2,
 				1.0189754962921143,
 				1.5999999046325684
 			],
 			"min":[
-				0,
+				-2,
 				-0.30000007152557373,
 				-1.5999999046325684
 			],
@@ -122,13 +117,13 @@
 		{
 			"bufferView":1,
 			"componentType":5126,
-			"count":1715,
+			"count":1701,
 			"type":"VEC3"
 		},
 		{
 			"bufferView":2,
 			"componentType":5126,
-			"count":1715,
+			"count":1701,
 			"type":"VEC2"
 		},
 		{
@@ -141,26 +136,26 @@
 	"bufferViews":[
 		{
 			"buffer":0,
-			"byteLength":20580,
+			"byteLength":20412,
 			"byteOffset":0,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":20580,
-			"byteOffset":20580,
+			"byteLength":20412,
+			"byteOffset":20412,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":13720,
-			"byteOffset":41160,
+			"byteLength":13608,
+			"byteOffset":40824,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":8400,
-			"byteOffset":54880,
+			"byteOffset":54432,
 			"target":34963
 		}
 	],
@@ -172,7 +167,7 @@
 	],
 	"buffers":[
 		{
-			"byteLength":63280,
+			"byteLength":62832,
 			"uri":"Laufsteg.bin"
 		}
 	]
