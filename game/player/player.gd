@@ -5,16 +5,17 @@ extends CharacterBody3D
 signal health_updated
 
 
-@export var hud:Hud
-@export var death_height: int = -15
-
 @export_subgroup("Properties")
+## Global height at which the level is reset
+@export var death_height: int = -15
 @export var movement_speed = 5
 @export var jump_strength = 8
 
 @export_subgroup("Weapons")
 @export var weapons: Array[Weapon] = []
 @export var impact_scene: PackedScene
+
+@export_subgroup("Ghost Settings")
 @export var portal_scene: PackedScene
 
 var weapon: Weapon
@@ -264,7 +265,7 @@ func action_shoot():
 			get_tree().root.add_child(host_placeholder)
 			host_placeholder.global_position = host_position
 			#TODO: Rotate
-			hud.start_countdown(ghost_duration)
+			%Hud.start_countdown(ghost_duration)
 			
 			# wait for end
 			await get_tree().create_timer(ghost_duration).timeout
@@ -339,7 +340,7 @@ func change_weapon():
 	# Set weapon data
 	
 	%RayCast.target_position = Vector3(0, 0, -1) * weapon.max_distance
-	hud.crosshair.texture = weapon.crosshair
+	%Hud.crosshair.texture = weapon.crosshair
 
 
 func damage(amount):

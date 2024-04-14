@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://ccmlvx5xrxny6" path="res://menu/splash/godot_splash.png" id="1_asda8"]
 [ext_resource type="Script" path="res://menu/splash/splash_screen.gd" id="1_fgtng"]
-[ext_resource type="PackedScene" uid="uid://bhssjshhg7awb" path="res://game/Level1.tscn" id="2_gpomx"]
+[ext_resource type="PackedScene" uid="uid://bhssjshhg7awb" path="res://game/levels/Level1.tscn" id="2_gpomx"]
 
 [node name="SplashScreen" type="Control"]
 layout_mode = 3

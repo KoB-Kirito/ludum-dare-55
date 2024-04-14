@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://5liw7gbsf8cs"]
 
 [ext_resource type="Script" path="res://game/enemies/enemy.gd" id="1_23cvs"]
-[ext_resource type="PackedScene" uid="uid://c3nlb6sq4h6pw" path="res://assets/player/Zauberer.glb" id="1_bfiys"]
+[ext_resource type="PackedScene" uid="uid://c3nlb6sq4h6pw" path="res://game/player/Zauberer.glb" id="1_bfiys"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_v70lx"]
 radius = 0.237292
