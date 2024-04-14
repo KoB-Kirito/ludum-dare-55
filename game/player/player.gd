@@ -43,6 +43,8 @@ var container_offset = Vector3(1.2, -1.1, -2.75)
 
 var tween:Tween
 
+var paused: bool
+
 
 # Functions
 
@@ -56,6 +58,8 @@ func _ready():
 	initiate_change_weapon(weapon_index)
 
 func _physics_process(delta):
+	if paused:
+		return
 	
 	# Handle functions
 	

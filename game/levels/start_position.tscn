@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dngecpumrjuld"]
+
+[ext_resource type="Script" path="res://game/levels/start_position.gd" id="1_iim0w"]
+[ext_resource type="PackedScene" uid="uid://sqwih5142yaw" path="res://game/player/host_placeholder.tscn" id="1_joqum"]
+
+[node name="StartPosition" type="Node3D"]
+script = ExtResource("1_iim0w")
+
+[node name="Zauberer" parent="." instance=ExtResource("1_joqum")]
