@@ -319,9 +319,9 @@ func return_to_host() -> void:
 	
 	%GhostTimer.stop()
 	var t_volume: float = %snd_ghost.volume_db
-	var tween := create_tween()
-	tween.tween_property(%snd_ghost, "volume_db", -60, 1.0)
-	tween.tween_callback(
+	var g_tween := create_tween()
+	g_tween.tween_property(%snd_ghost, "volume_db", -60, 1.0)
+	g_tween.tween_callback(
 		func():
 			%snd_ghost.stop()
 			%snd_ghost.volume_db = t_volume)
