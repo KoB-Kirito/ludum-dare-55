@@ -128,6 +128,12 @@ func _input(event):
 		rotation_target.y -= event.relative.x / mouse_sensitivity
 		rotation_target.x -= event.relative.y / mouse_sensitivity
 
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("mouse_capture"):
+		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+
+
 func handle_controls(_delta):
 	# Movement
 	
