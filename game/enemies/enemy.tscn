@@ -24,6 +24,8 @@ height = 1.9126
 radius = 0.380865
 
 [node name="Enemy" type="CharacterBody3D"]
+collision_layer = 4
+collision_mask = 2
 script = ExtResource("1_ucyes")
 
 [node name="Mesh" type="MeshInstance3D" parent="."]
@@ -35,12 +37,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.951236, 0)
 shape = SubResource("CapsuleShape3D_v70lx")
 
 [node name="DetectionZone" type="Area3D" parent="."]
+collision_layer = 4
+collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DetectionZone"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.964183, 0)
 shape = SubResource("CylinderShape3D_lsm5a")
 
 [node name="HitZone" type="Area3D" parent="."]
+collision_layer = 4
+collision_mask = 2
 
 [node name="AttackBox" type="CollisionShape3D" parent="HitZone"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.958185, 0)
