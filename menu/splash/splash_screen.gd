@@ -1,7 +1,7 @@
 extends Control
 
 
-@export var next_scene: PackedScene
+@export_file("*.tscn") var next_scene: String
 
 @export_group("Fade In")
 @export var fade_in_duration: float = 1.0
@@ -27,4 +27,4 @@ func _ready() -> void:
 	
 	#TODO: Team splash, Best played with controller?, ...
 	
-	tween.tween_callback(func(): get_tree().change_scene_to_packed(next_scene))
+	tween.tween_callback(func(): SceneTransition.change_scene(next_scene, SceneTransition.FADE, 1.0, Color.BLACK))

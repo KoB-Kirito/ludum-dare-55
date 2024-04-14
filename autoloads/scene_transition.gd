@@ -1,25 +1,40 @@
 extends CanvasLayer
 
-const LEFT = -4930
-const MIDDLE = -508.0
+const LEFT = -3850
+const MIDDLE = -960
 const RIGHT = 1930.0
 
-const FADE_DURATION = 1.0
-
-enum ANIMATION {SLIDE, FADE}
+enum {SLIDE, FADE}
 
 
 func _ready() -> void:
 	%Fade.position.x = RIGHT
 
 
-func change_scene(scene_path: String, animation: ANIMATION, color: Color) -> void:
+func change_scene(scene_path: String, animation: int, duration: float, color: Color) -> void:
+	# set gradient color
+	var gradient_texture: GradientTexture1D = %Fade.texture
+	var new_gradient = gradient_texture.gradient
+	new_gradient.set_color(1, Color(color, 1.0))
+	new_gradient.set_color(2, Color(color, 1.0))
+	%Fade.texture = gradient_texture
+	
+	
 	var tween = create_tween()
 	
 	match animation:
-		ANIMATION.SLIDE:
-		%Fade.position.x = RIGHT
+		SLIDE:
+			%Fade.modulate = Color.WHITE
+			%Fade.position.x = RIGHT
+			
+			tween.tween_property(%Fade, "position:x", MIDDLE, duration / 2)
+			tween.tween_callback(func(): get_tree().change_scene_to_file(scene_path))
+			tween.tween_property(%Fade, "position:x", LEFT, duration / 2)
 		
-		tween.tween_property(%Fade, "position:x", MIDDLE, FADE_DURATION)
-		tween.tween_callback(func(): get_tree().change_scene_to_file(scene_path))
-		tween.tween_property(%Fade, "position:x", LEFT, FADE_DURATION)
+		FADE:
+			%Fade.modulate = Color.TRANSPARENT
+			%Fade.position.x = MIDDLE
+			
+			tween.tween_property(%Fade, "modulate", Color.WHITE, duration / 2)
+			tween.tween_callback(func(): get_tree().change_scene_to_file(scene_path))
+			tween.tween_property(%Fade, "modulate", Color.TRANSPARENT, duration / 2)

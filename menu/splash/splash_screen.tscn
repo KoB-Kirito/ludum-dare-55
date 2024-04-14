@@ -1,8 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://dewvte3cn8lv5"]
+[gd_scene load_steps=3 format=3 uid="uid://dewvte3cn8lv5"]
 
 [ext_resource type="Texture2D" uid="uid://ccmlvx5xrxny6" path="res://menu/splash/godot_splash.png" id="1_asda8"]
 [ext_resource type="Script" path="res://menu/splash/splash_screen.gd" id="1_fgtng"]
-[ext_resource type="PackedScene" uid="uid://bhssjshhg7awb" path="res://game/levels/Level1.tscn" id="2_gpomx"]
 
 [node name="SplashScreen" type="Control"]
 layout_mode = 3
@@ -12,7 +11,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_fgtng")
-next_scene = ExtResource("2_gpomx")
+next_scene = "res://game/_test/grid_test.tscn"
 fade_in_transition = 4
 fade_out_transition = 4
 fade_out_ease = 1

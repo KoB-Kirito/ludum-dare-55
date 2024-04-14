@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dl2ed4gkybggf" path="res://game/player/player.tscn" id="2_8h88w"]
 [ext_resource type="PackedScene" uid="uid://bm32nuprjimv7" path="res://game/interactables/tuer_2.tscn" id="4_gg8c1"]
 [ext_resource type="PackedScene" uid="uid://dp6sg6cpfoapb" path="res://game/interactables/switch.tscn" id="4_o4y7a"]
-[ext_resource type="PackedScene" uid="uid://cvl374iuiqu58" path="res://game/levels/level_change.tscn" id="5_ed0nm"]
+[ext_resource type="PackedScene" uid="uid://w4dr7ggk5vd0" path="res://game/levels/level_change.tscn" id="5_ed0nm"]
 [ext_resource type="PackedScene" uid="uid://dngecpumrjuld" path="res://game/levels/start_position.tscn" id="6_gx4lu"]
 
 [sub_resource type="Environment" id="Environment_w0m8w"]
@@ -66,6 +66,7 @@ transform = Transform3D(-0.0575641, 0, 0.998342, 0, 1, 0, -0.998342, 0, -0.05756
 [node name="LevelChange" parent="Interactables" instance=ExtResource("5_ed0nm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.3876, 5, 25.5221)
 next_level = "res://game/levels/Level1.tscn"
+color = Color(0, 0.290196, 0, 1)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Interactables/LevelChange"]
 shape = SubResource("SphereShape3D_quguc")
