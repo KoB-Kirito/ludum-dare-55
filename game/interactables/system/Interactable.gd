@@ -2,12 +2,13 @@ class_name Interactable
 extends Node3D
 
 
-func _ready() -> void:
-	for n in get_children():
-		if n is Area3D:
-			n.body_entered.connect(on_body_entered)
-			n.body_exited.connect(on_body_exited)
-			return
+@export var area: Area3D
+
+
+func _enter_tree() -> void:
+	area.body_entered.connect(on_body_entered)
+	area.body_exited.connect(on_body_exited)
+
 
 
 func on_body_entered(body: Node3D) -> void:

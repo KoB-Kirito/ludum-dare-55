@@ -42,7 +42,7 @@ func trigger() -> void:
 			# left
 			tween.tween_property(self, "rotation_degrees", init_rotation + Vector3(0, 90, 0), duration)
 		else:
-			tween.tween_property(self, "rotation_degrees", init_rotation - Vector3(0, -90, 0), duration)
+			tween.tween_property(self, "rotation_degrees", init_rotation - Vector3(0, 90, 0), duration)
 		tween.tween_callback(func(): open = true)
 	
 	tween.tween_callback(func(): moving = false)
