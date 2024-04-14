@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://cpv18d3w0hq5u"]
+[gd_scene load_steps=42 format=3 uid="uid://cpv18d3w0hq5u"]
 
 [ext_resource type="PackedScene" uid="uid://rt3iwyakqo" path="res://assets/level/Ceil_Rund_4m.gltf" id="1_cgn75"]
 [ext_resource type="PackedScene" uid="uid://daa7eeupsffdh" path="res://assets/level/Fassadenbögen_4x1.gltf" id="2_50wfu"]
@@ -40,6 +40,7 @@
 [ext_resource type="PackedScene" uid="uid://bij4aqs42bhie" path="res://assets/level/Wand_Fenster_Groß_8m.gltf" id="38_qmxys"]
 [ext_resource type="PackedScene" uid="uid://b2sac166xbv2d" path="res://assets/level/Wand_4m-half.gltf" id="39_tb2gs"]
 [ext_resource type="PackedScene" uid="uid://cxhrsuw7dq62k" path="res://assets/level/Säulenfuß_2m-half.gltf" id="40_ucr8w"]
+[ext_resource type="PackedScene" uid="uid://bx5q6smr3qaly" path="res://assets/level/Wand-Bogen_4m.gltf" id="41_bjbnp"]
 
 [node name="CatacombLibrary" type="Node3D"]
 
@@ -122,3 +123,5 @@
 [node name="Wand_4m-half2" parent="." instance=ExtResource("39_tb2gs")]
 
 [node name="Säulenfuß_2m-half2" parent="." instance=ExtResource("40_ucr8w")]
+
+[node name="Wand-Bogen_4m2" parent="." instance=ExtResource("41_bjbnp")]
