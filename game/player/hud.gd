@@ -26,9 +26,15 @@ func _on_countdown_timer_timeout() -> void:
 	%GhostTint.hide()
 
 
+func on_health_updated(health: int) -> void:
+	if health <= 1:
+		%BloodEffect.show()
+
 
 #region "In-Engine"
 func _ready() -> void:
+	Events.health_updated.connect(on_health_updated)
+	
 	if Engine.is_editor_hint():
 		set_process(false)
 		update_configuration_warnings()

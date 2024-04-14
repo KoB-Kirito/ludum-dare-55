@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://drmowkyyr6rjn"]
+[gd_scene load_steps=3 format=3 uid="uid://drmowkyyr6rjn"]
 
 [ext_resource type="Script" path="res://game/player/hud.gd" id="1_dkskc"]
+[ext_resource type="Texture2D" uid="uid://dlvxgoko6arv7" path="res://game/player/bloodscreen.png" id="2_ncv6q"]
 
 [node name="Hud" type="CanvasLayer"]
 script = ExtResource("1_dkskc")
@@ -46,5 +47,17 @@ text = "10.0"
 [node name="CountdownTimer" type="Timer" parent="Countdown"]
 unique_name_in_owner = true
 one_shot = true
+
+[node name="BloodEffect" type="TextureRect" parent="."]
+unique_name_in_owner = true
+visible = false
+modulate = Color(1, 0, 0, 0.321569)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_ncv6q")
+expand_mode = 2
 
 [connection signal="timeout" from="Countdown/CountdownTimer" to="." method="_on_countdown_timer_timeout"]
