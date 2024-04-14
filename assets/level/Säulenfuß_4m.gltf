@@ -20,12 +20,7 @@
 	"nodes":[
 		{
 			"mesh":0,
-			"name":"S\u00e4ulenfu\u00df_4m",
-			"scale":[
-				2,
-				2,
-				2
-			]
+			"name":"S\u00e4ulenfu\u00df_4m"
 		}
 	],
 	"materials":[
@@ -157,29 +152,29 @@
 		{
 			"bufferView":0,
 			"componentType":5126,
-			"count":665,
+			"count":670,
 			"max":[
-				1.0195519924163818,
-				1,
-				1.0195519924163818
+				2.0391039848327637,
+				2,
+				2.0391039848327637
 			],
 			"min":[
-				-1.0195519924163818,
-				0,
-				-1.0195519924163818
+				-2.0391039848327637,
+				-2.030121134134061e-15,
+				-2.0391039848327637
 			],
 			"type":"VEC3"
 		},
 		{
 			"bufferView":1,
 			"componentType":5126,
-			"count":665,
+			"count":670,
 			"type":"VEC3"
 		},
 		{
 			"bufferView":2,
 			"componentType":5126,
-			"count":665,
+			"count":670,
 			"type":"VEC2"
 		},
 		{
@@ -193,14 +188,14 @@
 			"componentType":5126,
 			"count":141,
 			"max":[
-				1.0195519924163818,
-				1,
-				1.0195519924163818
+				2.0391039848327637,
+				2,
+				2.0391039848327637
 			],
 			"min":[
-				-1.0195519924163818,
-				0,
-				-1.0195519924163818
+				-2.0391039848327637,
+				-2.030121134134061e-15,
+				-2.0391039848327637
 			],
 			"type":"VEC3"
 		},
@@ -226,50 +221,50 @@
 	"bufferViews":[
 		{
 			"buffer":0,
-			"byteLength":7980,
+			"byteLength":8040,
 			"byteOffset":0,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":7980,
-			"byteOffset":7980,
+			"byteLength":8040,
+			"byteOffset":8040,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":5320,
-			"byteOffset":15960,
+			"byteLength":5360,
+			"byteOffset":16080,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":4392,
-			"byteOffset":21280,
+			"byteOffset":21440,
 			"target":34963
 		},
 		{
 			"buffer":0,
 			"byteLength":1692,
-			"byteOffset":25672,
+			"byteOffset":25832,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":1692,
-			"byteOffset":27364,
+			"byteOffset":27524,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":1128,
-			"byteOffset":29056,
+			"byteOffset":29216,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":876,
-			"byteOffset":30184,
+			"byteOffset":30344,
 			"target":34963
 		}
 	],
@@ -281,7 +276,7 @@
 	],
 	"buffers":[
 		{
-			"byteLength":31060,
+			"byteLength":31220,
 			"uri":"S%C3%A4ulenfu%C3%9F_4m.bin"
 		}
 	]
