@@ -2,4 +2,4 @@ extends Node
 ## Observer Pattern
 
 
-signal something_happened
+signal health_updated(health: int)

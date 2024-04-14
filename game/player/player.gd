@@ -2,9 +2,6 @@ class_name Player
 extends CharacterBody3D
 
 
-signal health_updated
-
-
 @export_subgroup("Properties")
 ## Global height at which the level is reset
 @export var death_height: int = -15
@@ -31,7 +28,7 @@ var rotation_target: Vector3
 
 var input_mouse: Vector2
 
-var health:int = 100
+@export var health:int = 2
 var gravity := 0.0
 
 var previously_floored := false
@@ -130,6 +127,12 @@ func _input(event):
 		
 		rotation_target.y -= event.relative.x / mouse_sensitivity
 		rotation_target.x -= event.relative.y / mouse_sensitivity
+
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("mouse_capture"):
+		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+
 
 func handle_controls(_delta):
 	# Movement
@@ -296,8 +299,11 @@ func action_shoot():
 			# remove placeholder, teleport back to origin
 			host_placeholder.queue_free()
 			velocity = Vector3.ZERO
+			
+			# reset position and rotation
 			global_transform = host_transform
-			#BUG: Does not reset rotation!!!?!?)§$=")§=)"§=
+			rotation_target = global_transform.basis.get_euler()
+
 			is_ghost = false
 			
 			# give weapon
@@ -379,7 +385,7 @@ func change_weapon():
 
 func damage(amount):
 	health -= amount
-	health_updated.emit(health) # Update health on HUD
+	Events.health_updated.emit(health)
 	
 	if health < 0:
 		get_tree().reload_current_scene() # Reset when out of health
