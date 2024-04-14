@@ -252,7 +252,6 @@ light_data = ExtResource("5_o32nn")
 
 [node name="Switch" parent="Assets" node_paths=PackedStringArray("targets") instance=ExtResource("6_nm2ba")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.25532, 5, -25.5)
-only_once = false
 targets = [NodePath("../Tuer2")]
 
 [node name="Tuer2" parent="Assets" instance=ExtResource("7_jfpxs")]
