@@ -22,4 +22,5 @@ offset_left = -564.0
 offset_right = 573.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 texture = SubResource("GradientTexture1D_yh4j2")
