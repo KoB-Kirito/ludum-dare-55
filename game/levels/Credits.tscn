@@ -35,7 +35,7 @@ shadow_enabled = true
 environment = SubResource("Environment_lf4lc")
 
 [node name="Player" parent="." instance=ExtResource("2_tpiof")]
-transform = Transform3D(-0.993032, 0, 0.117849, 0, 1, 0, -0.117849, 0, -0.993032, -0.584488, 3.31226, 9.62395)
+transform = Transform3D(-0.993032, 0, 0.117849, 0, 1, 0, -0.117849, 0, -0.993032, -0.584488, 2.65977, -22.9448)
 movement_speed = 3
 jump_strength = 0
 
