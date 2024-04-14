@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://cw5ndca8eccym"]
+
+[ext_resource type="PackedScene" uid="uid://dl2ed4gkybggf" path="res://game/player/player.tscn" id="2_d2j6r"]
+[ext_resource type="PackedScene" uid="uid://dv4h4ta8mesar" path="res://game/enemies/enemy.tscn" id="2_ukiio"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vgru7"]
+size = Vector3(10, 0.5, 10)
+
+[sub_resource type="BoxMesh" id="BoxMesh_wnvq6"]
+size = Vector3(10, 0.5, 10)
+
+[node name="EnemyTest" type="StaticBody3D"]
+metadata/_edit_lock_ = true
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.279406, 0)
+shape = SubResource("BoxShape3D_vgru7")
+metadata/_edit_lock_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.279406, 0)
+mesh = SubResource("BoxMesh_wnvq6")
+metadata/_edit_lock_ = true
+
+[node name="Node3D" type="Node3D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="Player" parent="Node3D" instance=ExtResource("2_d2j6r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 3.95727)
+
+[node name="Enemy" parent="Node3D" instance=ExtResource("2_ukiio")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -1.723)
