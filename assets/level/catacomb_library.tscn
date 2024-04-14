@@ -60,7 +60,7 @@
 
 [node name="Lampenhalter3" parent="." instance=ExtResource("9_qgk1e")]
 
-[node name="Laufsteg3" parent="." instance=ExtResource("10_3ms2d")]
+[node name="Laufsteg2" parent="." instance=ExtResource("10_3ms2d")]
 
 [node name="Laufsteg_Kreuzung2" parent="." instance=ExtResource("11_0mhn0")]
 
