@@ -16,10 +16,14 @@ func _process(_delta: float) -> void:
 func start_countdown(duration: float) -> void:
 	%Countdown.show()
 	%CountdownTimer.start(duration)
+	
+	%GhostTint.show()
 
 
 func _on_countdown_timer_timeout() -> void:
 	%Countdown.hide()
+	
+	%GhostTint.hide()
 
 
 
