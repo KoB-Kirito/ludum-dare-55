@@ -1,3 +1,4 @@
+@tool
 extends Triggerable
 
 
@@ -6,23 +7,18 @@ extends Triggerable
 ## Opening in which direction
 @export_enum("Left", "Right") var direction: int = 0
 ## Already open?
-@export var open: bool = false
+@export var open: bool = false:
+	set(value):
+		if Engine.is_editor_hint():
+			if moving:
+				return
+			trigger()
+	get:
+		return is_open
 
 var moving: bool = false
+var is_open: bool = false
 var init_rotation: Vector3 = rotation_degrees
-
-
-func _ready() -> void:
-	if open:
-		if direction == 0:
-			# left
-			init_rotation = rotation_degrees - Vector3(0, 90, 0)
-		else:
-			# right
-			init_rotation = rotation_degrees + Vector3(0, 90, 0)
-		
-	else:
-		init_rotation = rotation_degrees
 
 
 func trigger() -> void:
@@ -35,7 +31,7 @@ func trigger() -> void:
 	var tween = create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_QUAD)
 	if open:
 		tween.tween_property(%door_angle, "rotation_degrees", init_rotation, duration)
-		tween.tween_callback(func(): open = false)
+		tween.tween_callback(func(): is_open = false)
 		
 	else:
 		if direction == 0:
@@ -43,6 +39,6 @@ func trigger() -> void:
 			tween.tween_property(%door_angle, "rotation_degrees", init_rotation + Vector3(0, 90, 0), duration)
 		else:
 			tween.tween_property(%door_angle, "rotation_degrees", init_rotation - Vector3(0, 90, 0), duration)
-		tween.tween_callback(func(): open = true)
+		tween.tween_callback(func(): is_open = true)
 	
 	tween.tween_callback(func(): moving = false)
