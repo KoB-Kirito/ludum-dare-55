@@ -52,7 +52,7 @@ func _ready():
 	
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	
-	#weapon = weapons[weapon_index] # Weapon must never be nil
+	weapon = weapons[weapon_index] # Weapon must never be nil
 	initiate_change_weapon(weapon_index)
 
 func _physics_process(delta):
@@ -87,22 +87,23 @@ func _physics_process(delta):
 	
 	%snd_footsteps.stream_paused = true
 	
-	if is_on_floor():
+	if is_on_floor() and not is_ghost:
 		if abs(velocity.x) > 1 or abs(velocity.z) > 1:
 			%snd_footsteps.stream_paused = false
 	
 	# Landing after jump or falling
-	
 	%Camera.position.y = lerp(%Camera.position.y, 0.0, delta * 5)
 	
 	if is_on_floor() and gravity > 1 and !previously_floored: # Landed
-		#Audio.play("sounds/land.ogg")
+		if is_ghost:
+			%snd_land_ghost.play()
+		else:
+			%snd_land.play()
 		%Camera.position.y = -0.1
 	
 	previously_floored = is_on_floor()
 	
 	# Falling/respawning
-	
 	if position.y < death_height:
 		get_tree().reload_current_scene()
 
@@ -151,7 +152,10 @@ func handle_controls(_delta):
 			return
 		
 		if jump_single or jump_double:
-			%snd_jump.play()
+			if is_ghost:
+				%snd_jump_ghost.play()
+			else:
+				%snd_jump.play()
 		
 		if jump_double:
 			
@@ -256,24 +260,39 @@ func action_shoot():
 			#TODO: Check collision at spawn area
 			
 			# save current position, teleport to portal "taking over the ghost"
-			var host_position = global_position
+			var host_transform = global_transform
+			
 			global_position = collision_point + (collision_normal)
 			is_ghost = true
 			
 			# create a placeholder at the old position "the player"
 			var host_placeholder = host_placeholder_scene.instantiate()
 			get_tree().root.add_child(host_placeholder)
-			host_placeholder.global_position = host_position
-			#TODO: Rotate
+			host_placeholder.global_transform = host_transform
+			host_placeholder.rotate_y(PI)
+			
+			# start countdown, enable tint
 			%Hud.start_countdown(ghost_duration)
+			# ghost background
+			%snd_ghost.play()
+			
+			# remove weapon
+			weapon_index = 1
+			change_weapon()
 			
 			# wait for end
 			await get_tree().create_timer(ghost_duration).timeout
 			
 			# remove placeholder, teleport back to origin
 			host_placeholder.queue_free()
-			global_position = host_position
+			velocity = Vector3.ZERO
+			global_transform = host_transform
+			#BUG: Does not reset rotation!!!?!?)§$=")§=)"§=
 			is_ghost = false
+			
+			# give weapon
+			weapon_index = 0
+			change_weapon()
 
 var is_ghost: bool
 @export var host_placeholder_scene: PackedScene
@@ -325,6 +344,11 @@ func change_weapon():
 		%Container.remove_child(n)
 	
 	# Step 2. Place new weapon model in %Container
+	
+	#HACK: fake no weapon
+	if weapon.model == null:
+		%Hud.crosshair.texture = null
+		return
 	
 	var weapon_model = weapon.model.instantiate()
 	%Container.add_child(weapon_model)

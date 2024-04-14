@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dl2ed4gkybggf"]
+[gd_scene load_steps=22 format=3 uid="uid://dl2ed4gkybggf"]
 
 [ext_resource type="Script" path="res://game/player/player.gd" id="1_ffboj"]
 [ext_resource type="PackedScene" uid="uid://b7070gfoko4mo" path="res://game/weapons/impact.tscn" id="2_eptbn"]
@@ -9,7 +9,13 @@
 [ext_resource type="PackedScene" uid="uid://dfv2oi8kmmq5s" path="res://game/portal/portal.tscn" id="6_wpp0n"]
 [ext_resource type="PackedScene" uid="uid://sqwih5142yaw" path="res://game/player/host_placeholder.tscn" id="7_nhyq0"]
 [ext_resource type="AudioStream" uid="uid://cvqyu2dho5wd" path="res://assets/audio/sounds/huh.wav" id="7_ohqny"]
+[ext_resource type="AudioStream" uid="uid://cx4f22f8ad2q1" path="res://assets/audio/sounds/footsteps_indoor.wav" id="8_p8lu7"]
 [ext_resource type="PackedScene" uid="uid://drmowkyyr6rjn" path="res://game/player/hud.tscn" id="10_jvc7i"]
+[ext_resource type="AudioStream" uid="uid://r235ilawn3fy" path="res://assets/audio/sounds/land.wav" id="12_8t2a0"]
+[ext_resource type="AudioStream" uid="uid://byb46grpsv1pm" path="res://assets/audio/sounds/land_hall.wav" id="12_grb78"]
+[ext_resource type="AudioStream" uid="uid://cq2q4rpvh6kdu" path="res://assets/audio/sounds/horror-ghost-sound.ogg" id="16_a0f7r"]
+[ext_resource type="AudioStream" uid="uid://bwocodmytylcy" path="res://assets/audio/sounds/poof.wav" id="16_qvt55"]
+[ext_resource type="AudioStream" uid="uid://4sil1plxllv4" path="res://assets/audio/sounds/magic.wav" id="17_74fm6"]
 
 [sub_resource type="Resource" id="Resource_e0ywr"]
 script = ExtResource("2_xonqh")
@@ -25,6 +31,19 @@ shot_count = 1
 knockback = 5
 sound_shoot = ""
 crosshair = ExtResource("2_sjm3x")
+
+[sub_resource type="Resource" id="Resource_hjjc5"]
+script = ExtResource("2_xonqh")
+position = Vector3(0, 0, 0)
+rotation = Vector3(0, 0, 0)
+muzzle_position = Vector3(0, 0, 0)
+cooldown = 0.1
+max_distance = 10
+damage = 25.0
+spread = 0.0
+shot_count = 1
+knockback = 20
+sound_shoot = ""
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_j1kmp"]
 radius = 0.3
@@ -44,10 +63,11 @@ stream_1/weight = 1.0
 [node name="Player" type="CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 script = ExtResource("1_ffboj")
-weapons = Array[ExtResource("2_xonqh")]([SubResource("Resource_e0ywr")])
+weapons = Array[ExtResource("2_xonqh")]([SubResource("Resource_e0ywr"), SubResource("Resource_hjjc5")])
 impact_scene = ExtResource("2_eptbn")
 portal_scene = ExtResource("6_wpp0n")
 host_placeholder_scene = ExtResource("7_nhyq0")
+ghost_duration = 11.0
 
 [node name="Collider" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.55, 0)
@@ -93,14 +113,44 @@ target_position = Vector3(0, 0, -10)
 
 [node name="snd_footsteps" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
+stream = ExtResource("8_p8lu7")
+volume_db = -8.0
+autoplay = true
+bus = &"Sounds"
 
 [node name="snd_jump" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = SubResource("AudioStreamRandomizer_xnwv2")
 bus = &"Sounds"
 
+[node name="snd_jump_ghost" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("16_qvt55")
+volume_db = -9.0
+bus = &"Sounds"
+
+[node name="snd_land" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("12_8t2a0")
+volume_db = -12.0
+bus = &"Sounds"
+
+[node name="snd_land_ghost" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("12_grb78")
+volume_db = -18.0
+bus = &"Sounds"
+
 [node name="snd_shoot" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
+stream = ExtResource("17_74fm6")
+volume_db = -8.0
+
+[node name="snd_ghost" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("16_a0f7r")
+volume_db = -8.0
+bus = &"Music"
 
 [node name="snd_weapon_change" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true

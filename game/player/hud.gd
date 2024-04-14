@@ -35,7 +35,7 @@ func _ready() -> void:
 
 func _get_configuration_warnings() -> PackedStringArray:
 	var warnings: PackedStringArray = []
-	if not owner is Player:
+	if not owner == null and not owner is Player:
 		warnings.append("Please delete me! I live inside the player now.")
 	return warnings
 #endregion
