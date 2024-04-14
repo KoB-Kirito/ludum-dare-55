@@ -1,13 +1,13 @@
 [gd_scene load_steps=5 format=3 uid="uid://cw5ndca8eccym"]
 
 [ext_resource type="PackedScene" uid="uid://dl2ed4gkybggf" path="res://game/player/player.tscn" id="2_d2j6r"]
-[ext_resource type="PackedScene" uid="uid://dv4h4ta8mesar" path="res://game/enemies/enemy.tscn" id="2_ukiio"]
+[ext_resource type="PackedScene" uid="uid://l8apobayljhy" path="res://game/enemies/enemy.tscn" id="2_ukiio"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vgru7"]
-size = Vector3(10, 0.5, 10)
+size = Vector3(20, 0.5, 20)
 
 [sub_resource type="BoxMesh" id="BoxMesh_wnvq6"]
-size = Vector3(10, 0.5, 10)
+size = Vector3(20, 0.5, 20)
 
 [node name="EnemyTest" type="StaticBody3D"]
 metadata/_edit_lock_ = true
@@ -33,4 +33,4 @@ metadata/_edit_lock_ = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 3.95727)
 
 [node name="Enemy" parent="Node3D" instance=ExtResource("2_ukiio")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -1.723)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -7.06754)

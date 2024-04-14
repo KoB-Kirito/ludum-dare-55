@@ -24,6 +24,10 @@ func _physics_process(_delta):
 		#move towards player
 		velocity = Vector3.FORWARD * speed
 		velocity = velocity.rotated(Vector3.UP, rotation.y)
+		if $Mesh/RayCast3D.is_colliding():
+			var collider = $Mesh/RayCast3D.get_collider()
+			if collider is not Player:
+				is_attacking = false
 	if is_attacking == false and enemy_pos != start_pos:
 		#back to guard post
 		look_at_from_position(enemy_pos, start_pos, Vector3.UP)
