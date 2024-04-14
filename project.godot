@@ -28,6 +28,7 @@ Events="*res://autoloads/global_events.gd"
 PauseMenu="*res://menu/pause/pause_menu.tscn"
 InteractionManager="*res://game/interactables/system/interaction_manager.gd"
 Bgm="*res://autoloads/bgm.tscn"
+SceneTransition="*res://autoloads/scene_transition.tscn"
 
 [display]
 
@@ -37,6 +38,10 @@ window/size/viewport_height=1080
 [dotnet]
 
 project/assembly_name="Ludum Dare 55"
+
+[global_group]
+
+player=""
 
 [input]
 
