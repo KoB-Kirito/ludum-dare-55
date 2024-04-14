@@ -1,9 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://bt433eh1gddye"]
+[gd_scene load_steps=8 format=3 uid="uid://bt433eh1gddye"]
 
 [ext_resource type="MeshLibrary" uid="uid://dcl27y21ygg87" path="res://game/levels/catacomb_library.tres" id="1_3xwxl"]
 [ext_resource type="Script" path="res://game/levels/credits.gd" id="1_c3lhd"]
 [ext_resource type="PackedScene" uid="uid://dl2ed4gkybggf" path="res://game/player/player.tscn" id="2_tpiof"]
-[ext_resource type="PackedScene" uid="uid://drmowkyyr6rjn" path="res://game/player/hud.tscn" id="3_77r7b"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_x15p8"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -36,13 +35,10 @@ shadow_enabled = true
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_lf4lc")
 
-[node name="Player" parent="." node_paths=PackedStringArray("hud") instance=ExtResource("2_tpiof")]
+[node name="Player" parent="." instance=ExtResource("2_tpiof")]
 transform = Transform3D(-0.993032, 0, 0.117849, 0, 1, 0, -0.117849, 0, -0.993032, -0.584488, 3.31226, -24.3091)
-hud = NodePath("../Hud")
 movement_speed = 3
 jump_strength = 0
-
-[node name="Hud" parent="." instance=ExtResource("3_77r7b")]
 
 [node name="GridMap" type="GridMap" parent="."]
 mesh_library = ExtResource("1_3xwxl")
