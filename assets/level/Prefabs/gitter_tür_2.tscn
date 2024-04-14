@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://cqo4gvh5il587"]
+
+[ext_resource type="PackedScene" uid="uid://os1v5ki4kd1r" path="res://assets/level/Gitter-Tür.gltf" id="1_mjt2u"]
+
+[node name="Gitter-Tür2" instance=ExtResource("1_mjt2u")]
