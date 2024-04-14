@@ -1,32 +1,27 @@
-[gd_scene load_steps=7 format=3 uid="uid://xf17rtpdoi25"]
+[gd_scene load_steps=5 format=3 uid="uid://dp6sg6cpfoapb"]
 
+[ext_resource type="PackedScene" uid="uid://dkh2x3guax1nu" path="res://assets/level/Switch.gltf" id="1_025gs"]
 [ext_resource type="Script" path="res://game/interactables/switch.gd" id="1_57ffm"]
-[ext_resource type="Texture2D" uid="uid://brguuxx2yuohx" path="res://assets/textures/prototyping/red.png" id="2_ml4v1"]
 [ext_resource type="AudioStream" uid="uid://by3ftyfxxk6uu" path="res://assets/audio/sounds/pressed_button.wav" id="3_7e3b1"]
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_w25le"]
-radius = 0.6
+[sub_resource type="SphereShape3D" id="SphereShape3D_23q7q"]
+radius = 0.4
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xnh8r"]
-albedo_texture = ExtResource("2_ml4v1")
-uv1_triplanar = true
-
-[sub_resource type="BoxMesh" id="BoxMesh_rvhl8"]
-material = SubResource("StandardMaterial3D_xnh8r")
-size = Vector3(0.2, 0.2, 0.2)
-
-[node name="Switch" type="Node3D"]
+[node name="Switch" node_paths=PackedStringArray("area") instance=ExtResource("1_025gs")]
 script = ExtResource("1_57ffm")
+area = NodePath("Area3D")
 
-[node name="Area3D" type="Area3D" parent="."]
+[node name="Area3D" type="Area3D" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0.5)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-shape = SubResource("SphereShape3D_w25le")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.282138, -0.142754)
+shape = SubResource("SphereShape3D_23q7q")
 
-[node name="Placeholder" type="MeshInstance3D" parent="."]
-mesh = SubResource("BoxMesh_rvhl8")
+[node name="AnimationPlayer" parent="." index="3"]
+unique_name_in_owner = true
 
-[node name="snd_press" type="AudioStreamPlayer" parent="."]
+[node name="snd_press" type="AudioStreamPlayer" parent="." index="4"]
 unique_name_in_owner = true
 stream = ExtResource("3_7e3b1")
 bus = &"Sounds"
