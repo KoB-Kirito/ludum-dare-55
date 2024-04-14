@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://cecjlhtylvfhm"]
+
+[ext_resource type="PackedScene" uid="uid://c8lowa6fr6t0s" path="res://assets/level/Säule_Eckig_4x1.gltf" id="1_5ta3m"]
+
+[node name="Säule_Eckig_4x12" instance=ExtResource("1_5ta3m")]

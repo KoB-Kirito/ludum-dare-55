@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://cpv18d3w0hq5u"]
+[gd_scene load_steps=40 format=3 uid="uid://cpv18d3w0hq5u"]
 
 [ext_resource type="PackedScene" uid="uid://rt3iwyakqo" path="res://assets/level/Ceil_Rund_4m.gltf" id="1_cgn75"]
 [ext_resource type="PackedScene" uid="uid://daa7eeupsffdh" path="res://assets/level/Fassadenbögen_4x1.gltf" id="2_50wfu"]
@@ -37,6 +37,8 @@
 [ext_resource type="PackedScene" uid="uid://sid381letuqa" path="res://assets/level/Wand_Rampe_2m.gltf" id="35_e0gw6"]
 [ext_resource type="PackedScene" uid="uid://brjb4ve0ujc66" path="res://assets/level/Floor_half_2m.gltf" id="36_hjcb0"]
 [ext_resource type="PackedScene" uid="uid://cwv56a5cjthhn" path="res://assets/level/Geländer_4m.gltf" id="37_2ofyh"]
+[ext_resource type="PackedScene" uid="uid://bij4aqs42bhie" path="res://assets/level/Wand_Fenster_Groß_8m.gltf" id="38_qmxys"]
+[ext_resource type="PackedScene" uid="uid://b2sac166xbv2d" path="res://assets/level/Wand_4m-half.gltf" id="39_tb2gs"]
 
 [node name="CatacombLibrary" type="Node3D"]
 
@@ -113,3 +115,7 @@
 [node name="Floor_half_2m2" parent="." instance=ExtResource("36_hjcb0")]
 
 [node name="Geländer_4m2" parent="." instance=ExtResource("37_2ofyh")]
+
+[node name="Wand_Fenster_Groß_8m2" parent="." instance=ExtResource("38_qmxys")]
+
+[node name="Wand_4m-half2" parent="." instance=ExtResource("39_tb2gs")]
