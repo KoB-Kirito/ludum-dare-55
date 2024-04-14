@@ -62,6 +62,8 @@ stream_1/weight = 1.0
 
 [node name="Player" type="CharacterBody3D" groups=["player"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+collision_layer = 2
+collision_mask = 13
 script = ExtResource("1_ffboj")
 weapons = Array[ExtResource("2_xonqh")]([SubResource("Resource_e0ywr"), SubResource("Resource_hjjc5")])
 impact_scene = ExtResource("2_eptbn")

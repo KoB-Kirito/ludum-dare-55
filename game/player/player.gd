@@ -284,8 +284,14 @@ func action_shoot():
 			weapon_index = 1
 			change_weapon()
 			
+			# change collision so ghost can pass certain things
+			#set_collision_mask_value(4, false)
+			
 			# wait for end
 			await get_tree().create_timer(ghost_duration).timeout
+			
+			# change collision back
+			#set_collision_mask_value(4, true)
 			
 			# remove placeholder, teleport back to origin
 			host_placeholder.queue_free()

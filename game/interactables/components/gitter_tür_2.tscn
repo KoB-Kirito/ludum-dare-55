@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://o8c8nohwvcwy"]
+
+[ext_resource type="PackedScene" uid="uid://os1v5ki4kd1r" path="res://assets/level/Gitter-Tür.gltf" id="1_4er1p"]
+[ext_resource type="Script" path="res://game/interactables/components/gitter_tür_2.gd" id="2_avn6o"]
+
+[node name="Gitter-Tür2" instance=ExtResource("1_4er1p")]
+script = ExtResource("2_avn6o")
+
+[node name="StaticBody3D" parent="Gitter-Tür" index="0"]
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape3D" parent="Gitter-Tür/StaticBody3D" index="0"]
+unique_name_in_owner = true
