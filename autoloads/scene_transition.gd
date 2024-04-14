@@ -13,12 +13,8 @@ func _ready() -> void:
 
 func change_scene(scene_path: String, animation: int, duration: float, color: Color) -> void:
 	# set gradient color
-	var gradient_texture: GradientTexture1D = %Fade.texture
-	var new_gradient = gradient_texture.gradient
-	new_gradient.set_color(1, Color(color, 1.0))
-	new_gradient.set_color(2, Color(color, 1.0))
-	%Fade.texture = gradient_texture
-	
+	%Fade.texture.gradient.set_color(1, Color(color, 1.0))
+	%Fade.texture.gradient.set_color(2, Color(color, 1.0))
 	
 	var tween = create_tween()
 	
