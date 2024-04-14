@@ -5,6 +5,7 @@
 
 [node name="Bgm" type="AudioStreamPlayer"]
 stream = ExtResource("1_271ik")
-volume_db = -16.0
+volume_db = -20.0
+autoplay = true
 bus = &"Music"
 script = ExtResource("2_j57m7")
