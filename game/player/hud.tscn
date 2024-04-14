@@ -59,5 +59,3 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_ncv6q")
 expand_mode = 2
-
-[connection signal="timeout" from="Countdown/CountdownTimer" to="." method="_on_countdown_timer_timeout"]

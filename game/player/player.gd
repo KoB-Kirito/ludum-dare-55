@@ -205,6 +205,7 @@ func action_shoot():
 			return # Cooldown for shooting
 		
 		if is_ghost:
+			return_to_host()
 			return
 		
 		%snd_shoot.play()
@@ -257,62 +258,93 @@ func action_shoot():
 			
 			# Portal
 			
-			# create portal
-			var portal: Node3D = portal_scene.instantiate()
-			portal.duration = ghost_duration
-			get_tree().root.add_child(portal)
-			portal.global_transform = align_with_normal(portal.global_transform, collision_normal)
-			portal.position = collision_point + (collision_normal / 10)
-			
-			#TODO: Check collision at spawn area
-			
-			# save current position, teleport to portal "taking over the ghost"
-			var host_transform = global_transform
-			
-			global_position = collision_point + (collision_normal)
-			is_ghost = true
-			
-			# create a placeholder at the old position "the player"
-			var host_placeholder = host_placeholder_scene.instantiate()
-			get_tree().root.add_child(host_placeholder)
-			host_placeholder.global_transform = host_transform
-			host_placeholder.rotate_y(PI)
-			
-			# start countdown, enable tint
-			%Hud.start_countdown(ghost_duration)
-			# ghost background
-			%snd_ghost.play()
-			
-			# remove weapon
-			weapon_index = 1
-			change_weapon()
-			
-			# change collision so ghost can pass certain things
-			#set_collision_mask_value(4, false)
-			
-			# wait for end
-			await get_tree().create_timer(ghost_duration).timeout
-			
-			# change collision back
-			#set_collision_mask_value(4, true)
-			
-			# remove placeholder, teleport back to origin
-			host_placeholder.queue_free()
-			velocity = Vector3.ZERO
-			
-			# reset position and rotation
-			global_transform = host_transform
-			rotation_target = global_transform.basis.get_euler()
+			create_portal(collision_point, collision_normal)
 
-			is_ghost = false
-			
-			# give weapon
-			weapon_index = 0
-			change_weapon()
 
-var is_ghost: bool
+#region "Portal Mechanic"
+
 @export var host_placeholder_scene: PackedScene
 @export var ghost_duration: float = 10.0
+
+var is_ghost: bool
+var host_placeholder: Node3D
+var host_transform: Transform3D
+
+
+func create_portal(collision_point: Vector3, collision_normal: Vector3) -> void:
+	# create portal
+	var portal: Node3D = portal_scene.instantiate()
+	owner.add_child(portal)
+	portal.global_transform = align_with_normal(portal.global_transform, collision_normal)
+	portal.global_position = collision_point + (collision_normal / 10)
+	
+	var target_position := collision_point + collision_normal
+	#TODO: Check collision at spawn area
+	#TODO: Spawn ghost, then transform..
+	
+	transform_to_ghost(target_position)
+
+
+func transform_to_ghost(target_position: Vector3) -> void:
+	# save current position, teleport to portal "taking over the ghost"
+	host_transform = global_transform
+	
+	global_position = target_position
+	is_ghost = true
+	Events.transformed_to_ghost.emit(ghost_duration)
+	
+	# create a placeholder at the old position "the player"
+	host_placeholder = host_placeholder_scene.instantiate()
+	owner.add_child(host_placeholder)
+	host_placeholder.global_transform = host_transform
+	host_placeholder.rotate_y(PI) # turn cause model is mirrored to player
+	
+	# ghost background
+	%snd_ghost.play()
+	
+	# remove weapon
+	weapon_index = 1
+	change_weapon()
+	
+	# change collision so ghost can pass certain things
+	#set_collision_mask_value(4, false)
+	
+	%GhostTimer.start(ghost_duration)
+
+
+func return_to_host() -> void:
+	# ignore if already transformed
+	if not is_ghost:
+		return
+	
+	%GhostTimer.stop()
+	var t_volume: float = %snd_ghost.volume_db
+	var tween := create_tween()
+	tween.tween_property(%snd_ghost, "volume_db", -60, 1.0)
+	tween.tween_callback(
+		func():
+			%snd_ghost.stop()
+			%snd_ghost.volume_db = t_volume)
+	
+	# change collision back
+	#set_collision_mask_value(4, true)
+	
+	# remove placeholder, teleport back to origin
+	host_placeholder.queue_free()
+	
+	# reset position and rotation
+	velocity = Vector3.ZERO
+	global_transform = host_transform
+	rotation_target = global_transform.basis.get_euler()
+	
+	is_ghost = false
+	Events.returned_to_host.emit()
+	
+	# give weapon
+	weapon_index = 0
+	change_weapon()
+	
+	%Cooldown.start(weapon.cooldown)
 
 
 func align_with_normal(xform: Transform3D, n2: Vector3) -> Transform3D:
@@ -325,6 +357,8 @@ func align_with_normal(xform: Transform3D, n2: Vector3) -> Transform3D:
 	if axis == Vector3.ZERO:
 		axis = Vector3.FORWARD # normals are in opposite directions
 	return xform.rotated(axis, alpha)
+
+#endregion
 
 
 # Toggle between available weapons (listed in 'weapons')

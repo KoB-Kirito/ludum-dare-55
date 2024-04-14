@@ -64,6 +64,7 @@ stream_1/weight = 1.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 collision_layer = 2
 collision_mask = 13
+floor_max_angle = 0.872665
 script = ExtResource("1_ffboj")
 weapons = Array[ExtResource("2_xonqh")]([SubResource("Resource_e0ywr"), SubResource("Resource_hjjc5")])
 impact_scene = ExtResource("2_eptbn")
@@ -162,5 +163,11 @@ unique_name_in_owner = true
 wait_time = 2.0
 one_shot = true
 
+[node name="GhostTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+one_shot = true
+
 [node name="Hud" parent="." instance=ExtResource("10_jvc7i")]
 unique_name_in_owner = true
+
+[connection signal="timeout" from="GhostTimer" to="." method="return_to_host"]

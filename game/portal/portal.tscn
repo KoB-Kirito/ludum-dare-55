@@ -23,5 +23,3 @@ mesh = SubResource("CylinderMesh_lcdol")
 unique_name_in_owner = true
 wait_time = 10.0
 one_shot = true
-
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
