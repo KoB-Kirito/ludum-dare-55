@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://cvl374iuiqu58"]
+[gd_scene load_steps=2 format=3 uid="uid://w4dr7ggk5vd0"]
 
 [ext_resource type="Script" path="res://game/levels/level_change.gd" id="1_6rhun"]
 
