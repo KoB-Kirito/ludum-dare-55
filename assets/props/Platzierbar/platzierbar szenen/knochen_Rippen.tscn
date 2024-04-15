@@ -1,0 +1,17 @@
+[gd_scene load_steps=5 format=3 uid="uid://dp00vwjomagq4"]
+
+[ext_resource type="Texture2D" uid="uid://wjrwym55yy6g" path="res://assets/level/textures/1_Knochen-color.png" id="1_iwme7"]
+[ext_resource type="Texture2D" uid="uid://p7ts3ojeb2jd" path="res://assets/level/textures/1_Knochen-metallic.png" id="2_k4i5e"]
+[ext_resource type="Texture2D" uid="uid://m8le5ny5urql" path="res://assets/level/textures/1_Knochen-roughness.png" id="3_fdstd"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2puad"]
+albedo_texture = ExtResource("1_iwme7")
+metallic = 1.0
+metallic_texture = ExtResource("2_k4i5e")
+roughness_texture = ExtResource("3_fdstd")
+
+[node name="Knochen "]
+
+[node name="Rippen" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 0.098, 0, 0, 0, 0.107, 0, 0, 0.460107)
+surface_material_override/0 = SubResource("StandardMaterial3D_2puad")
