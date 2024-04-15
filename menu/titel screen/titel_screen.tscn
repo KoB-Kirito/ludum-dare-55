@@ -1,0 +1,110 @@
+[gd_scene load_steps=15 format=3 uid="uid://blcetjo3nikvn"]
+
+[ext_resource type="Script" path="res://menu/titel screen/titel_screen.gd" id="1_6p6wr"]
+[ext_resource type="Texture2D" uid="uid://cejy5ygikr01u" path="res://menu/titel screen/titel screen art/StaticBackground.png" id="1_55yom"]
+[ext_resource type="Texture2D" uid="uid://csbb8vebtoc3f" path="res://menu/titel screen/titel screen art/CreditsNormal.png" id="2_5sn8n"]
+[ext_resource type="Texture2D" uid="uid://cmputndrl8yu7" path="res://menu/titel screen/titel screen art/CreditPressed.png" id="3_ggg1j"]
+[ext_resource type="Texture2D" uid="uid://j1a2yhh1ivpw" path="res://menu/titel screen/titel screen art/CreditHover.png" id="4_wrl5t"]
+[ext_resource type="Texture2D" uid="uid://b5jluiu6i0n60" path="res://menu/titel screen/titel screen art/OptionNormal.png" id="5_0viui"]
+[ext_resource type="Texture2D" uid="uid://c43y7rjnrysxf" path="res://menu/titel screen/titel screen art/OptionPressed.png" id="6_clsi8"]
+[ext_resource type="Texture2D" uid="uid://c8ii6hy4on833" path="res://menu/titel screen/titel screen art/OptionHover.png" id="7_xa2m2"]
+[ext_resource type="Texture2D" uid="uid://btuweadbodwdn" path="res://menu/titel screen/titel screen art/StartNormal.png" id="8_icvu4"]
+[ext_resource type="Texture2D" uid="uid://bs5vpkiebmqou" path="res://menu/titel screen/titel screen art/StartPressed.png" id="9_hm2f5"]
+[ext_resource type="Texture2D" uid="uid://c8khvu2cmtykq" path="res://menu/titel screen/titel screen art/Starthover.png" id="10_6tos1"]
+[ext_resource type="Texture2D" uid="uid://bpgwchyjkcrjx" path="res://menu/titel screen/titel screen art/QuitNormal.png" id="11_x6h4y"]
+[ext_resource type="Texture2D" uid="uid://bu7wqnhs06ss3" path="res://menu/titel screen/titel screen art/QuitPressed.png" id="12_hb7af"]
+[ext_resource type="Texture2D" uid="uid://njn6248tshm7" path="res://menu/titel screen/titel screen art/QuitHover.png" id="13_v2wn2"]
+
+[node name="TitelScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6p6wr")
+metadata/_edit_lock_ = true
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_55yom")
+metadata/_edit_lock_ = true
+
+[node name="Credits" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -315.0
+offset_top = -45.0
+offset_right = -36.0
+offset_bottom = 77.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("2_5sn8n")
+texture_pressed = ExtResource("3_ggg1j")
+texture_hover = ExtResource("4_wrl5t")
+metadata/_edit_lock_ = true
+
+[node name="Options" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -435.0
+offset_top = 165.0
+offset_right = -101.0
+offset_bottom = 286.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("5_0viui")
+texture_pressed = ExtResource("6_clsi8")
+texture_hover = ExtResource("7_xa2m2")
+metadata/_edit_lock_ = true
+
+[node name="Start" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 40.0
+offset_top = 165.0
+offset_right = 239.0
+offset_bottom = 290.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("8_icvu4")
+texture_pressed = ExtResource("9_hm2f5")
+texture_hover = ExtResource("10_6tos1")
+metadata/_edit_lock_ = true
+
+[node name="Quit" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -95.0
+offset_top = -130.0
+offset_right = 198.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 0
+texture_normal = ExtResource("11_x6h4y")
+texture_pressed = ExtResource("12_hb7af")
+texture_hover = ExtResource("13_v2wn2")
+metadata/_edit_lock_ = true
+
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
