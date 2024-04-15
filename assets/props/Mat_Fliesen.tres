@@ -1,0 +1,15 @@
+[gd_resource type="StandardMaterial3D" load_steps=4 format=3 uid="uid://dwktpsk1lht38"]
+
+[ext_resource type="Texture2D" uid="uid://d381crhhnopkv" path="res://assets/level/textures/Pflastersein_Albedo0001.png" id="1_yybnf"]
+[ext_resource type="Texture2D" uid="uid://gvl5tnks3a0p" path="res://assets/level/textures/Pflastersein_Height0001.png" id="2_ewcjn"]
+[ext_resource type="Texture2D" uid="uid://dt0vc2txur8cn" path="res://assets/level/textures/Pflastersein_Normal0001.png" id="3_en44p"]
+
+[resource]
+albedo_color = Color(0.915843, 0.86536, 0.854992, 1)
+albedo_texture = ExtResource("1_yybnf")
+metallic_specular = 0.6
+roughness = 0.25
+normal_enabled = true
+normal_texture = ExtResource("3_en44p")
+ao_enabled = true
+ao_texture = ExtResource("2_ewcjn")

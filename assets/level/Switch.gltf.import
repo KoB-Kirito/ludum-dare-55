@@ -1831,6 +1831,12 @@ _subresources={
 "slice_99/start_frame": 0,
 "slices/amount": 2
 }
+},
+"materials": {
+"Mat_Switch": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/props/Mat_Schalter.tres"
+}
 }
 }
 fbx/importer=0

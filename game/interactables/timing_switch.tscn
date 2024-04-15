@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://cocyjgke1cm5w"]
+
+[ext_resource type="PackedScene" uid="uid://dkh2x3guax1nu" path="res://assets/level/Switch.gltf" id="1_sm7bx"]
+[ext_resource type="Script" path="res://game/interactables/switch.gd" id="2_ujm41"]
+[ext_resource type="AudioStream" uid="uid://by3ftyfxxk6uu" path="res://assets/audio/sounds/pressed_button.wav" id="3_opvhd"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_23q7q"]
+radius = 0.4
+
+[node name="Switch" node_paths=PackedStringArray("area") instance=ExtResource("1_sm7bx")]
+script = ExtResource("2_ujm41")
+area = NodePath("Area3D")
+
+[node name="Area3D" type="Area3D" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0.5)
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.282138, -0.142754)
+shape = SubResource("SphereShape3D_23q7q")
+
+[node name="AnimationPlayer" parent="." index="3"]
+unique_name_in_owner = true
+
+[node name="snd_press" type="AudioStreamPlayer" parent="." index="4"]
+unique_name_in_owner = true
+stream = ExtResource("3_opvhd")
+bus = &"Sounds"

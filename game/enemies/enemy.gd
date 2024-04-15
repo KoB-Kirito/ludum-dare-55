@@ -4,15 +4,20 @@ extends CharacterBody3D
 @export var health: int = 6
 @export var speed = 2
 @export var hit_strength = 10
+@export var waypoints: Array[Node3D]
 
 var start_pos
 var start_rot
-var is_attacking: bool = false
+var is_patroling: bool = false
 var player
+var is_attacking: bool = false
+var waypoint: int = 0
 
 func _ready():
 	start_pos = self.position
 	start_rot = self.rotation
+	if !waypoints.is_empty():
+		is_patroling = true
 
 func _physics_process(_delta):
 	#enemy movement
@@ -28,15 +33,28 @@ func _physics_process(_delta):
 			var collider = $Mesh/RayCast3D.get_collider()
 			if collider is not Player:
 				is_attacking = false
-	if is_attacking == false and enemy_pos != start_pos:
-		#back to guard post
-		look_at_from_position(enemy_pos, start_pos, Vector3.UP)
-		velocity = Vector3.FORWARD * speed
-		velocity = velocity.rotated(Vector3.UP, rotation.y)
-		if enemy_pos.distance_to(start_pos) < 0.2:
-			velocity = Vector3()
-			position = start_pos
-			rotation = start_rot
+	else:
+		if is_patroling:
+			var next_pos = waypoints[waypoint].global_position
+			if enemy_pos != next_pos:
+				#back to guard post
+				look_at_from_position(enemy_pos, next_pos, Vector3.UP)
+				velocity = Vector3.FORWARD * speed / 2.0
+				velocity = velocity.rotated(Vector3.UP, rotation.y)
+				if enemy_pos.distance_to(next_pos) < 0.2:
+					velocity = Vector3()
+					position = next_pos
+					waypoint = (waypoint + 1) % waypoints.size()
+		else:
+			if enemy_pos != start_pos:
+				#back to guard post
+				look_at_from_position(enemy_pos, start_pos, Vector3.UP)
+				velocity = Vector3.FORWARD * speed
+				velocity = velocity.rotated(Vector3.UP, rotation.y)
+				if enemy_pos.distance_to(start_pos) < 0.2:
+					velocity = Vector3()
+					position = start_pos
+					rotation = start_rot
 	move_and_slide()
 
 func _on_detection_zone_body_entered(body) -> void:

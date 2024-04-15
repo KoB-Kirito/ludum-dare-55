@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://ctmxpxmcnvrr3"]
+
+[ext_resource type="Texture2D" uid="uid://cf20qll8ek4s7" path="res://assets/level/textures/Switch_Albedo.png" id="1_d3km6"]
+[ext_resource type="Texture2D" uid="uid://copoxgd5oemxw" path="res://assets/level/textures/Switch_Emission.png" id="2_0vyxt"]
+
+[resource]
+albedo_texture = ExtResource("1_d3km6")
+emission_enabled = true
+emission_texture = ExtResource("2_0vyxt")
+rim_enabled = true
+rim = 0.15
