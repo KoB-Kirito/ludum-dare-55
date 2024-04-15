@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://q7ry1pi6cy6m"]
+
+[ext_resource type="Script" path="res://game/interactables/triggerable_camera.gd" id="1_3se3f"]
+
+[node name="TriggerableCamera" type="Camera3D"]
+process_mode = 3
+script = ExtResource("1_3se3f")
+
+[node name="Timer" type="Timer" parent="."]
+unique_name_in_owner = true
+one_shot = true
+
+[node name="Node3D" type="Node3D" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

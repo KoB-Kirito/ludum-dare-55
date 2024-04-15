@@ -55,6 +55,9 @@ func _ready():
 	initiate_change_weapon(weapon_index)
 	
 	Events.health_updated.emit(health)
+	
+	Events.cutscene_started.connect(on_cutscene_started)
+	Events.cutscene_ended.connect(on_cutscene_ended)
 
 
 func _physics_process(delta):
@@ -421,6 +424,15 @@ func change_weapon():
 	
 	%RayCast.target_position = Vector3(0, 0, -1) * weapon.max_distance
 	%Hud.crosshair.texture = weapon.crosshair
+
+
+func on_cutscene_started() -> void:
+	%SubViewportContainer.hide()
+	%Hud.hide()
+
+func on_cutscene_ended() -> void:
+	%SubViewportContainer.show()
+	%Hud.show()
 
 
 func damage(amount):

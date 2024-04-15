@@ -25,6 +25,10 @@ var is_open: bool = false
 var original_rotation: Vector3
 
 func _ready() -> void:
+	#TODO: Find why door has wrong angle sometimes when level loads..
+	#if Engine.is_editor_hint():
+	#	return
+	
 	if is_open:
 		if direction == 0: # left
 			original_rotation = rotation_degrees - Vector3(0, 90, 0)
