@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bhm4336wirfm5"]
+[gd_scene load_steps=12 format=3 uid="uid://bhm4336wirfm5"]
 
 [ext_resource type="MeshLibrary" uid="uid://dvy5ohb3m0mni" path="res://game/_test/cube_library.tres" id="1_43td0"]
 [ext_resource type="PackedScene" uid="uid://dl2ed4gkybggf" path="res://game/player/player.tscn" id="2_8h88w"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://w4dr7ggk5vd0" path="res://game/levels/level_change.tscn" id="5_ed0nm"]
 [ext_resource type="PackedScene" uid="uid://dngecpumrjuld" path="res://game/levels/start_position.tscn" id="6_gx4lu"]
 [ext_resource type="PackedScene" uid="uid://c2pof5fu2gsu4" path="res://game/interactables/prison_door.tscn" id="7_3bl10"]
+[ext_resource type="Script" path="res://addons/Mirror/Mirror/Mirror.gd" id="9_dmtwi"]
 
 [sub_resource type="Environment" id="Environment_w0m8w"]
 ambient_light_source = 2
@@ -39,7 +40,7 @@ data = {
 metadata/_editor_floor_ = Vector3(0, 0, 0)
 
 [node name="Enemy" parent="GridMap" instance=ExtResource("3_biv3m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.917, 1, 9.30338)
+transform = Transform3D(-0.679441, 0, 0.73373, 0, 1, 0, -0.73373, 0, -0.679441, 26.917, 1, 9.30338)
 hit_strength = 1
 
 [node name="Enemy2" parent="GridMap" instance=ExtResource("3_biv3m")]
@@ -65,7 +66,7 @@ direction = 1
 door_node = NodePath(".")
 
 [node name="Tuer1b" parent="Interactables/Switch1" node_paths=PackedStringArray("door_node") instance=ExtResource("4_gg8c1")]
-transform = Transform3D(1.94707e-07, 1.70218e-14, -1, -8.74228e-08, 1, 0, -1, -8.74228e-08, -1.94707e-07, -4.42953, -0.00224388, -0.438787)
+transform = Transform3D(4.37114e-08, 0, -1, 0, -1, 0, 1, 0, 4.37114e-08, -4.42953, -0.00224388, -0.438787)
 open = true
 door_node = NodePath(".")
 
@@ -114,3 +115,8 @@ door_node = NodePath("door_angle")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.5086, 1, 2.02598)
 targets = [NodePath("../Tuer3")]
 area = NodePath("Area3D")
+
+[node name="Mirror" type="Node3D" parent="."]
+transform = Transform3D(0.71934, 0, -0.694658, 0, 1, 0, 0.694658, 0, 0.71934, 10.7398, 1.98177, 11.0991)
+script = ExtResource("9_dmtwi")
+ResolutionPerUnit = 200

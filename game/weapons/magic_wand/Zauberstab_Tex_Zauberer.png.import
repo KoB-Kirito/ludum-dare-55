@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cd0ambijdrl0m"
-path.s3tc="res://.godot/imported/Zauberstab_Tex_Zauberer.png-fec0d920c0808b9c9da5bd2d8cf4fa68.s3tc.ctex"
+path.s3tc="res://.godot/imported/Zauberstab_Tex_Zauberer.png-09f42dc32ab042aa72dc25f52e5e9088.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://assets/props/Zauberstab_Tex_Zauberer.png"
-dest_files=["res://.godot/imported/Zauberstab_Tex_Zauberer.png-fec0d920c0808b9c9da5bd2d8cf4fa68.s3tc.ctex"]
+source_file="res://game/weapons/magic_wand/Zauberstab_Tex_Zauberer.png"
+dest_files=["res://.godot/imported/Zauberstab_Tex_Zauberer.png-09f42dc32ab042aa72dc25f52e5e9088.s3tc.ctex"]
 
 [params]
 

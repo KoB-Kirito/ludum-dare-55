@@ -3,7 +3,13 @@ extends Triggerable
 
 
 ## Open and close in editor
-@export var open: bool = false
+@export var open: bool:
+	set(value):
+		print("test")
+		if Engine.is_editor_hint():
+			trigger()
+	get:
+		return is_open
 
 @export_subgroup("Settings")
 ## Duration for closing/opening
