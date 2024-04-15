@@ -31,9 +31,10 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 import_script/path=""
 _subresources={
-"nodes": {
-"PATH:Vase_Complete": {
-"generate/physics": true
+"materials": {
+"Mat_Vase": {
+"use_external/enabled": true,
+"use_external/path": "res://materials/Mat_Vase.tres"
 }
 }
 }
