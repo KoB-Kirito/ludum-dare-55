@@ -27,9 +27,9 @@ var original_rotation: Vector3
 func _ready() -> void:
 	if is_open:
 		if direction == 0: # left
-			original_rotation = rotation_degrees + Vector3(0, 90, 0)
-		else: # right
 			original_rotation = rotation_degrees - Vector3(0, 90, 0)
+		else: # right
+			original_rotation = rotation_degrees + Vector3(0, 90, 0)
 	else:
 		original_rotation = rotation_degrees
 
@@ -41,6 +41,7 @@ func trigger() -> void:
 	if is_open:
 		# close door
 		is_open = false
+		#BUG: Tween uses wrong direction sometimes, needs better rotate function
 		tween.tween_property(door_node, "rotation_degrees", original_rotation, duration)
 		
 		

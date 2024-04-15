@@ -54,5 +54,4 @@ mesh = SubResource("ArrayMesh_4h007")
 transform = Transform3D(1.78814e-07, 0, -1, 0, 1, 0, 1, 0, 1.78814e-07, -0.000815213, 2.42166, 0.991768)
 light_color = Color(0.890081, 0.758124, 0, 1)
 light_bake_mode = 1
-shadow_enabled = true
 omni_range = 12.0

@@ -210,6 +210,10 @@ func action_shoot():
 			return_to_host()
 			return
 		
+		# only allow shooting when on floor
+		if not is_on_floor():
+			return
+		
 		%snd_shoot.play()
 		
 		%Container.position.z += 0.25 # Knockback of weapon visual
