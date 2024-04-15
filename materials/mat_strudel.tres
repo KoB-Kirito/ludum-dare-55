@@ -7,4 +7,5 @@
 render_priority = 0
 shader = ExtResource("1_0shyn")
 shader_parameter/RotationSpeed = 0.25
+shader_parameter/Emission = 2.0
 shader_parameter/Color = ExtResource("2_8qb0b")

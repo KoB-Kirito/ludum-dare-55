@@ -1,4 +1,4 @@
-[gd_resource type="VisualShader" load_steps=15 format=3 uid="uid://b8pg3l8rx31qt"]
+[gd_resource type="VisualShader" load_steps=16 format=3 uid="uid://b8pg3l8rx31qt"]
 
 [sub_resource type="VisualShaderNodeTexture2DParameter" id="VisualShaderNodeTexture2DParameter_xvwtt"]
 parameter_name = "Color"
@@ -30,9 +30,6 @@ texture = SubResource("CurveTexture_x3c46")
 [sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_d5brx"]
 operator = 2
 
-[sub_resource type="VisualShaderNodeFloatConstant" id="VisualShaderNodeFloatConstant_lpj1n"]
-constant = 5.0
-
 [sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_u8d6r"]
 operator = 2
 
@@ -40,6 +37,13 @@ operator = 2
 parameter_name = "RotationSpeed"
 default_value_enabled = true
 default_value = 1.0
+
+[sub_resource type="VisualShaderNodeFloatParameter" id="VisualShaderNodeFloatParameter_boix5"]
+parameter_name = "Emission"
+default_value_enabled = true
+default_value = 2.0
+
+[sub_resource type="VisualShaderNodeFloatConstant" id="VisualShaderNodeFloatConstant_hopvk"]
 
 [sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_5xayn"]
 input_name = "time"
@@ -57,6 +61,7 @@ render_mode blend_add, depth_draw_opaque, cull_disabled, diffuse_lambert, specul
 uniform float RotationSpeed = 1;
 uniform sampler2D Color : source_color;
 uniform sampler2D curve_frg_14 : repeat_disable;
+uniform float Emission = 2;
 
 
 
@@ -113,22 +118,28 @@ void fragment() {
 	float n_out14p0 = texture(curve_frg_14, vec2(n_out9p0.x)).r;
 
 
-// FloatConstant:16
-	float n_out16p0 = 5.000000;
+// FloatConstant:20
+	float n_out20p0 = 0.000000;
+
+
+// FloatParameter:19
+	float n_out19p0 = Emission;
 
 
 // VectorOp:15
-	vec3 n_out15p0 = vec3(n_out9p0.xyz) * vec3(n_out16p0);
+	vec3 n_out15p0 = vec3(n_out9p0.xyz) * vec3(n_out19p0);
 
 
 // Output:0
 	ALBEDO = vec3(n_out9p0.xyz);
 	ALPHA = n_out14p0;
+	SPECULAR = n_out20p0;
 	EMISSION = n_out15p0;
 
 
 }
 "
+graph_offset = Vector2(19.8354, -40.1775)
 modes/blend = 1
 modes/cull = 2
 modes/specular = 2
@@ -153,10 +164,12 @@ nodes/fragment/14/node = SubResource("VisualShaderNodeCurveTexture_ekd2n")
 nodes/fragment/14/position = Vector2(1100, 820)
 nodes/fragment/15/node = SubResource("VisualShaderNodeVectorOp_d5brx")
 nodes/fragment/15/position = Vector2(1120, 260)
-nodes/fragment/16/node = SubResource("VisualShaderNodeFloatConstant_lpj1n")
-nodes/fragment/16/position = Vector2(620, 440)
 nodes/fragment/17/node = SubResource("VisualShaderNodeFloatOp_u8d6r")
 nodes/fragment/17/position = Vector2(-460, 620)
 nodes/fragment/18/node = SubResource("VisualShaderNodeFloatParameter_53s6g")
 nodes/fragment/18/position = Vector2(-1020, 820)
-nodes/fragment/connections = PackedInt32Array(10, 0, 9, 2, 9, 0, 0, 0, 11, 0, 12, 0, 12, 0, 8, 0, 8, 0, 13, 0, 13, 0, 9, 0, 9, 0, 14, 0, 14, 0, 0, 1, 16, 0, 15, 1, 9, 0, 15, 0, 15, 0, 0, 5, 6, 0, 17, 0, 18, 0, 17, 1, 17, 0, 8, 1)
+nodes/fragment/19/node = SubResource("VisualShaderNodeFloatParameter_boix5")
+nodes/fragment/19/position = Vector2(600, 300)
+nodes/fragment/20/node = SubResource("VisualShaderNodeFloatConstant_hopvk")
+nodes/fragment/20/position = Vector2(1120, 100)
+nodes/fragment/connections = PackedInt32Array(10, 0, 9, 2, 9, 0, 0, 0, 11, 0, 12, 0, 12, 0, 8, 0, 8, 0, 13, 0, 13, 0, 9, 0, 9, 0, 14, 0, 14, 0, 0, 1, 9, 0, 15, 0, 15, 0, 0, 5, 6, 0, 17, 0, 18, 0, 17, 1, 17, 0, 8, 1, 19, 0, 15, 1, 20, 0, 0, 4)
