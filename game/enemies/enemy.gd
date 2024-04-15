@@ -12,6 +12,7 @@ var is_patroling: bool = false
 var player
 var is_attacking: bool = false
 var waypoint: int = 0
+var gravity: int = 200
 
 func _ready():
 	start_pos = self.position
@@ -19,13 +20,13 @@ func _ready():
 	if !waypoints.is_empty():
 		is_patroling = true
 
-func _physics_process(_delta):
+func _physics_process(delta):
 	#enemy movement
 	var enemy_pos = self.get_global_position()
 	if is_attacking == true:
 		var player_pos = player.get_global_position()
 		#look at player
-		look_at_from_position(enemy_pos,player_pos,Vector3.UP)
+		look_at(player_pos,Vector3.UP)
 		#move towards player
 		velocity = Vector3.FORWARD * speed
 		velocity = velocity.rotated(Vector3.UP, rotation.y)
@@ -38,7 +39,7 @@ func _physics_process(_delta):
 			var next_pos = waypoints[waypoint].global_position
 			if enemy_pos != next_pos:
 				#back to guard post
-				look_at_from_position(enemy_pos, next_pos, Vector3.UP)
+				look_at(next_pos, Vector3.UP)
 				velocity = Vector3.FORWARD * speed / 2.0
 				velocity = velocity.rotated(Vector3.UP, rotation.y)
 				if enemy_pos.distance_to(next_pos) < 0.2:
@@ -48,13 +49,17 @@ func _physics_process(_delta):
 		else:
 			if enemy_pos != start_pos:
 				#back to guard post
-				look_at_from_position(enemy_pos, start_pos, Vector3.UP)
-				velocity = Vector3.FORWARD * speed
-				velocity = velocity.rotated(Vector3.UP, rotation.y)
 				if enemy_pos.distance_to(start_pos) < 0.2:
 					velocity = Vector3()
 					position = start_pos
 					rotation = start_rot
+				else:
+					look_at(start_pos, Vector3.UP)
+					velocity = Vector3.FORWARD * speed
+					velocity = velocity.rotated(Vector3.UP, rotation.y)
+	#gravity
+	if not is_on_floor():
+		velocity.y = velocity.y - (gravity * delta)
 	move_and_slide()
 
 func _on_detection_zone_body_entered(body) -> void:
