@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dxnxg2uyxv8g5"]
+[gd_scene load_steps=23 format=3 uid="uid://dxnxg2uyxv8g5"]
 
 [ext_resource type="PackedScene" uid="uid://dl2ed4gkybggf" path="res://game/player/player.tscn" id="2_1d7nb"]
 [ext_resource type="LightmapGIData" uid="uid://bpjqaxj5ig2kd" path="res://game/levels/Level2.lmbake" id="2_3fbkj"]
@@ -12,7 +12,14 @@
 [ext_resource type="PackedScene" uid="uid://d2g7h05bqa62" path="res://assets/props/Steinplatte.gltf" id="7_geuk0"]
 [ext_resource type="PackedScene" uid="uid://dp6sg6cpfoapb" path="res://game/interactables/switch.tscn" id="7_y2six"]
 [ext_resource type="PackedScene" uid="uid://c2pof5fu2gsu4" path="res://game/interactables/prison_door.tscn" id="8_5vwbn"]
+[ext_resource type="PackedScene" uid="uid://824y2kjrkwuh" path="res://assets/props/Platzierbar/platzierbar szenen/barrel.tscn" id="10_lh56r"]
 [ext_resource type="PackedScene" uid="uid://0465d2tu8f6o" path="res://assets/level/HoleBox.glb" id="11_5bikf"]
+[ext_resource type="PackedScene" uid="uid://e2otb2h2davw" path="res://assets/props/Platzierbar/platzierbar szenen/cauldron_2.tscn" id="11_lp8p4"]
+[ext_resource type="PackedScene" uid="uid://dck84gg81ux0k" path="res://assets/props/Platzierbar/platzierbar szenen/chest.tscn" id="12_ga1s8"]
+[ext_resource type="PackedScene" uid="uid://buq7shu7sdsl2" path="res://assets/props/Platzierbar/platzierbar szenen/vase_complete.tscn" id="13_ooe13"]
+[ext_resource type="PackedScene" uid="uid://c353pva3mtvfj" path="res://assets/props/Platzierbar/platzierbar szenen/coffin_closed.tscn" id="14_koobl"]
+[ext_resource type="PackedScene" uid="uid://bmv8gs4cs6sht" path="res://assets/props/Platzierbar/platzierbar szenen/coffin_open.tscn" id="15_iupkq"]
+[ext_resource type="PackedScene" uid="uid://wd7frjgyeqkf" path="res://assets/props/Platzierbar/platzierbar szenen/coffin_lid.tscn" id="16_1e2gf"]
 [ext_resource type="PackedScene" uid="uid://l8apobayljhy" path="res://game/enemies/enemy.tscn" id="17_x3p2t"]
 
 [sub_resource type="Environment" id="Environment_lf4lc"]
@@ -275,6 +282,264 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -43, -
 
 [node name="Gitter6" parent="Assets/Props" instance=ExtResource("3_0fd84")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -43, -4, -47)
+
+[node name="Barrel" parent="Assets/Props" instance=ExtResource("10_lh56r")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -2.48767, 2.04871, 29.5989)
+
+[node name="Barrel2" parent="Assets/Props" instance=ExtResource("10_lh56r")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -2.48767, 2.04871, 30.4731)
+
+[node name="Barrel3" parent="Assets/Props" instance=ExtResource("10_lh56r")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -2.48767, 3.04871, 30.1374)
+
+[node name="Barrel4" parent="Assets/Props" instance=ExtResource("10_lh56r")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -1.48767, 2.04871, 29.688)
+
+[node name="Barrel5" parent="Assets/Props" instance=ExtResource("10_lh56r")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -1.48767, 2.04871, 28.1981)
+
+[node name="Barrel6" parent="Assets/Props" instance=ExtResource("10_lh56r")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -13.4877, 2.04871, 28.1981)
+
+[node name="Barrel7" parent="Assets/Props" instance=ExtResource("10_lh56r")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -14.319, 2.04871, 28.1981)
+
+[node name="Barrel9" parent="Assets/Props" instance=ExtResource("10_lh56r")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -12.1187, 2.04871, -12.4434)
+
+[node name="Barrel10" parent="Assets/Props" instance=ExtResource("10_lh56r")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -11.4817, 2.04871, -13.2265)
+
+[node name="Barrel12" parent="Assets/Props" instance=ExtResource("10_lh56r")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 11.5183, 2.04871, -12.1472)
+
+[node name="Barrel13" parent="Assets/Props" instance=ExtResource("10_lh56r")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 10.5183, 2.04871, -11.6879)
+
+[node name="Barrel14" parent="Assets/Props" instance=ExtResource("10_lh56r")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 7.49941, 2.04871, -11.6879)
+
+[node name="Barrel15" parent="Assets/Props" instance=ExtResource("10_lh56r")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 4.19958, 2.04871, -32.7189)
+
+[node name="Barrel16" parent="Assets/Props" instance=ExtResource("10_lh56r")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -7.27096, 0.0487123, -33.4984)
+
+[node name="Barrel17" parent="Assets/Props" instance=ExtResource("10_lh56r")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -19.6759, 0.0487123, -33.4984)
+
+[node name="Barrel18" parent="Assets/Props" instance=ExtResource("10_lh56r")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -26.0755, 0.0487123, -30.1585)
+
+[node name="Barrel21" parent="Assets/Props" instance=ExtResource("10_lh56r")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -26.0755, 0.0487123, -46.1289)
+
+[node name="Barrel22" parent="Assets/Props" instance=ExtResource("10_lh56r")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -3.62928, 0.0487123, -46.9947)
+
+[node name="Barrel23" parent="Assets/Props" instance=ExtResource("10_lh56r")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -3.62928, 1.04871, -46.9947)
+
+[node name="Barrel24" parent="Assets/Props" instance=ExtResource("10_lh56r")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -23.7999, 6.04871, -49.9947)
+
+[node name="Barrel25" parent="Assets/Props" instance=ExtResource("10_lh56r")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -23.7999, 7.04871, -49.9947)
+
+[node name="Barrel26" parent="Assets/Props" instance=ExtResource("10_lh56r")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -23.7999, 8.04871, -49.9947)
+
+[node name="Barrel27" parent="Assets/Props" instance=ExtResource("10_lh56r")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -23.7999, 6.04871, -48.9947)
+
+[node name="Barrel28" parent="Assets/Props" instance=ExtResource("10_lh56r")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -23.7999, 7.04871, -48.9947)
+
+[node name="Barrel29" parent="Assets/Props" instance=ExtResource("10_lh56r")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -23.7999, 6.04871, -47.9947)
+
+[node name="Barrel30" parent="Assets/Props" instance=ExtResource("10_lh56r")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -35.7461, 6.04871, -44.9947)
+
+[node name="Barrel31" parent="Assets/Props" instance=ExtResource("10_lh56r")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -27.7461, -3.95129, -44.9947)
+
+[node name="Barrel32" parent="Assets/Props" instance=ExtResource("10_lh56r")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -27.7461, -3.95129, -48.3454)
+
+[node name="Barrel33" parent="Assets/Props" instance=ExtResource("10_lh56r")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -27.8094, -3.95129, -47.5299)
+
+[node name="Barrel35" parent="Assets/Props" instance=ExtResource("10_lh56r")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -27.8094, -3.95129, -31.0403)
+
+[node name="Barrel36" parent="Assets/Props" instance=ExtResource("10_lh56r")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -30.469, -3.95129, -8.04033)
+
+[node name="Barrel37" parent="Assets/Props" instance=ExtResource("10_lh56r")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -29.7482, -3.95129, -8.88964)
+
+[node name="Barrel38" parent="Assets/Props" instance=ExtResource("10_lh56r")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -29.7482, -3.95129, -10.7585)
+
+[node name="Barrel40" parent="Assets/Props" instance=ExtResource("10_lh56r")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -36.2327, -3.95129, -10.7585)
+
+[node name="Barrel41" parent="Assets/Props" instance=ExtResource("10_lh56r")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -35.4664, -3.95129, -10.7585)
+
+[node name="Barrel42" parent="Assets/Props" instance=ExtResource("10_lh56r")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -35.8883, -3.95129, -11.3865)
+
+[node name="Barrel43" parent="Assets/Props" instance=ExtResource("10_lh56r")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -35.8883, -2.95129, -11.3865)
+
+[node name="Barrel39" parent="Assets/Props" instance=ExtResource("10_lh56r")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -29.7551, -2.94253, -10.7451)
+
+[node name="Barrel34" parent="Assets/Props" instance=ExtResource("10_lh56r")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -27.7461, -2.95129, -47.9761)
+
+[node name="Barrel19" parent="Assets/Props" instance=ExtResource("10_lh56r")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -26.0755, 0.0487123, -29.0794)
+
+[node name="Barrel20" parent="Assets/Props" instance=ExtResource("10_lh56r")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -24.5977, 0.0487123, -27.4152)
+
+[node name="Barrel11" parent="Assets/Props" instance=ExtResource("10_lh56r")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -11.4817, 3.04871, -13.2265)
+
+[node name="Barrel8" parent="Assets/Props" instance=ExtResource("10_lh56r")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -13.9105, 3.04871, 28.1981)
+
+[node name="Cauldron2" parent="Assets/Props" instance=ExtResource("11_lp8p4")]
+transform = Transform3D(0.31986, 0, 0.384304, 0, 0.5, 0, -0.384304, 0, 0.31986, 12.1845, 2.00005, 2.65262)
+
+[node name="Cauldron3" parent="Assets/Props" instance=ExtResource("11_lp8p4")]
+transform = Transform3D(0.441956, 0, 0.233826, 0, 0.5, 0, -0.233826, 0, 0.441956, 29.7616, 2.00005, 4.17662)
+
+[node name="Cauldron4" parent="Assets/Props" instance=ExtResource("11_lp8p4")]
+transform = Transform3D(0.441956, 0, 0.233826, 0, 0.5, 0, -0.233826, 0, 0.441956, 27.7616, 2.00005, -74.0751)
+
+[node name="Cauldron5" parent="Assets/Props" instance=ExtResource("11_lp8p4")]
+transform = Transform3D(-0.441865, -0.0101571, -0.233778, 0.00897797, -0.499897, 0.00474998, -0.233826, 0, 0.441956, 27.8361, -3.20668, -66.0126)
+
+[node name="Cauldron6" parent="Assets/Props" instance=ExtResource("11_lp8p4")]
+transform = Transform3D(0.474259, 0, -0.158363, 0, 0.5, 0, 0.158363, 0, 0.474259, 27.0041, -3.97506, -66.0126)
+
+[node name="Cauldron12" parent="Assets/Props" instance=ExtResource("11_lp8p4")]
+transform = Transform3D(0.474259, 0, -0.158363, 0, 0.5, 0, 0.158363, 0, 0.474259, 26.5811, -3.97506, -65.2702)
+
+[node name="Cauldron7" parent="Assets/Props" instance=ExtResource("11_lp8p4")]
+transform = Transform3D(0.482066, 0, 0.132711, 0, 0.5, 0, -0.132711, 0, 0.482066, 26.1861, -3.97506, -66.0126)
+
+[node name="Cauldron10" parent="Assets/Props" instance=ExtResource("11_lp8p4")]
+transform = Transform3D(0.480134, 0.0447253, 0.132179, -0.0431211, 0.497996, -0.011871, -0.132711, 0, 0.482066, 26.1311, -3.41393, -66.0126)
+
+[node name="Cauldron11" parent="Assets/Props" instance=ExtResource("11_lp8p4")]
+transform = Transform3D(0.474, -0.0910834, 0.13049, 0.0878165, 0.491634, 0.0241755, -0.132711, 0, 0.482066, 26.2983, -2.84015, -66.0126)
+
+[node name="Cauldron8" parent="Assets/Props" instance=ExtResource("11_lp8p4")]
+transform = Transform3D(0.335051, 0, 0.371134, 0, 0.5, 0, -0.371134, 0, 0.335051, 25.327, -3.97506, -66.0126)
+
+[node name="Cauldron9" parent="Assets/Props" instance=ExtResource("11_lp8p4")]
+transform = Transform3D(0.335051, 0, 0.371134, 0.160175, 0.451037, -0.144602, -0.33479, 0.215791, 0.302241, 25.327, -3.35618, -66.1765)
+
+[node name="Chest" parent="Assets/Props" instance=ExtResource("12_ga1s8")]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0.184541, 1.99589, 13.8491)
+
+[node name="Chest4" parent="Assets/Props" instance=ExtResource("12_ga1s8")]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 38.1845, -2.00411, -15.1509)
+
+[node name="Chest5" parent="Assets/Props" instance=ExtResource("12_ga1s8")]
+transform = Transform3D(0.604783, 0, 0.523677, 0, 0.8, 0, -0.523677, 0, 0.604783, 38.1845, -2.00411, -16.4846)
+
+[node name="Chest2" parent="Assets/Props" instance=ExtResource("12_ga1s8")]
+transform = Transform3D(0.793585, 0, 0.101112, 0, 0.8, 0, -0.101112, 0, 0.793585, -1.81546, 1.99589, 13.8491)
+
+[node name="Chest3" parent="Assets/Props" instance=ExtResource("12_ga1s8")]
+transform = Transform3D(0.8, 0, 0, 0, 0.763484, 0.23894, 0, -0.23894, 0.763484, -0.921063, 2.70203, 13.7039)
+
+[node name="Vase_complete" parent="Assets/Props" instance=ExtResource("13_ooe13")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -5.81546, 2.01539, 13.5434)
+
+[node name="Vase_complete2" parent="Assets/Props" instance=ExtResource("13_ooe13")]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -35.7401, 2.01539, -3.33524)
+
+[node name="Vase_complete4" parent="Assets/Props" instance=ExtResource("13_ooe13")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -42.3475, 2.01539, -0.485491)
+
+[node name="Vase_complete15" parent="Assets/Props" instance=ExtResource("13_ooe13")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -36.059, 2.01539, -3.9319)
+
+[node name="Vase_complete8" parent="Assets/Props" instance=ExtResource("13_ooe13")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -42.3475, 6.01539, -30.8599)
+
+[node name="Vase_complete9" parent="Assets/Props" instance=ExtResource("13_ooe13")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -42.3475, 6.01539, -38.8599)
+
+[node name="Vase_complete10" parent="Assets/Props" instance=ExtResource("13_ooe13")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -42.3475, 6.01539, -49.9226)
+
+[node name="Vase_complete12" parent="Assets/Props" instance=ExtResource("13_ooe13")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -41.4731, 6.01539, -50.409)
+
+[node name="Vase_complete13" parent="Assets/Props" instance=ExtResource("13_ooe13")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -38.7779, 6.01539, -50.409)
+
+[node name="Vase_complete14" parent="Assets/Props" instance=ExtResource("13_ooe13")]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -36.4977, 6.01539, -50.409)
+
+[node name="Vase_complete11" parent="Assets/Props" instance=ExtResource("13_ooe13")]
+transform = Transform3D(0.513533, -0.30259, 0.0687246, 0, 0.132888, 0.585099, -0.310297, -0.500779, 0.113737, -41.6502, 6.17487, -49.7706)
+
+[node name="Vase_complete5" parent="Assets/Props" instance=ExtResource("13_ooe13")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -50.9169, 4.01124, -4.95432)
+
+[node name="Vase_complete6" parent="Assets/Props" instance=ExtResource("13_ooe13")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -50.9169, 2.01124, -16.9543)
+
+[node name="Vase_complete7" parent="Assets/Props" instance=ExtResource("13_ooe13")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -50.9448, 0.0494485, -28.9776)
+
+[node name="Vase_complete3" parent="Assets/Props" instance=ExtResource("13_ooe13")]
+transform = Transform3D(0.565347, 0.173497, -0.1014, -0.200955, 0.488098, -0.285267, 0, 0.302753, 0.518016, -35.6701, 2.01539, -4.32477)
+
+[node name="Coffin_closed" parent="Assets/Props" instance=ExtResource("14_koobl")]
+transform = Transform3D(0.116932, 0, 0.162256, 0, 0.2, 0, -0.162256, 0, 0.116932, -1.71046, 2.02652, 33.2149)
+
+[node name="Coffin_closed2" parent="Assets/Props" instance=ExtResource("14_koobl")]
+transform = Transform3D(0.071041, 0, 0.186958, 0, 0.2, 0, -0.186958, 0, 0.071041, -0.619247, 2.02652, 33.2149)
+
+[node name="Coffin_closed8" parent="Assets/Props" instance=ExtResource("14_koobl")]
+transform = Transform3D(0.071041, 0, 0.186958, 0, 0.2, 0, -0.186958, 0, 0.071041, -1.78798, 2.02652, -35.3176)
+
+[node name="Coffin_closed10" parent="Assets/Props" instance=ExtResource("14_koobl")]
+transform = Transform3D(0.071041, 0, 0.186958, 0, 0.2, 0, -0.186958, 0, 0.071041, -33.788, 6.02652, -35.3176)
+
+[node name="Coffin_closed9" parent="Assets/Props" instance=ExtResource("14_koobl")]
+transform = Transform3D(-0.0125476, 0, 0.499843, 0, 0.5, 0, -0.499843, 0, -0.0125476, 14.0089, 2.02652, -35.7042)
+
+[node name="Coffin_open" parent="Assets/Props/Coffin_closed9" instance=ExtResource("15_iupkq")]
+transform = Transform3D(0.980257, 0, -0.197726, 0, 1, 0, 0.197726, 0, 0.980257, 0.466858, 2.52543, -0.0179996)
+
+[node name="Coffin_lid" parent="Assets/Props/Coffin_closed9/Coffin_open" instance=ExtResource("16_1e2gf")]
+transform = Transform3D(-0.000924855, 0, -1, 0, 1, 0, 1, 0, -0.000924855, 10.2053, -4.53946, -6.39253)
+
+[node name="Coffin_closed3" parent="Assets/Props" instance=ExtResource("14_koobl")]
+transform = Transform3D(0.190499, 0, 0.0609097, 0, 0.2, 0, -0.0609097, 0, 0.190499, -1.07236, 2.5316, 33.2149)
+
+[node name="Coffin_closed4" parent="Assets/Props" instance=ExtResource("14_koobl")]
+transform = Transform3D(0.190499, 0, 0.0609097, 0, 0.2, 0, -0.0609097, 0, 0.190499, -1.07236, 2.05808, 43.6733)
+
+[node name="Coffin_closed7" parent="Assets/Props" instance=ExtResource("14_koobl")]
+transform = Transform3D(0.19091, 0, -0.0596116, 0, 0.2, 0, 0.0596116, 0, 0.19091, 3.54201, 2.05808, 43.2611)
+
+[node name="Coffin_closed5" parent="Assets/Props" instance=ExtResource("14_koobl")]
+transform = Transform3D(0.0709125, -0.186852, -0.00759713, 0.185789, 0.0713182, -0.0199043, 0.0213049, 0, 0.198862, 4.48378, 3.19987, 44.084)
+
+[node name="Coffin_closed6" parent="Assets/Props" instance=ExtResource("14_koobl")]
+transform = Transform3D(0.0839057, -0.180598, -0.0185481, 0.139863, 0.0773295, -0.120244, 0.115751, 0.0374746, 0.158737, 4.48378, 3.00647, 43.0178)
 
 [node name="HoleBox2" parent="Assets" instance=ExtResource("11_5bikf")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 1, -10, 1)
