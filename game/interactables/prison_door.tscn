@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://c2pof5fu2gsu4"]
 
-[ext_resource type="Script" path="res://game/interactables/prison_door.gd" id="1_id13e"]
+[ext_resource type="Script" path="res://game/interactables/door.gd" id="1_id13e"]
 [ext_resource type="PackedScene" uid="uid://n32ve55qg65c" path="res://assets/level/Gitter-Türrahmen.gltf" id="2_0wx82"]
 [ext_resource type="PackedScene" uid="uid://o8c8nohwvcwy" path="res://game/interactables/components/gitter_tür_2.tscn" id="3_scica"]
 [ext_resource type="AudioStream" uid="uid://d24p4xdsyvab8" path="res://assets/audio/sounds/metal-squeak-door-a.wav" id="4_qofo0"]
@@ -25,8 +25,9 @@ stream_4/weight = 1.0
 stream_5/stream = ExtResource("9_b6oxa")
 stream_5/weight = 1.0
 
-[node name="PrisonDoor" type="Node3D"]
+[node name="PrisonDoor" type="Node3D" node_paths=PackedStringArray("door_node")]
 script = ExtResource("1_id13e")
+door_node = NodePath("door_angle")
 
 [node name="DoorBorder" parent="." instance=ExtResource("2_0wx82")]
 
