@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://nqhnarpow5vv"
-path="res://.godot/imported/blaster.glb-cfb1d13f6709a41799a75fbbbe26c7a8.scn"
+uid="uid://bl7ggyfn7pvnw"
+path="res://.godot/imported/Zauberstab.glb-409789603eb5f5c6e15b9414808b563e.scn"
 
 [deps]
 
-source_file="res://game/weapons/blaster/blaster.glb"
-dest_files=["res://.godot/imported/blaster.glb-cfb1d13f6709a41799a75fbbbe26c7a8.scn"]
+source_file="res://game/weapons/magic_wand/Zauberstab.glb"
+dest_files=["res://.godot/imported/Zauberstab.glb-409789603eb5f5c6e15b9414808b563e.scn"]
 
 [params]
 

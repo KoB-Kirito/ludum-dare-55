@@ -42,6 +42,8 @@ var tween: Tween
 
 var paused: bool
 
+@onready var camera: Camera3D = %Camera
+
 
 # Functions
 

@@ -15,9 +15,8 @@ shader_parameter/Emission = Color(1, 0, 0, 1)
 radius = 0.336101
 height = 1.90693
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_lsm5a"]
-height = 6.0
-radius = 10.0
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_8jwli"]
+points = PackedVector3Array(-4, -5, -1, 0, -7, 1, -4, -5, 1, 0, 5, -1, 4, -5, -1, 4, -5, 1, 0, 5, 1, 0, -7, -1)
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_uky5q"]
 height = 1.9126
@@ -25,7 +24,7 @@ radius = 0.380865
 
 [node name="Enemy" type="CharacterBody3D"]
 collision_layer = 4
-collision_mask = 11
+collision_mask = 3
 script = ExtResource("1_ucyes")
 speed = 3
 
@@ -34,31 +33,41 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 
 material_override = SubResource("ShaderMaterial_888as")
 mesh = ExtResource("3_68qw5")
 
-[node name="RayCast3D" type="RayCast3D" parent="Mesh"]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0.718731, 0)
-target_position = Vector3(0, 0, -10)
-collision_mask = 11
-
 [node name="Collision" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.951236, 0)
 shape = SubResource("CapsuleShape3D_v70lx")
 
 [node name="DetectionZone" type="Area3D" parent="."]
-collision_layer = 4
+collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DetectionZone"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-shape = SubResource("CylinderShape3D_lsm5a")
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1, -5)
+shape = SubResource("ConvexPolygonShape3D_8jwli")
 
 [node name="HitZone" type="Area3D" parent="."]
-collision_layer = 4
+collision_layer = 0
 collision_mask = 2
 
 [node name="AttackBox" type="CollisionShape3D" parent="HitZone"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.958185, 0)
 shape = SubResource("CylinderShape3D_uky5q")
 
+[node name="RayCast" type="RayCast3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+target_position = Vector3(0, 0, -2)
+
+[node name="HitTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+
+[node name="LoseInterestTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+one_shot = true
+
 [connection signal="body_entered" from="DetectionZone" to="." method="_on_detection_zone_body_entered"]
 [connection signal="body_exited" from="DetectionZone" to="." method="_on_detection_zone_body_exited"]
 [connection signal="body_entered" from="HitZone" to="." method="_on_hit_zone_body_entered"]
+[connection signal="body_exited" from="HitZone" to="." method="_on_hit_zone_body_exited"]
+[connection signal="timeout" from="HitTimer" to="." method="_on_hit_timer_timeout"]
+[connection signal="timeout" from="LoseInterestTimer" to="." method="_on_lose_interest_timer_timeout"]

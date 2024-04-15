@@ -39,7 +39,7 @@ data = {
 metadata/_editor_floor_ = Vector3(0, 0, 0)
 
 [node name="Enemy" parent="GridMap" instance=ExtResource("3_biv3m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.917, 1, 9.30338)
+transform = Transform3D(-0.679441, 0, 0.73373, 0, 1, 0, -0.73373, 0, -0.679441, 26.917, 1, 9.30338)
 hit_strength = 1
 
 [node name="Enemy2" parent="GridMap" instance=ExtResource("3_biv3m")]
@@ -59,14 +59,12 @@ targets = [NodePath("Tuer1a"), NodePath("Tuer1b")]
 area = NodePath("Area3D")
 
 [node name="Tuer1a" parent="Interactables/Switch1" node_paths=PackedStringArray("door_node") instance=ExtResource("4_gg8c1")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.450914, -0.00224388, -0.440857)
-open = true
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.450914, -0.00224388, -0.440857)
 direction = 1
 door_node = NodePath(".")
 
 [node name="Tuer1b" parent="Interactables/Switch1" node_paths=PackedStringArray("door_node") instance=ExtResource("4_gg8c1")]
-transform = Transform3D(1.94707e-07, 1.70218e-14, -1, -8.74228e-08, 1, 0, -1, -8.74228e-08, -1.94707e-07, -4.42953, -0.00224388, -0.438787)
-open = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.42953, -0.00224388, -0.438787)
 door_node = NodePath(".")
 
 [node name="Switch2a" parent="Interactables" node_paths=PackedStringArray("targets", "area") instance=ExtResource("4_o4y7a")]

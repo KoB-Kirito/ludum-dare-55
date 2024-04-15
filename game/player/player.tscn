@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" path="res://game/player/player.gd" id="1_ffboj"]
 [ext_resource type="PackedScene" uid="uid://b7070gfoko4mo" path="res://game/weapons/impact.tscn" id="2_eptbn"]
-[ext_resource type="Texture2D" uid="uid://v7x1bf5ooqxa" path="res://game/weapons/blaster/crosshair.png" id="2_sjm3x"]
+[ext_resource type="Texture2D" uid="uid://v7x1bf5ooqxa" path="res://game/weapons/magic_wand/crosshair.png" id="2_sjm3x"]
 [ext_resource type="Script" path="res://game/weapons/weapon.gd" id="2_xonqh"]
-[ext_resource type="PackedScene" uid="uid://bl7ggyfn7pvnw" path="res://assets/props/Zauberstab.glb" id="3_ugmoq"]
+[ext_resource type="PackedScene" uid="uid://bl7ggyfn7pvnw" path="res://game/weapons/magic_wand/Zauberstab.glb" id="3_ugmoq"]
 [ext_resource type="AudioStream" uid="uid://ipk0wnx82mgh" path="res://assets/audio/sounds/hoi.wav" id="6_jndfm"]
 [ext_resource type="PackedScene" uid="uid://dfv2oi8kmmq5s" path="res://game/portal/portal.tscn" id="6_wpp0n"]
 [ext_resource type="PackedScene" uid="uid://sqwih5142yaw" path="res://game/player/host_placeholder.tscn" id="7_nhyq0"]

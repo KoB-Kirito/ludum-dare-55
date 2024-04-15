@@ -107,4 +107,6 @@ texture_pressed = ExtResource("12_hb7af")
 texture_hover = ExtResource("13_v2wn2")
 metadata/_edit_lock_ = true
 
+[connection signal="pressed" from="Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]

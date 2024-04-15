@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://drmowkyyr6rjn"]
+[gd_scene load_steps=4 format=3 uid="uid://drmowkyyr6rjn"]
 
 [ext_resource type="Script" path="res://game/player/hud.gd" id="1_dkskc"]
+[ext_resource type="Texture2D" uid="uid://v7x1bf5ooqxa" path="res://game/weapons/magic_wand/crosshair.png" id="2_ic1hd"]
 [ext_resource type="Texture2D" uid="uid://dlvxgoko6arv7" path="res://game/player/bloodscreen.png" id="2_ncv6q"]
 
 [node name="Hud" type="CanvasLayer"]
@@ -29,6 +30,7 @@ offset_right = 20.0
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("2_ic1hd")
 
 [node name="CountdownLabel" type="Label" parent="."]
 unique_name_in_owner = true
