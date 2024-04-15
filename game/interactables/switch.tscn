@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://dp6sg6cpfoapb"]
+[gd_scene load_steps=6 format=3 uid="uid://dp6sg6cpfoapb"]
 
-[ext_resource type="PackedScene" uid="uid://dkh2x3guax1nu" path="res://assets/props/Switch.gltf" id="1_025gs"]
+[ext_resource type="PackedScene" uid="uid://dkh2x3guax1nu" path="res://assets/level/Switch.gltf" id="1_025gs"]
 [ext_resource type="Script" path="res://game/interactables/switch.gd" id="1_57ffm"]
 [ext_resource type="AudioStream" uid="uid://by3ftyfxxk6uu" path="res://assets/audio/sounds/pressed_button.wav" id="3_7e3b1"]
+[ext_resource type="AudioStream" uid="uid://dhik5hvn4baiq" path="res://assets/audio/sounds/clock_ticking.wav" id="4_nhk4r"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_23q7q"]
 radius = 0.4
@@ -27,3 +28,14 @@ unique_name_in_owner = true
 unique_name_in_owner = true
 stream = ExtResource("3_7e3b1")
 bus = &"Sounds"
+
+[node name="Timer" type="Timer" parent="." index="5"]
+unique_name_in_owner = true
+one_shot = true
+
+[node name="snd_timer" type="AudioStreamPlayer3D" parent="." index="6"]
+unique_name_in_owner = true
+stream = ExtResource("4_nhk4r")
+unit_size = 50.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
