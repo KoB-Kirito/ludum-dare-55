@@ -18,8 +18,8 @@ extends CharacterBody3D
 var weapon: Weapon
 var weapon_index := 0
 
-var mouse_sensitivity = 700
-var gamepad_sensitivity := 0.075
+var mouse_sensitivity = 700 #TODO: Add to settings
+var gamepad_sensitivity := 0.075 #TODO: Add to settings
 
 var mouse_captured := true
 
@@ -28,7 +28,7 @@ var rotation_target: Vector3
 
 var input_mouse: Vector2
 
-@export var health:int = 2
+@export var health:int = 10
 var gravity := 0.0
 
 var previously_floored := false
@@ -38,7 +38,7 @@ var jump_double := true
 
 var container_offset = Vector3(1.2, -1.1, -2.75)
 
-var tween:Tween
+var tween: Tween
 
 var paused: bool
 
@@ -53,6 +53,9 @@ func _ready():
 	
 	weapon = weapons[weapon_index] # Weapon must never be nil
 	initiate_change_weapon(weapon_index)
+	
+	Events.health_updated.emit(health)
+
 
 func _physics_process(delta):
 	if paused:
@@ -106,10 +109,14 @@ func _physics_process(delta):
 	
 	# Falling/respawning
 	if position.y < death_height:
-		get_tree().reload_current_scene()
+		die()
 
 
 # Mouse capture
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("mouse_capture"):
+		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+
 func on_game_unpaused() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	mouse_captured = true
@@ -127,11 +134,6 @@ func _input(event):
 		
 		rotation_target.y -= event.relative.x / mouse_sensitivity
 		rotation_target.x -= event.relative.y / mouse_sensitivity
-
-
-func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("mouse_capture"):
-		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 
 func handle_controls(_delta):
@@ -158,18 +160,18 @@ func handle_controls(_delta):
 		if jump_strength <= 0:
 			return
 		
-		if jump_single or jump_double:
+		if jump_single or (jump_double and is_ghost):
 			if is_ghost:
 				%snd_jump_ghost.play()
 			else:
 				%snd_jump.play()
 		
-		if jump_double:
+		if jump_double and is_ghost: #only ghost can double jump
 			
 			gravity = -jump_strength
 			jump_double = false
 			
-		if(jump_single): action_jump()
+		if jump_single: action_jump()
 		
 	# Weapon switching
 	
@@ -418,8 +420,28 @@ func change_weapon():
 
 
 func damage(amount):
+	if paused:
+		return
+	
+	if is_ghost:
+		return_to_host()
+		damage(1)
+		return
+	
 	health -= amount
+	if health < 0:
+		health = 0
 	Events.health_updated.emit(health)
 	
-	if health < 0:
-		get_tree().reload_current_scene() # Reset when out of health
+	if health <= 0:
+		die()
+
+
+func die() -> void:
+	if is_ghost:
+		return_to_host()
+		damage(1)
+	else:
+		# reload current scene
+		paused = true
+		SceneTransition.change_scene(get_tree().current_scene.scene_file_path, 1, 3.0, Color.RED)
