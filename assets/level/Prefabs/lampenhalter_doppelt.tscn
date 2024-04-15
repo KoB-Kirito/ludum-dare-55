@@ -52,12 +52,10 @@ mesh = SubResource("ArrayMesh_r7sv2")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.25, 3.02209, -2.5)
 light_color = Color(0.890196, 0.756863, 0, 1)
 light_bake_mode = 1
-shadow_enabled = true
 omni_range = 12.0
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="LAmpenhalter_001" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.25, 3.02209, 2.5)
 light_color = Color(0.890196, 0.756863, 0, 1)
 light_bake_mode = 1
-shadow_enabled = true
 omni_range = 12.0
