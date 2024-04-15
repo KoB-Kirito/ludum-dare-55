@@ -13,6 +13,8 @@ extends Area3D
 
 func _on_body_entered(body: Node3D) -> void:
 	if body is Player:
+		if body.is_ghost:
+			return
 		change_level()
 
 func change_level() -> void:
