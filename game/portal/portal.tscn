@@ -1,23 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://dfv2oi8kmmq5s"]
+[gd_scene load_steps=3 format=3 uid="uid://dfv2oi8kmmq5s"]
 
-[ext_resource type="Texture2D" uid="uid://dki3pbjewgxvg" path="res://assets/textures/prototyping/green.png" id="1_ccqjy"]
 [ext_resource type="Script" path="res://game/portal/portal.gd" id="1_evp4g"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ruqnv"]
-albedo_texture = ExtResource("1_ccqjy")
-uv1_triplanar = true
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_lcdol"]
-material = SubResource("StandardMaterial3D_ruqnv")
-height = 0.1
-radial_segments = 32
-rings = 1
+[ext_resource type="PackedScene" uid="uid://bbjun3acdsfqo" path="res://assets/props/MagicCircle.gltf" id="2_eiwpi"]
 
 [node name="Portal" type="Node3D"]
 script = ExtResource("1_evp4g")
 
-[node name="Placeholder" type="MeshInstance3D" parent="."]
-mesh = SubResource("CylinderMesh_lcdol")
+[node name="MagicCircle" parent="." instance=ExtResource("2_eiwpi")]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 0.01, 0)
 
 [node name="Timer" type="Timer" parent="."]
 unique_name_in_owner = true
