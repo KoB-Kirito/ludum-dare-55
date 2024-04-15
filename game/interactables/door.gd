@@ -1,15 +1,25 @@
+@tool
 class_name Door
 extends Triggerable
 
 
 ## Open and close in editor
+@export var _trigger: bool:
+	set(value):
+		trigger()
+	get:
+		return false
+
+## Should the door be considered open currently
 @export var open: bool:
 	set(value):
-		print("test")
-		if Engine.is_editor_hint():
-			trigger()
+		_open = value
+		open = value
+		update_original_rotation()
 	get:
-		return is_open
+		return _open
+
+var _open: bool
 
 @export_subgroup("Settings")
 ## Duration for closing/opening
@@ -23,28 +33,33 @@ extends Triggerable
 
 var original_rotation: Vector3
 
+
 func _ready() -> void:
-	#TODO: Find why door has wrong angle sometimes when level loads..
-	#if Engine.is_editor_hint():
-	#	return
-	
-	original_rotation = rotation_degrees
-	set_state(open)
+	update_original_rotation()
+
+
+func update_original_rotation() -> void:
+	if open:
+		if direction == 0: # left
+			original_rotation = rotation_degrees - Vector3(0, 90, 0)
+		else: # right
+			original_rotation = rotation_degrees + Vector3(0, 90, 0)
+	else:
+		original_rotation = rotation_degrees
+
 
 func trigger() -> void:
 	%snd_squeak.play()
-	set_state(!open)
-
-func set_state(set_open: bool) -> void:
+	
 	var tween = create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_QUAD)
-	if !set_open:
+	if open:
 		# close door
-		open = false
-		#BUG: Tween uses wrong direction sometimes, needs better rotate function
+		_open = false
 		tween.tween_property(door_node, "rotation_degrees", original_rotation, duration)
+		
 	else:
 		# open door
-		open = true
+		_open = true
 		if direction == 0: # left
 			tween.tween_property(door_node, "rotation_degrees", original_rotation + Vector3(0, 90, 0), duration)
 		else:
