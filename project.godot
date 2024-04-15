@@ -39,10 +39,6 @@ window/size/viewport_height=1080
 
 project/assembly_name="Ludum Dare 55"
 
-[editor_plugins]
-
-enabled=PackedStringArray("res://addons/Mirror/plugin.cfg")
-
 [global_group]
 
 player=""
