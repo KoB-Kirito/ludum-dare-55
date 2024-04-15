@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://buq7shu7sdsl2"]
+
+[ext_resource type="PackedScene" uid="uid://c6g8hkdwtvq2a" path="res://assets/props/Platzierbar/Vase.complete.gltf" id="1_5etwn"]
+
+[node name="Vase_complete" instance=ExtResource("1_5etwn")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0.184541, 8.23996, 8.21494)

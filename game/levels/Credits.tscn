@@ -1,8 +1,16 @@
-[gd_scene load_steps=8 format=3 uid="uid://bt433eh1gddye"]
+[gd_scene load_steps=16 format=3 uid="uid://bt433eh1gddye"]
 
 [ext_resource type="MeshLibrary" uid="uid://dcl27y21ygg87" path="res://game/levels/catacomb_library.tres" id="1_3xwxl"]
 [ext_resource type="PackedScene" uid="uid://dl2ed4gkybggf" path="res://game/player/player.tscn" id="2_tpiof"]
 [ext_resource type="PackedScene" uid="uid://w4dr7ggk5vd0" path="res://game/levels/level_change.tscn" id="3_phixf"]
+[ext_resource type="Texture2D" uid="uid://ckc0euwcbe6aj" path="res://assets/art/Karatoz.png" id="4_8t1gg"]
+[ext_resource type="Texture2D" uid="uid://cqrakoed62llh" path="res://assets/art/Haira.png" id="4_wietq"]
+[ext_resource type="Texture2D" uid="uid://bswtbwbmlpj7p" path="res://assets/art/Kiritoast.png" id="6_way60"]
+[ext_resource type="Texture2D" uid="uid://c8r3lxi33aa63" path="res://assets/art/Matafura.png" id="7_5v3ww"]
+[ext_resource type="Texture2D" uid="uid://chc2c6gaofsov" path="res://assets/art/Morio.png" id="8_kpwau"]
+[ext_resource type="Texture2D" uid="uid://bdig0ds2d8r0j" path="res://assets/art/Nieko.png" id="9_abd3d"]
+[ext_resource type="Texture2D" uid="uid://dnoj8mir3lnak" path="res://assets/art/TheWhiteShadow.png" id="10_6gq04"]
+[ext_resource type="Texture2D" uid="uid://c4nma8mhqtjn7" path="res://assets/art/Vero.png" id="11_4tet5"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_x15p8"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -54,3 +62,38 @@ next_level = "res://game/levels/endscene.tscn"
 [node name="CollisionShape3D" type="CollisionShape3D" parent="LevelChange"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.48634, 1.52113, 2.17178)
 shape = SubResource("BoxShape3D_xh2m7")
+
+[node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(-1.09278e-08, 0, 0.25, 0, 0.25, 0, -0.25, 0, -1.09278e-08, -4.4, 2.5, -14.5)
+
+[node name="Karetoz" type="Sprite3D" parent="."]
+transform = Transform3D(-1.09278e-08, 0, 0.25, 0, 0.25, 0, -0.25, 0, -1.09278e-08, -4.4, 2.55, -6.5)
+texture = ExtResource("4_8t1gg")
+
+[node name="Haira" type="Sprite3D" parent="."]
+transform = Transform3D(-1.09278e-08, 0, 0.25, 0, 0.25, 0, -0.25, 0, -1.09278e-08, -4.4, 2.55, -14.5)
+texture = ExtResource("4_wietq")
+
+[node name="Kirito" type="Sprite3D" parent="."]
+transform = Transform3D(-1.09278e-08, 0, 0.25, 0, 0.25, 0, -0.25, 0, -1.09278e-08, -4.4, 2.55, 1.5)
+texture = ExtResource("6_way60")
+
+[node name="Matafura" type="Sprite3D" parent="."]
+transform = Transform3D(-1.09278e-08, 0, 0.25, 0, 0.25, 0, -0.25, 0, -1.09278e-08, -4.4, 2.55, 9.5)
+texture = ExtResource("7_5v3ww")
+
+[node name="Morio" type="Sprite3D" parent="."]
+transform = Transform3D(-1.09278e-08, 0, -0.25, 0, 0.25, 0, 0.25, 0, -1.09278e-08, 3.48, 2.55, 9.5)
+texture = ExtResource("8_kpwau")
+
+[node name="Nieko" type="Sprite3D" parent="."]
+transform = Transform3D(-1.09278e-08, 0, -0.25, 0, 0.25, 0, 0.25, 0, -1.09278e-08, 3.48, 2.55, 1.5)
+texture = ExtResource("9_abd3d")
+
+[node name="TheWhiteShadow" type="Sprite3D" parent="."]
+transform = Transform3D(-1.09278e-08, 0, -0.25, 0, 0.25, 0, 0.25, 0, -1.09278e-08, 3.48, 2.55, -6.5)
+texture = ExtResource("10_6gq04")
+
+[node name="Vero" type="Sprite3D" parent="."]
+transform = Transform3D(-1.09278e-08, 0, -0.25, 0, 0.25, 0, 0.25, 0, -1.09278e-08, 3.48, 2.55, -14.5)
+texture = ExtResource("11_4tet5")

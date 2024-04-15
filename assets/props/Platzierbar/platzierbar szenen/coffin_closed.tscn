@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c353pva3mtvfj"]
+
+[ext_resource type="PackedScene" uid="uid://cw7j7x7eesyyg" path="res://assets/props/Platzierbar/Coffin.closed.gltf" id="1_m0h5e"]
+
+[node name="Coffin_closed" instance=ExtResource("1_m0h5e")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.184541, 8.23996, 8.21494)

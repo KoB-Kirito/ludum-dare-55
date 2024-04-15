@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dck84gg81ux0k"]
+
+[ext_resource type="PackedScene" uid="uid://cah71aacl7h6a" path="res://assets/props/Platzierbar/Chest.gltf" id="1_spwgw"]
+
+[node name="Chest" instance=ExtResource("1_spwgw")]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0.184541, 8.23996, 8.21494)
