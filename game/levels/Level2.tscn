@@ -8,7 +8,6 @@
 [ext_resource type="MeshLibrary" uid="uid://dcl27y21ygg87" path="res://game/levels/catacomb_library.tres" id="5_nddyr"]
 [ext_resource type="PackedScene" uid="uid://dngecpumrjuld" path="res://game/levels/start_position.tscn" id="6_3wfls"]
 [ext_resource type="PackedScene" uid="uid://cecjlhtylvfhm" path="res://assets/level/Prefabs/FahrendePlattform.tscn" id="7_53pa4"]
-[ext_resource type="PackedScene" uid="uid://dby1i5lwkb3yv" path="res://props/vortex/vortex.tscn" id="7_bw3nj"]
 [ext_resource type="PackedScene" uid="uid://d2g7h05bqa62" path="res://assets/props/Steinplatte.gltf" id="7_geuk0"]
 [ext_resource type="PackedScene" uid="uid://dp6sg6cpfoapb" path="res://game/interactables/switch.tscn" id="7_y2six"]
 [ext_resource type="PackedScene" uid="uid://c2pof5fu2gsu4" path="res://game/interactables/prison_door.tscn" id="8_5vwbn"]
@@ -20,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://c353pva3mtvfj" path="res://assets/props/Platzierbar/platzierbar szenen/coffin_closed.tscn" id="14_koobl"]
 [ext_resource type="PackedScene" uid="uid://bmv8gs4cs6sht" path="res://assets/props/Platzierbar/platzierbar szenen/coffin_open.tscn" id="15_iupkq"]
 [ext_resource type="PackedScene" uid="uid://wd7frjgyeqkf" path="res://assets/props/Platzierbar/platzierbar szenen/coffin_lid.tscn" id="16_1e2gf"]
+[ext_resource type="PackedScene" uid="uid://mdfriwwgswig" path="res://props/vortex/vortex_levelexit.tscn" id="17_jm75f"]
 [ext_resource type="PackedScene" uid="uid://l8apobayljhy" path="res://game/enemies/enemy.tscn" id="17_x3p2t"]
 
 [sub_resource type="Environment" id="Environment_lf4lc"]
@@ -141,7 +141,7 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -27.9,
 light_data = ExtResource("2_3fbkj")
 
 [node name="StartPosition" parent="." instance=ExtResource("6_3wfls")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -22, 8, -57)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1, 2, 41)
 
 [node name="Assets" type="Node3D" parent="."]
 
@@ -162,14 +162,13 @@ targets = [NodePath("../Tuer_Halle-Links")]
 area = NodePath("Area3D")
 
 [node name="Tuer_Halle-Links" parent="Assets" node_paths=PackedStringArray("door_node") instance=ExtResource("4_yjak7")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -27, 2, 0)
-open = true
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -27, 2, 0)
 door_node = NodePath(".")
 
 [node name="Switch_Halle-Rechts" parent="Assets" node_paths=PackedStringArray("targets", "area") instance=ExtResource("7_y2six")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 29.1, -2, 9)
 only_once = true
-targets = [NodePath("../Tuer_Halle-Rechts")]
+targets = [NodePath("../Tuer_Halle-Rechts"), NodePath("../VortexOrigin")]
 area = NodePath("Area3D")
 
 [node name="Tuer_Halle-Rechts" parent="Assets" node_paths=PackedStringArray("door_node") instance=ExtResource("4_yjak7")]
@@ -178,6 +177,7 @@ door_node = NodePath(".")
 
 [node name="Switch_Balkon" parent="Assets" node_paths=PackedStringArray("targets", "area") instance=ExtResource("7_y2six")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 7, 2, -43.15)
+only_once = true
 targets = [NodePath("../Tuer_Balkon-Links"), NodePath("../Tuer_Balkon_2")]
 area = NodePath("Area3D")
 
@@ -203,11 +203,6 @@ door_node = NodePath(".")
 [node name="PrisonDoor_Hintergang" parent="Assets" node_paths=PackedStringArray("door_node") instance=ExtResource("8_5vwbn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23, -4, -67)
 door_node = NodePath("door_angle")
-
-[node name="Switch_Gang" parent="Assets" node_paths=PackedStringArray("targets", "area") instance=ExtResource("7_y2six")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23, -4, -74.85)
-targets = [NodePath("../PrisonDoor_Gang1"), NodePath("../PrisonDoor_Gang2")]
-area = NodePath("Area3D")
 
 [node name="Switch_Gitterrätsel1" parent="Assets" node_paths=PackedStringArray("targets", "area") instance=ExtResource("7_y2six")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -41, 4, -19.1)
@@ -241,6 +236,11 @@ door_node = NodePath("door_angle")
 transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -38, 2, -5)
 direction = 1
 door_node = NodePath("door_angle")
+
+[node name="Switch_Gang" parent="Assets" node_paths=PackedStringArray("targets", "area") instance=ExtResource("7_y2six")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23, -4, -74.85)
+targets = [NodePath("../PrisonDoor_Gang1"), NodePath("../PrisonDoor_Gang2")]
+area = NodePath("Area3D")
 
 [node name="PrisonDoor_Gang1" parent="Assets" node_paths=PackedStringArray("door_node") instance=ExtResource("8_5vwbn")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -27, -4, -63)
@@ -342,9 +342,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23, -4.05, -71)
 
 [node name="Steinplatte2" parent="Assets/Props" instance=ExtResource("7_geuk0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41, -4.05, -39)
-
-[node name="StrudelPortal" parent="Assets/Props" instance=ExtResource("7_bw3nj")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 1.185, -8, 1.043)
 
 [node name="Gitter3" parent="Assets/Props" instance=ExtResource("3_0fd84")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -43, -4, -35)
@@ -612,6 +609,10 @@ transform = Transform3D(0.0839057, -0.180598, -0.0185481, 0.139863, 0.0773295, -
 
 [node name="HoleBox2" parent="Assets" instance=ExtResource("11_5bikf")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 1, -10, 1)
+
+[node name="VortexOrigin" parent="Assets" node_paths=PackedStringArray("door_node") instance=ExtResource("17_jm75f")]
+transform = Transform3D(-8.74228e-08, 0, -2, 0, 2, 0, 2, 0, -8.74228e-08, 13.185, -12, 13.043)
+door_node = NodePath(".")
 
 [node name="GridMap" type="GridMap" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
