@@ -560,13 +560,13 @@ transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -36.4977, 6.01539, -50.
 transform = Transform3D(0.513533, -0.30259, 0.0687246, 0, 0.132888, 0.585099, -0.310297, -0.500779, 0.113737, -41.6502, 6.17487, -49.7706)
 
 [node name="Vase_complete5" parent="Assets/Props" instance=ExtResource("13_ooe13")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -50.9169, 4.01124, -4.95432)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -50.917, 4, -4.954)
 
 [node name="Vase_complete6" parent="Assets/Props" instance=ExtResource("13_ooe13")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -50.9169, 2.01124, -16.9543)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -50.917, 2, -16.954)
 
 [node name="Vase_complete7" parent="Assets/Props" instance=ExtResource("13_ooe13")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -50.9448, 0.0494485, -28.9776)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -50.945, 0, -28.978)
 
 [node name="Vase_complete3" parent="Assets/Props" instance=ExtResource("13_ooe13")]
 transform = Transform3D(0.565347, 0.173497, -0.1014, -0.200955, 0.488098, -0.285267, 0, 0.302753, 0.518016, -35.6701, 2.01539, -4.32477)
