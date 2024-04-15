@@ -31,6 +31,12 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 import_script/path=""
 _subresources={
+"materials": {
+"Stonefloor": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/props/Mat_Fliesen.tres"
+}
+},
 "nodes": {
 "PATH:Säulenfuß_2m": {
 "generate/physics": true

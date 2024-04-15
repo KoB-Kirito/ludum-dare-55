@@ -16,8 +16,8 @@ radius = 0.336101
 height = 1.90693
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_lsm5a"]
-height = 1.92994
-radius = 3.00361
+height = 6.0
+radius = 10.0
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_uky5q"]
 height = 1.9126
@@ -27,10 +27,17 @@ radius = 0.380865
 collision_layer = 4
 collision_mask = 2
 script = ExtResource("1_ucyes")
+speed = 3
 
 [node name="Mesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 material_override = SubResource("ShaderMaterial_888as")
 mesh = ExtResource("3_68qw5")
+
+[node name="RayCast3D" type="RayCast3D" parent="Mesh"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0.718731, 0)
+target_position = Vector3(0, 0, -10)
+collision_mask = 2
 
 [node name="Collision" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.951236, 0)
@@ -41,7 +48,7 @@ collision_layer = 4
 collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DetectionZone"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.964183, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CylinderShape3D_lsm5a")
 
 [node name="HitZone" type="Area3D" parent="."]

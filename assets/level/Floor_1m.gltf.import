@@ -31,6 +31,12 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 import_script/path=""
 _subresources={
+"materials": {
+"Stonefloor": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/props/Mat_Fliesen.tres"
+}
+},
 "meshes": {
 "Floor_1m_Floor_1m": {
 "generate/lightmap_uv": 1,

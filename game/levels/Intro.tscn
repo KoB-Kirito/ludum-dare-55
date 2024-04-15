@@ -1,11 +1,10 @@
-[gd_scene load_steps=15 format=3 uid="uid://bqlddqobw8i33"]
+[gd_scene load_steps=14 format=3 uid="uid://bqlddqobw8i33"]
 
 [ext_resource type="MeshLibrary" uid="uid://dcl27y21ygg87" path="res://game/levels/catacomb_library.tres" id="1_g3xuq"]
 [ext_resource type="PackedScene" uid="uid://d1htal1nhmtti" path="res://assets/level/Prefabs/gitter.tscn" id="2_cowrd"]
 [ext_resource type="PackedScene" uid="uid://qvgyfqnahbwn" path="res://assets/level/Prefabs/lampenhalter_2.tscn" id="3_p1587"]
 [ext_resource type="PackedScene" uid="uid://c0aj316lafapy" path="res://assets/level/Prefabs/lampenhalter_doppelt.tscn" id="4_u2tk6"]
 [ext_resource type="LightmapGIData" uid="uid://d37bn2qr5xgir" path="res://game/levels/Level1.lmbake" id="5_o32nn"]
-[ext_resource type="PackedScene" uid="uid://xf17rtpdoi25" path="res://game/interactables/switch_old.tscn" id="6_nm2ba"]
 [ext_resource type="PackedScene" uid="uid://bm32nuprjimv7" path="res://game/interactables/tuer_2.tscn" id="7_jfpxs"]
 [ext_resource type="PackedScene" uid="uid://bjk027kb5bktk" path="res://game/player/ZaubererNurArmature.glb" id="9_3wouw"]
 
@@ -249,10 +248,6 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 25, 3,
 light_data = ExtResource("5_o32nn")
 
 [node name="Assets" type="Node3D" parent="."]
-
-[node name="Switch" parent="Assets" node_paths=PackedStringArray("targets") instance=ExtResource("6_nm2ba")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.25532, 5, -25.5)
-targets = [NodePath("../Tuer2")]
 
 [node name="Tuer2" parent="Assets" instance=ExtResource("7_jfpxs")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -7, 4.25, -28)

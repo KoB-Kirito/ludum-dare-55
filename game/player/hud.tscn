@@ -30,7 +30,7 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Countdown" type="Label" parent="."]
+[node name="CountdownLabel" type="Label" parent="."]
 unique_name_in_owner = true
 visible = false
 anchors_preset = 1
@@ -44,7 +44,7 @@ grow_horizontal = 0
 theme_override_font_sizes/font_size = 36
 text = "10.0"
 
-[node name="CountdownTimer" type="Timer" parent="Countdown"]
+[node name="CountdownTimer" type="Timer" parent="CountdownLabel"]
 unique_name_in_owner = true
 one_shot = true
 
@@ -60,4 +60,15 @@ grow_vertical = 2
 texture = ExtResource("2_ncv6q")
 expand_mode = 2
 
-[connection signal="timeout" from="Countdown/CountdownTimer" to="." method="_on_countdown_timer_timeout"]
+[node name="HealthLabel" type="Label" parent="."]
+unique_name_in_owner = true
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 30.0
+offset_top = -74.0
+offset_right = 72.0
+offset_bottom = -24.0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 36
+text = "10"

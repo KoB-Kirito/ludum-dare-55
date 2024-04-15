@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dp6sg6cpfoapb"]
 
-[ext_resource type="PackedScene" uid="uid://dkh2x3guax1nu" path="res://assets/level/Switch.gltf" id="1_025gs"]
+[ext_resource type="PackedScene" uid="uid://dkh2x3guax1nu" path="res://assets/props/Switch.gltf" id="1_025gs"]
 [ext_resource type="Script" path="res://game/interactables/switch.gd" id="1_57ffm"]
 [ext_resource type="AudioStream" uid="uid://by3ftyfxxk6uu" path="res://assets/audio/sounds/pressed_button.wav" id="3_7e3b1"]
 
