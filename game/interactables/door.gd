@@ -41,11 +41,11 @@ func _ready() -> void:
 func update_original_rotation() -> void:
 	if open:
 		if direction == 0: # left
-			original_rotation = rotation_degrees - Vector3(0, 90, 0)
+			original_rotation = door_node.rotation_degrees - Vector3(0, 90, 0)
 		else: # right
-			original_rotation = rotation_degrees + Vector3(0, 90, 0)
+			original_rotation = door_node.rotation_degrees + Vector3(0, 90, 0)
 	else:
-		original_rotation = rotation_degrees
+		original_rotation = door_node.rotation_degrees
 
 
 func trigger() -> void:
