@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bjk027kb5bktk"
-path="res://.godot/imported/ZaubererNurArmature.glb-34f43be9592af1c8fa0ff253aee8a7ba.scn"
+uid="uid://bd3047ijp5m2t"
+path="res://.godot/imported/ZaubererClean.glb-87639b48c00bc69ac6537ff0d2ec5f38.scn"
 
 [deps]
 
-source_file="res://game/player/ZaubererNurArmature.glb"
-dest_files=["res://.godot/imported/ZaubererNurArmature.glb-34f43be9592af1c8fa0ff253aee8a7ba.scn"]
+source_file="res://game/levels/ZaubererClean.glb"
+dest_files=["res://.godot/imported/ZaubererClean.glb-87639b48c00bc69ac6537ff0d2ec5f38.scn"]
 
 [params]
 

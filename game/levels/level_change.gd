@@ -13,5 +13,10 @@ extends Area3D
 
 func _on_body_entered(body: Node3D) -> void:
 	if body is Player:
-		body.paused = true 
-		SceneTransition.change_scene(next_level, animation, duration, color)
+		change_level()
+
+func change_level() -> void:
+	var player: Player = get_tree().get_first_node_in_group("player")
+	if is_instance_valid(player):
+		player.paused = true 
+	SceneTransition.change_scene(next_level, animation, duration, color)

@@ -1,12 +1,14 @@
-[gd_scene load_steps=14 format=3 uid="uid://bqlddqobw8i33"]
+[gd_scene load_steps=16 format=3 uid="uid://bqlddqobw8i33"]
 
 [ext_resource type="MeshLibrary" uid="uid://dcl27y21ygg87" path="res://game/levels/catacomb_library.tres" id="1_g3xuq"]
+[ext_resource type="Script" path="res://game/levels/intro.gd" id="1_yaehg"]
 [ext_resource type="PackedScene" uid="uid://d1htal1nhmtti" path="res://assets/level/Prefabs/gitter.tscn" id="2_cowrd"]
 [ext_resource type="PackedScene" uid="uid://qvgyfqnahbwn" path="res://assets/level/Prefabs/lampenhalter_2.tscn" id="3_p1587"]
+[ext_resource type="PackedScene" uid="uid://c2pof5fu2gsu4" path="res://game/interactables/prison_door.tscn" id="4_jistk"]
 [ext_resource type="PackedScene" uid="uid://c0aj316lafapy" path="res://assets/level/Prefabs/lampenhalter_doppelt.tscn" id="4_u2tk6"]
 [ext_resource type="LightmapGIData" uid="uid://d37bn2qr5xgir" path="res://game/levels/Level1.lmbake" id="5_o32nn"]
-[ext_resource type="PackedScene" uid="uid://bm32nuprjimv7" path="res://game/interactables/tuer_2.tscn" id="7_jfpxs"]
-[ext_resource type="PackedScene" uid="uid://bjk027kb5bktk" path="res://game/player/ZaubererNurArmature.glb" id="9_3wouw"]
+[ext_resource type="PackedScene" uid="uid://w4dr7ggk5vd0" path="res://game/levels/level_change.tscn" id="9_7rcdi"]
+[ext_resource type="PackedScene" uid="uid://becpr7gre276j" path="res://game/player/Zauberer.tscn" id="9_vpidh"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_x15p8"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -26,7 +28,7 @@ fog_density = 0.05
 
 [sub_resource type="Animation" id="Animation_ygj86"]
 resource_name = "Intro"
-length = 15.0
+length = 12.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -34,10 +36,10 @@ tracks/0/path = NodePath("Camera3D:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 2, 4, 6, 8, 10, 12),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 8),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(0, 3.14159, 0), Vector3(0, 2.18166, 0), Vector3(0, 1.22173, 0), Vector3(0, 0.349066, 0), Vector3(0, 1.22173, 0), Vector3(-0.174533, 1.22173, 0), Vector3(-0.287979, 0.802851, 0)]
+"values": [Vector3(0, 1.5708, 0), Vector3(-0.0785398, 1.5708, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -46,10 +48,10 @@ tracks/1/path = NodePath("Camera3D:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 2, 4, 6, 8, 10, 12),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 8),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(4.41854, 10.289, 0), Vector3(5.069, 10.289, 9.536), Vector3(1.46875, 10.289, 12.7925), Vector3(-0.937219, 10.289, 12.7925), Vector3(-0.937219, 10.289, 9.39269), Vector3(-4.997, 10.289, 7.058), Vector3(-11.787, 9.284, 6.563)]
+"values": [Vector3(6.479, 9.304, 4.926), Vector3(-5.5, 9.304, 4.926)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -58,10 +60,94 @@ tracks/2/path = NodePath("Camera3D:fov")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 10, 12),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [20.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("GridMap/PrisonDoor:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 6, 7, 8),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 0.785398, 0), Vector3(0, 1.5708, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("GridMap/PrisonDoor:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 6, 7, 7.5, 8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-6, 0.25, 6), Vector3(-6, 0.25, 6), Vector3(-6.3, 0.25, 5.3), Vector3(-6.65, 0.25, 5.09), Vector3(-7, 0.25, 5)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("ZaubererClean2:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 3, 6, 8),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-3, 8.325, -1), Vector3(-3, 8.325, 5), Vector3(-11, 8.325, 5), Vector3(-11, 8.325, 5)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("ZaubererClean2:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 2.7, 3, 6, 8, 9.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, -1.5708, 0), Vector3(0, -1.5708, 0), Vector3(0, 1.5708, 0), Vector3(0, 1.5708, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("ZaubererClean2:scale")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 3, 6),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [41.0, 41.0, 41.0]
+"values": [Vector3(1, 1, 1), Vector3(1, 1, 1), Vector3(1, 1, 1)]
+}
+tracks/8/type = "animation"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("ZaubererClean2/AnimationPlayer")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"clips": PackedStringArray("run ", "run ", "Idle"),
+"times": PackedFloat32Array(0, 2.8, 6)
+}
+tracks/9/type = "method"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("LevelChange")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(12),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"change_level"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_vweyc"]
@@ -102,6 +188,66 @@ tracks/2/keys = {
 "update": 0,
 "values": [41.0]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("GridMap/PrisonDoor:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("GridMap/PrisonDoor:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-6, 0.25, 6)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("ZaubererClean2:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-3, 8.325, -1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("ZaubererClean2:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("ZaubererClean2:scale")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1, 1)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3g18y"]
 _data = {
@@ -109,7 +255,8 @@ _data = {
 "RESET": SubResource("Animation_vweyc")
 }
 
-[node name="Level1" type="Node3D"]
+[node name="Intro" type="Node3D"]
+script = ExtResource("1_yaehg")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
@@ -127,14 +274,15 @@ data = {
 }
 metadata/_editor_floor_ = Vector3(0, -8, 0)
 
-[node name="Gitter" parent="GridMap" instance=ExtResource("2_cowrd")]
-transform = Transform3D(-0.0175397, 0, -0.999846, 0, 1, 0, 0.999846, 0, -0.0175397, -7, 0.25, 5)
-
 [node name="Gitter2" parent="GridMap" instance=ExtResource("2_cowrd")]
-transform = Transform3D(-0.0175397, 0, -0.999846, 0, 1, 0, 0.999846, 0, -0.0175397, -7, 0.25, 7)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -7, 0.25, 7)
 
 [node name="Gitter3" parent="GridMap" instance=ExtResource("2_cowrd")]
-transform = Transform3D(-0.0175397, 0, -0.999846, 0, 1, 0, 0.999846, 0, -0.0175397, -7, 0.25, 3)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -7.01064, 0.223161, 3.1018)
+
+[node name="PrisonDoor" parent="GridMap" node_paths=PackedStringArray("door_node") instance=ExtResource("4_jistk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0.25, 6)
+door_node = NodePath("door_angle")
 
 [node name="Lichter" type="Node3D" parent="."]
 visible = false
@@ -249,19 +397,30 @@ light_data = ExtResource("5_o32nn")
 
 [node name="Assets" type="Node3D" parent="."]
 
-[node name="Tuer2" parent="Assets" instance=ExtResource("7_jfpxs")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -7, 4.25, -28)
-direction = 1
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_3g18y")
 }
+autoplay = "Intro"
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(-1, 0, 2.53518e-06, 0, 1, 0, -2.53518e-06, 0, -1, 4.41854, 10.289, 0)
 fov = 41.0
 near = 0.001
 
-[node name="ZaubererNurArmature" parent="." instance=ExtResource("9_3wouw")]
-transform = Transform3D(0.0228968, -7.27596e-10, 0.999738, -7.29869e-11, 1, 0, -0.999739, -8.44011e-10, 0.0228968, -11.1995, 9.15316, 6.01479)
+[node name="ZaubererClean2" parent="." instance=ExtResource("9_vpidh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 8.325, -1)
+
+[node name="Skeleton3D" parent="ZaubererClean2/Armature" index="0"]
+bones/2/rotation = Quaternion(-0.325516, -5.28361e-18, -5.28361e-18, 0.945537)
+bones/3/rotation = Quaternion(4.88271e-08, 6.33898e-08, -0.82999, 0.557778)
+bones/4/rotation = Quaternion(4.70011e-08, 2.0926e-08, -0.259949, 0.965622)
+bones/5/rotation = Quaternion(4.88271e-08, -6.33898e-08, 0.82999, 0.557778)
+bones/6/rotation = Quaternion(4.72595e-08, -2.09954e-08, 0.261566, 0.965186)
+bones/8/rotation = Quaternion(-0.567122, -1.10687e-07, 2.15682e-07, 0.823634)
+bones/10/rotation = Quaternion(-0.567122, 1.10687e-07, -2.15682e-07, 0.823634)
+
+[node name="LevelChange" parent="." instance=ExtResource("9_7rcdi")]
+next_level = "res://game/levels/Level1.tscn"
+
+[editable path="ZaubererClean2"]
