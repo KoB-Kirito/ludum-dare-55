@@ -1,7 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://c0aj316lafapy"]
+[gd_scene load_steps=15 format=3 uid="uid://c0aj316lafapy"]
 
 [ext_resource type="PackedScene" uid="uid://iuoeh1xj3xsg" path="res://assets/level/Lampenhalter-Doppelt.gltf" id="1_sxtqx"]
 [ext_resource type="Texture2D" uid="uid://q8kmoeag1thp" path="res://assets/level/textures/a4b52f8ee2ec65b8c5cc17536de1f9f2.jpg" id="2_j6a5e"]
+[ext_resource type="Shader" uid="uid://b37sg3cks41uh" path="res://assets/level/Prefabs/lampenhalter_2.tres" id="3_sbfge"]
+[ext_resource type="Texture2D" uid="uid://b2qsyhex1sd5y" path="res://assets/level/textures/FlammeBlack.png" id="4_phqdr"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y5r02"]
 resource_name = "Kerzenständer"
@@ -43,6 +45,44 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_yp6ce")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tno6b"]
+render_priority = 0
+shader = ExtResource("3_sbfge")
+shader_parameter/Main_texture = ExtResource("4_phqdr")
+
+[sub_resource type="Gradient" id="Gradient_5yhlo"]
+offsets = PackedFloat32Array(0, 0.536364, 1)
+colors = PackedColorArray(0.939747, 0.806345, 0.705772, 1, 1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_baf6x"]
+gradient = SubResource("Gradient_5yhlo")
+
+[sub_resource type="Curve" id="Curve_8585e"]
+_data = [Vector2(0, 0.120879), 0.0, 0.0, 0, 0, Vector2(1e-05, 0.406593), 0.0, 0.0, 0, 0, Vector2(0.231884, 0.791209), 0.0, 0.0, 0, 0, Vector2(0.42029, 0), 0.0, 0.0, 0, 0, Vector2(0.572464, 0), 0.0, 0.0, 0, 0]
+point_count = 5
+
+[sub_resource type="CurveTexture" id="CurveTexture_o5w15"]
+curve = SubResource("Curve_8585e")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_khwyb"]
+emission_shape_offset = Vector3(0.5, 2.415, 0.47)
+angle_min = -90.0
+angle_max = 90.0
+angular_velocity_min = -90.0
+angular_velocity_max = 90.0
+gravity = Vector3(0, 3.85, 0)
+linear_accel_min = -2.23517e-06
+linear_accel_max = 5.0
+radial_accel_min = -2.23517e-06
+radial_accel_max = -2.23517e-06
+tangential_accel_min = -1.0
+tangential_accel_max = 0.999998
+scale_curve = SubResource("CurveTexture_o5w15")
+color_ramp = SubResource("GradientTexture1D_baf6x")
+
+[sub_resource type="QuadMesh" id="QuadMesh_4e7hr"]
+size = Vector2(0.6, 0.6)
+
 [node name="Lampenhalter-Doppelt" instance=ExtResource("1_sxtqx")]
 
 [node name="LAmpenhalter_001" parent="." index="0"]
@@ -59,3 +99,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.25, 3.02209, 2.5)
 light_color = Color(0.890196, 0.756863, 0, 1)
 light_bake_mode = 1
 omni_range = 12.0
+
+[node name="FeuerPartikel" type="GPUParticles3D" parent="LAmpenhalter_001" index="2"]
+transform = Transform3D(2.23517e-07, 0, 1.25, 0, 1.25, 0, -1.25, 0, 2.23517e-07, -0.0102758, -0.277982, 3.10201)
+material_override = SubResource("ShaderMaterial_tno6b")
+fixed_fps = 20
+visibility_aabb = AABB(-4, -4, -3.99365, 8, 8, 8)
+process_material = SubResource("ParticleProcessMaterial_khwyb")
+draw_pass_1 = SubResource("QuadMesh_4e7hr")
+
+[node name="FeuerPartikel2" type="GPUParticles3D" parent="LAmpenhalter_001" index="3"]
+transform = Transform3D(2.23517e-07, 0, 1.25, 0, 1.25, 0, -1.25, 0, 2.23517e-07, -0.0102758, -0.277982, -1.87986)
+material_override = SubResource("ShaderMaterial_tno6b")
+fixed_fps = 20
+visibility_aabb = AABB(-4, -4, -3.99365, 8, 8, 8)
+process_material = SubResource("ParticleProcessMaterial_khwyb")
+draw_pass_1 = SubResource("QuadMesh_4e7hr")
