@@ -44,6 +44,8 @@ var paused: bool
 
 @onready var camera: Camera3D = %Camera
 
+#@export var portal_cast: ShapeCast3D
+
 
 # Functions
 
@@ -65,6 +67,8 @@ func _ready():
 func _physics_process(delta):
 	if paused:
 		return
+	
+	update_dummy_portal_position()
 	
 	# Handle functions
 	
@@ -237,6 +241,9 @@ func action_shoot():
 		
 		# Shoot the weapon, amount based on shot count
 		
+		if portal_would_collide:
+			return
+		
 		for n in weapon.shot_count:
 		
 			%RayCast.target_position.x = randf_range(-weapon.spread, weapon.spread)
@@ -280,6 +287,29 @@ func action_shoot():
 var is_ghost: bool
 var host_placeholder: Node3D
 var host_transform: Transform3D
+
+
+func update_dummy_portal_position() -> void:
+	if is_ghost:
+		return
+	
+	%RayCast.force_raycast_update()
+	
+	if !%RayCast.is_colliding():
+		portal_would_collide = true
+		return
+	
+	var collision_point = %RayCast.get_collision_point()
+	var collision_normal = %RayCast.get_collision_normal()
+	
+	%PortalCast.global_transform = align_with_normal(%PortalCast.global_transform, collision_normal)
+	%PortalCast.global_position = collision_point + (collision_normal / 10)
+	
+	#%PortalCast.force_update_transform()
+	#%PortalCast.force_shapecast_update()
+	
+	#print(%PortalCast.is_colliding())
+	portal_would_collide = %PortalCast.is_colliding()
 
 
 func create_portal(collision_point: Vector3, collision_normal: Vector3) -> void:
@@ -463,3 +493,17 @@ func die() -> void:
 		# reload current scene
 		paused = true
 		SceneTransition.change_scene(get_tree().current_scene.scene_file_path, 1, 3.0, Color.RED)
+
+
+var portal_would_collide: bool = true:
+	set(value):
+		#print("setting value")
+		if value != portal_would_collide:
+			portal_would_collide = value
+			print("new value " + str(value))
+			if portal_would_collide:
+				%Hud.crosshair.modulate = Color(Color.RED, 0.2)
+			else:
+				%Hud.crosshair.modulate = Color(Color.AQUA, 0.8)
+	get:
+		return portal_would_collide

@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://dl2ed4gkybggf"]
+[gd_scene load_steps=23 format=3 uid="uid://dl2ed4gkybggf"]
 
 [ext_resource type="Script" path="res://game/player/player.gd" id="1_ffboj"]
 [ext_resource type="PackedScene" uid="uid://b7070gfoko4mo" path="res://game/weapons/impact.tscn" id="2_eptbn"]
@@ -16,6 +16,7 @@
 [ext_resource type="AudioStream" uid="uid://cq2q4rpvh6kdu" path="res://assets/audio/sounds/horror-ghost-sound.ogg" id="16_a0f7r"]
 [ext_resource type="AudioStream" uid="uid://bwocodmytylcy" path="res://assets/audio/sounds/poof.wav" id="16_qvt55"]
 [ext_resource type="AudioStream" uid="uid://4sil1plxllv4" path="res://assets/audio/sounds/magic.wav" id="17_74fm6"]
+[ext_resource type="PackedScene" uid="uid://8vht7grqo8ex" path="res://game/portal/portal_cast.tscn" id="17_138lr"]
 
 [sub_resource type="Resource" id="Resource_e0ywr"]
 script = ExtResource("2_xonqh")
@@ -24,7 +25,7 @@ position = Vector3(-0.7, 0.125, 1.565)
 rotation = Vector3(-15, 0, 0)
 muzzle_position = Vector3(0, 0, 0)
 cooldown = 1.0
-max_distance = 20
+max_distance = 16
 damage = 25.0
 spread = 0.0
 shot_count = 1
@@ -169,6 +170,9 @@ unique_name_in_owner = true
 one_shot = true
 
 [node name="Hud" parent="." instance=ExtResource("10_jvc7i")]
+unique_name_in_owner = true
+
+[node name="PortalCast" parent="." instance=ExtResource("17_138lr")]
 unique_name_in_owner = true
 
 [connection signal="timeout" from="GhostTimer" to="." method="return_to_host"]
