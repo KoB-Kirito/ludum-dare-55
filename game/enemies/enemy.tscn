@@ -65,6 +65,12 @@ unique_name_in_owner = true
 unique_name_in_owner = true
 one_shot = true
 
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+light_color = Color(1, 0, 0, 1)
+light_energy = 0.3
+omni_range = 4.0
+
 [connection signal="body_entered" from="DetectionZone" to="." method="_on_detection_zone_body_entered"]
 [connection signal="body_exited" from="DetectionZone" to="." method="_on_detection_zone_body_exited"]
 [connection signal="body_entered" from="HitZone" to="." method="_on_hit_zone_body_entered"]
