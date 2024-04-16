@@ -1,0 +1,165 @@
+[gd_scene load_steps=13 format=3 uid="uid://caou40ixgqwy7"]
+
+[ext_resource type="Script" path="res://game/levels/hauptmenü.gd" id="1_yto7w"]
+[ext_resource type="MeshLibrary" uid="uid://dcl27y21ygg87" path="res://game/levels/catacomb_library.tres" id="2_s2uxv"]
+[ext_resource type="PackedScene" uid="uid://becpr7gre276j" path="res://game/player/Zauberer.tscn" id="3_wflkc"]
+[ext_resource type="PackedScene" uid="uid://824y2kjrkwuh" path="res://assets/props/Platzierbar/platzierbar szenen/barrel.tscn" id="4_8at0i"]
+[ext_resource type="PackedScene" uid="uid://qvgyfqnahbwn" path="res://assets/level/Prefabs/lampenhalter_2.tscn" id="4_j3ixf"]
+[ext_resource type="PackedScene" uid="uid://bpqje5i0p3rp1" path="res://assets/ghost/Ghost.Wizard.gltf" id="4_jw0hs"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_x15p8"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_1y8n6"]
+sky_material = SubResource("ProceduralSkyMaterial_x15p8")
+
+[sub_resource type="Environment" id="Environment_lf4lc"]
+background_mode = 1
+background_color = Color(1, 1, 1, 1)
+sky = SubResource("Sky_1y8n6")
+ambient_light_source = 2
+ambient_light_color = Color(0.237886, 0.214235, 0.202732, 1)
+tonemap_mode = 2
+fog_enabled = true
+fog_light_color = Color(0.0744934, 0.13134, 0.186753, 1)
+fog_density = 0.05
+
+[sub_resource type="Animation" id="Animation_wiw4u"]
+resource_name = "title"
+loop_mode = 1
+tracks/0/type = "animation"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ZaubererClean/AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": PackedStringArray("Idle"),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ZaubererClean/Ghost_Wizard:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.0678816, 1.84309, 0.295576), Vector3(-0.0678816, 2.08544, 0.295576)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ZaubererClean/Ghost_Wizard:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -0.0105244, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_c8ve0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ZaubererClean/Ghost_Wizard:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.0678816, 1.84309, 0.295576)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ZaubererClean/Ghost_Wizard:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -0.0105244, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hmljm"]
+_data = {
+"RESET": SubResource("Animation_c8ve0"),
+"title": SubResource("Animation_wiw4u")
+}
+
+[node name="Credits" type="Node3D"]
+script = ExtResource("1_yto7w")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.265533, -0.517988, 0.813131, 0.13202, 0.815927, 0.562881, -0.95502, 0.256812, -0.148271, 18.4194, 10.2354, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_lf4lc")
+
+[node name="GridMap" type="GridMap" parent="."]
+mesh_library = ExtResource("2_s2uxv")
+cell_size = Vector3(1, 1, 1)
+data = {
+"cells": PackedInt32Array(7, 65520, 31, 7, 65528, 31, 65527, 65528, 31, 65527, 65520, 31, 65535, 65512, 1048607, 65527, 65512, 31, 7, 65512, 31, 131061, 65518, 24, 131065, 65518, 24, 65545, 65518, 24, 65541, 65518, 24, 196599, 65528, 31, 131079, 65528, 31, 327671, 65528, 31, 327679, 65528, 31, 262151, 65528, 31, 196599, 65524, 31, 131079, 65524, 31, 262133, 65522, 24, 262137, 65522, 24, 196613, 65522, 24, 196617, 65522, 24, 131059, 65512, 655388, 131063, 65508, 1048604, 131071, 65508, 1048604, 65543, 65508, 1048604, 65547, 65512, 28, 65547, 65520, 28, 131059, 65520, 655388, 393203, 65520, 655388, 393207, 65532, 1441820, 393215, 65532, 1441820, 327687, 65532, 1441820, 327691, 65520, 655388, 327691, 65512, 655388, 327687, 65508, 1048604, 393207, 65508, 1048604, 393215, 65508, 1048604, 393203, 65512, 655388, 655347, 65528, 655388, 655351, 65532, 1441820, 655359, 65532, 1441820, 589831, 65532, 1441820, 589835, 65528, 28, 589835, 65520, 28, 589835, 65512, 28, 655347, 65520, 655388, 655347, 65512, 655388, 655351, 65508, 1048604, 655359, 65508, 1048604, 589831, 65508, 1048604, 393203, 65528, 29, 327691, 65528, 29, 327663, 65528, 31, 262159, 65528, 31, 327695, 65532, 1441820, 393199, 65532, 1441820, 786423, 65512, 1441792, 786423, 65520, 1441792, 786423, 65528, 1441792, 786431, 65528, 1441792, 720903, 65528, 1441792, 786431, 65520, 1441792, 786431, 65512, 1441792, 720903, 65520, 1441792, 720903, 65512, 1441792, -65535, 65518, 655384, -3, 65518, 655384, -131075, 65522, 655384, -196607, 65522, 655384, -196609, 65528, 655391, -196617, 65528, 655391, -262137, 65528, 655391, -196609, 0, 655391, -262137, 0, 655391, -196617, 0, 655391, -262137, 65521, 655391, -196617, 65521, 655391, -262137, 65532, 1048604, -196609, 65532, 1048604, -196616, 65532, 1048604, 65535, 65532, 1048604, 196607, 65527, 1048607, 327679, 65527, 1048607, 393211, 65523, 36, 393215, 65523, 36)
+}
+metadata/_editor_floor_ = Vector3(0, 5, 0)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.97237, 0.0544967, 0.226995, 0, 0.97237, -0.233445, -0.233445, 0.226995, 0.945503, -0.15, 6.205, -10.22)
+fov = 90.0
+
+[node name="Lampenhalter2" parent="Camera3D" instance=ExtResource("4_j3ixf")]
+transform = Transform3D(0.97237, -4.15655e-09, -0.233446, 0.0544968, 0.97237, 0.226995, 0.226995, -0.233445, 0.945504, -3.89551, -6.03347, -17.7107)
+
+[node name="Lampenhalter3" parent="Camera3D" instance=ExtResource("4_j3ixf")]
+transform = Transform3D(0.97237, -4.3003e-09, -0.233446, 0.0544968, 0.97237, 0.226995, 0.226995, -0.233445, 0.945504, 3.88345, -5.59749, -15.8948)
+
+[node name="Lampenhalter4" parent="Camera3D" instance=ExtResource("4_j3ixf")]
+transform = Transform3D(0.972371, -4.44405e-09, -0.233446, 0.0544968, 0.97237, 0.226995, 0.226995, -0.233445, 0.945504, 11.6624, -5.16152, -14.0788)
+
+[node name="Barrel" parent="Camera3D/Lampenhalter4" instance=ExtResource("4_8at0i")]
+transform = Transform3D(0.3, 6.70552e-09, 8.94068e-09, 2.23517e-09, 0.3, -8.94069e-09, -1.3411e-08, 2.23517e-08, 0.3, -10.5173, 1.03492, 15.6081)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_hmljm")
+}
+
+[node name="ZaubererClean" parent="." instance=ExtResource("3_wflkc")]
+transform = Transform3D(0.863932, 0, 0.503608, 0, 1, 0, -0.503608, 0, 0.863932, -1.58779, 5.49142, -11.7895)
+
+[node name="Skeleton3D" parent="ZaubererClean/Armature" index="0"]
+bones/0/position = Vector3(0, -0.0511723, 0)
+bones/1/rotation = Quaternion(0.0402021, 0.000679059, 0.0167739, 0.999051)
+bones/2/rotation = Quaternion(-0.325393, -0.000766917, -0.00135261, 0.945578)
+bones/2/scale = Vector3(1, 1, 1)
+bones/3/rotation = Quaternion(4.88271e-08, 6.33898e-08, -0.82999, 0.557778)
+bones/3/scale = Vector3(1, 1, 1)
+bones/4/rotation = Quaternion(0.0356864, -0.0469087, -0.259497, 0.963944)
+bones/5/rotation = Quaternion(4.88271e-08, -6.33898e-08, 0.82999, 0.557778)
+bones/5/scale = Vector3(1, 1, 1)
+bones/6/rotation = Quaternion(-0.0294715, -0.0386052, 0.261257, 0.964047)
+bones/7/rotation = Quaternion(0.586994, 0.394257, 0.586993, -0.394257)
+bones/7/scale = Vector3(1, 1, 1)
+bones/8/rotation = Quaternion(-0.567122, -1.10687e-07, 2.15682e-07, 0.823634)
+bones/8/scale = Vector3(1, 1, 1)
+bones/9/rotation = Quaternion(0.586994, -0.394257, -0.586993, -0.394257)
+bones/9/scale = Vector3(1, 1, 1)
+bones/10/rotation = Quaternion(-0.567122, 1.10687e-07, -2.15682e-07, 0.823634)
+bones/10/scale = Vector3(1, 1, 1)
+
+[node name="Ghost_Wizard" parent="ZaubererClean" instance=ExtResource("4_jw0hs")]
+transform = Transform3D(0.999944, 0, -0.0105242, 0, 1, 0, 0.0105242, 0, 0.999944, -0.0678816, 1.84309, 0.295576)
+
+[editable path="ZaubererClean"]
+[editable path="ZaubererClean/Ghost_Wizard"]
