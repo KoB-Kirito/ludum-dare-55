@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://caou40ixgqwy7"]
+[gd_scene load_steps=14 format=3 uid="uid://t0a8lxap1huy"]
 
 [ext_resource type="Script" path="res://game/levels/hauptmenü.gd" id="1_yto7w"]
 [ext_resource type="MeshLibrary" uid="uid://dcl27y21ygg87" path="res://game/levels/catacomb_library.tres" id="2_s2uxv"]
@@ -25,6 +25,33 @@ tonemap_mode = 2
 fog_enabled = true
 fog_light_color = Color(0.0744934, 0.13134, 0.186753, 1)
 fog_density = 0.05
+
+[sub_resource type="Animation" id="Animation_c8ve0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ZaubererClean/Ghost_Wizard:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.0678816, 1.84309, 0.295576)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ZaubererClean/Ghost_Wizard:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -0.0105244, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_wiw4u"]
 resource_name = "title"
@@ -59,33 +86,6 @@ tracks/2/path = NodePath("ZaubererClean/Ghost_Wizard:rotation")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, -0.0105244, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_c8ve0"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ZaubererClean/Ghost_Wizard:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(-0.0678816, 1.84309, 0.295576)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("ZaubererClean/Ghost_Wizard:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
@@ -145,21 +145,8 @@ transform = Transform3D(0.863932, 0, 0.503608, 0, 1, 0, -0.503608, 0, 0.863932, 
 bones/0/position = Vector3(0, -0.0510433, 0)
 bones/1/rotation = Quaternion(0.0400481, 0.000676428, 0.0167116, 0.999058)
 bones/2/rotation = Quaternion(-0.325328, -0.00102312, -0.00161969, 0.945599)
-bones/2/scale = Vector3(1, 1, 1)
-bones/3/rotation = Quaternion(4.88271e-08, 6.33898e-08, -0.82999, 0.557778)
-bones/3/scale = Vector3(1, 1, 1)
 bones/4/rotation = Quaternion(0.0353575, -0.0464763, -0.259505, 0.963975)
-bones/5/rotation = Quaternion(4.88271e-08, -6.33898e-08, 0.82999, 0.557778)
-bones/5/scale = Vector3(1, 1, 1)
 bones/6/rotation = Quaternion(-0.0291761, -0.0382182, 0.261263, 0.964069)
-bones/7/rotation = Quaternion(0.586994, 0.394257, 0.586993, -0.394257)
-bones/7/scale = Vector3(1, 1, 1)
-bones/8/rotation = Quaternion(-0.567122, -1.10687e-07, 2.15682e-07, 0.823634)
-bones/8/scale = Vector3(1, 1, 1)
-bones/9/rotation = Quaternion(0.586994, -0.394257, -0.586993, -0.394257)
-bones/9/scale = Vector3(1, 1, 1)
-bones/10/rotation = Quaternion(-0.567122, 1.10687e-07, -2.15682e-07, 0.823634)
-bones/10/scale = Vector3(1, 1, 1)
 
 [node name="Ghost_Wizard" parent="ZaubererClean" instance=ExtResource("4_jw0hs")]
 transform = Transform3D(0.999944, 0, -0.0105242, 0, 1, 0, 0.0105242, 0, 0.999944, -0.0678816, 1.84309, 0.295576)

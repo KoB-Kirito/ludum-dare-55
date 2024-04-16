@@ -223,6 +223,9 @@ func action_shoot():
 		if not is_on_floor():
 			return
 		
+		if weapon.model == null:
+			return
+		
 		%snd_shoot.play()
 		
 		%Container.position.z += 0.25 # Knockback of weapon visual

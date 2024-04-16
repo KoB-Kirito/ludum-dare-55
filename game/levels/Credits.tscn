@@ -1,6 +1,7 @@
-[gd_scene load_steps=18 format=3 uid="uid://bt433eh1gddye"]
+[gd_scene load_steps=20 format=3 uid="uid://bt433eh1gddye"]
 
 [ext_resource type="MeshLibrary" uid="uid://dcl27y21ygg87" path="res://game/levels/catacomb_library.tres" id="1_3xwxl"]
+[ext_resource type="Script" path="res://game/weapons/weapon.gd" id="2_pe2j7"]
 [ext_resource type="PackedScene" uid="uid://dl2ed4gkybggf" path="res://game/player/player.tscn" id="2_tpiof"]
 [ext_resource type="PackedScene" uid="uid://w4dr7ggk5vd0" path="res://game/levels/level_change.tscn" id="3_phixf"]
 [ext_resource type="Texture2D" uid="uid://ckc0euwcbe6aj" path="res://assets/art/Karatoz.png" id="4_8t1gg"]
@@ -28,9 +29,21 @@ sky = SubResource("Sky_1y8n6")
 ambient_light_source = 2
 ambient_light_color = Color(0.237886, 0.214235, 0.202732, 1)
 tonemap_mode = 2
-fog_enabled = true
 fog_light_color = Color(0.0744934, 0.13134, 0.186753, 1)
 fog_density = 0.05
+
+[sub_resource type="Resource" id="Resource_hjjc5"]
+script = ExtResource("2_pe2j7")
+position = Vector3(0, 0, 0)
+rotation = Vector3(0, 0, 0)
+muzzle_position = Vector3(0, 0, 0)
+cooldown = 0.1
+max_distance = 10
+damage = 25.0
+spread = 0.0
+shot_count = 1
+knockback = 20
+sound_shoot = ""
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xh2m7"]
 size = Vector3(3.5, 4, 1)
@@ -48,6 +61,7 @@ environment = SubResource("Environment_lf4lc")
 transform = Transform3D(-0.993032, 0, 0.117849, 0, 1, 0, -0.117849, 0, -0.993032, -0.584488, 2.65977, -22.9448)
 movement_speed = 3
 jump_strength = 0
+weapons = Array[ExtResource("2_pe2j7")]([SubResource("Resource_hjjc5")])
 
 [node name="GridMap" type="GridMap" parent="."]
 mesh_library = ExtResource("1_3xwxl")
