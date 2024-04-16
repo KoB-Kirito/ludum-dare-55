@@ -1,11 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://bhm4336wirfm5"]
+[gd_scene load_steps=9 format=3 uid="uid://bhm4336wirfm5"]
 
 [ext_resource type="MeshLibrary" uid="uid://dvy5ohb3m0mni" path="res://game/_test/cube_library.tres" id="1_43td0"]
 [ext_resource type="PackedScene" uid="uid://dl2ed4gkybggf" path="res://game/player/player.tscn" id="2_8h88w"]
 [ext_resource type="PackedScene" uid="uid://l8apobayljhy" path="res://game/enemies/enemy.tscn" id="3_biv3m"]
 [ext_resource type="PackedScene" uid="uid://bm32nuprjimv7" path="res://game/interactables/wood_door.tscn" id="4_gg8c1"]
 [ext_resource type="PackedScene" uid="uid://dp6sg6cpfoapb" path="res://game/interactables/switch.tscn" id="4_o4y7a"]
-[ext_resource type="PackedScene" uid="uid://w4dr7ggk5vd0" path="res://game/levels/level_change.tscn" id="5_ed0nm"]
 [ext_resource type="PackedScene" uid="uid://dngecpumrjuld" path="res://game/levels/start_position.tscn" id="6_gx4lu"]
 [ext_resource type="PackedScene" uid="uid://c2pof5fu2gsu4" path="res://game/interactables/prison_door.tscn" id="7_3bl10"]
 
@@ -13,9 +12,6 @@
 ambient_light_source = 2
 ambient_light_color = Color(0.299547, 0.299547, 0.299547, 1)
 ambient_light_energy = 0.5
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_quguc"]
-radius = 1.0
 
 [node name="GridTest" type="Node3D"]
 
@@ -80,14 +76,6 @@ area = NodePath("Area3D")
 [node name="Tuer2" parent="Interactables" node_paths=PackedStringArray("door_node") instance=ExtResource("4_gg8c1")]
 transform = Transform3D(-0.0575641, 0, 0.998342, 0, 1, 0, -0.998342, 0, -0.0575641, -8.08457, 1, -4.00826)
 door_node = NodePath(".")
-
-[node name="LevelChange" parent="Interactables" instance=ExtResource("5_ed0nm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.3876, 5, 25.5221)
-next_level = "res://game/levels/Level1.tscn"
-color = Color(0, 0.290196, 0, 1)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Interactables/LevelChange"]
-shape = SubResource("SphereShape3D_quguc")
 
 [node name="StartPosition" parent="Interactables" instance=ExtResource("6_gx4lu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8233, 4.13649, 21.2477)

@@ -15,9 +15,9 @@ func _on_body_entered(body: Node3D) -> void:
 	if body is Player:
 		if body.is_ghost:
 			return
-		change_level()
+		trigger()
 
-func change_level() -> void:
+func trigger() -> void:
 	var player: Player = get_tree().get_first_node_in_group("player")
 	if is_instance_valid(player):
 		player.paused = true 

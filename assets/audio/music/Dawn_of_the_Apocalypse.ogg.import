@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/Dawn_of_the_Apocalypse.ogg-1feb26915bfcab05f3
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0

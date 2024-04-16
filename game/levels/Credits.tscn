@@ -1,6 +1,7 @@
-[gd_scene load_steps=20 format=3 uid="uid://bt433eh1gddye"]
+[gd_scene load_steps=23 format=3 uid="uid://bt433eh1gddye"]
 
 [ext_resource type="MeshLibrary" uid="uid://dcl27y21ygg87" path="res://game/levels/catacomb_library.tres" id="1_3xwxl"]
+[ext_resource type="Script" path="res://game/levels/credits.gd" id="1_6hbyw"]
 [ext_resource type="Script" path="res://game/weapons/weapon.gd" id="2_pe2j7"]
 [ext_resource type="PackedScene" uid="uid://dl2ed4gkybggf" path="res://game/player/player.tscn" id="2_tpiof"]
 [ext_resource type="PackedScene" uid="uid://w4dr7ggk5vd0" path="res://game/levels/level_change.tscn" id="3_phixf"]
@@ -14,6 +15,8 @@
 [ext_resource type="Texture2D" uid="uid://dnoj8mir3lnak" path="res://assets/art/TheWhiteShadow.png" id="10_6gq04"]
 [ext_resource type="Texture2D" uid="uid://c4nma8mhqtjn7" path="res://assets/art/Vero.png" id="11_4tet5"]
 [ext_resource type="PackedScene" uid="uid://dwfv4q7puatue" path="res://assets/props/Platzierbar/Frame.gltf" id="13_636tp"]
+[ext_resource type="PackedScene" uid="uid://dp6sg6cpfoapb" path="res://game/interactables/switch.tscn" id="16_q0x41"]
+[ext_resource type="Script" path="res://game/interactables/nodes/Triggerer.gd" id="17_bjno3"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_x15p8"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -49,6 +52,7 @@ sound_shoot = ""
 size = Vector3(3.5, 4, 1)
 
 [node name="Credits" type="Node3D"]
+script = ExtResource("1_6hbyw")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.265533, -0.517988, 0.813131, 0.13202, 0.815927, 0.562881, -0.95502, 0.256812, -0.148271, 18.4194, 10.2354, 0)
@@ -174,3 +178,18 @@ transform = Transform3D(-1.31134e-08, -0.3, 1.31134e-08, 0, -1.31134e-08, -0.3, 
 
 [node name="Frame7" parent="." instance=ExtResource("13_636tp")]
 transform = Transform3D(-1.31134e-08, -0.3, 1.31134e-08, 0, -1.31134e-08, -0.3, 0.3, -1.31134e-08, 5.73206e-16, 3.49787, 2.54078, -14.4975)
+
+[node name="Switch" parent="." node_paths=PackedStringArray("targets", "area") instance=ExtResource("16_q0x41")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -6.45283, 1.53, 1.44495)
+targets = [NodePath("Triggerer")]
+area = NodePath("Area3D")
+
+[node name="Triggerer" type="Node3D" parent="Switch"]
+script = ExtResource("17_bjno3")
+
+[node name="LevelChange" parent="Switch/Triggerer" instance=ExtResource("3_phixf")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.0275987, 1.52225, 0.622665)
+next_level = "res://game/_test/grid_test.tscn"
+animation = 1
+duration = 6.0
+color = Color(1, 0, 1, 1)
