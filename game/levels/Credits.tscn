@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bt433eh1gddye"]
+[gd_scene load_steps=17 format=3 uid="uid://bt433eh1gddye"]
 
 [ext_resource type="MeshLibrary" uid="uid://dcl27y21ygg87" path="res://game/levels/catacomb_library.tres" id="1_3xwxl"]
 [ext_resource type="PackedScene" uid="uid://dl2ed4gkybggf" path="res://game/player/player.tscn" id="2_tpiof"]
@@ -12,7 +12,6 @@
 [ext_resource type="Texture2D" uid="uid://bdig0ds2d8r0j" path="res://assets/art/Nieko.png" id="9_abd3d"]
 [ext_resource type="Texture2D" uid="uid://dnoj8mir3lnak" path="res://assets/art/TheWhiteShadow.png" id="10_6gq04"]
 [ext_resource type="Texture2D" uid="uid://c4nma8mhqtjn7" path="res://assets/art/Vero.png" id="11_4tet5"]
-[ext_resource type="PackedScene" uid="uid://blcetjo3nikvn" path="res://menu/titel screen/titel_screen.tscn" id="13_i02ab"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_x15p8"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -59,7 +58,7 @@ metadata/_editor_floor_ = Vector3(0, 21, 0)
 
 [node name="LevelChange" parent="." instance=ExtResource("3_phixf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 12, 38)
-next_level = "res://game/levels/endscene.tscn"
+next_level = "res://game/levels/Hauptmenü.tscn"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="LevelChange"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.48634, 1.52113, 2.17178)
@@ -136,5 +135,3 @@ texture = ExtResource("10_6gq04")
 [node name="Vero" type="Sprite3D" parent="Credit Namen"]
 transform = Transform3D(-1.09278e-08, 0, -0.25, 0, 0.25, 0, 0.25, 0, -1.09278e-08, 3.48, 2.55, -14.5)
 texture = ExtResource("11_4tet5")
-
-[node name="TitelScreen" parent="." instance=ExtResource("13_i02ab")]
