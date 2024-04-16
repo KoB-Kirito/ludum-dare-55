@@ -11,18 +11,12 @@
 [ext_resource type="Texture2D" uid="uid://bu7wqnhs06ss3" path="res://menu/titel screen/titel screen art/QuitPressed.png" id="12_hb7af"]
 [ext_resource type="Texture2D" uid="uid://njn6248tshm7" path="res://menu/titel screen/titel screen art/QuitHover.png" id="13_v2wn2"]
 
-[node name="TitelScreen" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="TitelScreen" type="CanvasLayer"]
+layer = 10
 script = ExtResource("1_6p6wr")
 metadata/_edit_lock_ = true
 
 [node name="Credits" type="TextureButton" parent="."]
-layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
 anchor_top = 0.5
@@ -40,7 +34,6 @@ texture_hover = ExtResource("4_wrl5t")
 metadata/_edit_lock_ = true
 
 [node name="Start" type="TextureButton" parent="."]
-layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
 anchor_top = 0.5
@@ -58,7 +51,6 @@ texture_hover = ExtResource("10_6tos1")
 metadata/_edit_lock_ = true
 
 [node name="Quit" type="TextureButton" parent="."]
-layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
 anchor_top = 0.5
@@ -73,6 +65,7 @@ grow_vertical = 2
 texture_normal = ExtResource("11_x6h4y")
 texture_pressed = ExtResource("12_hb7af")
 texture_hover = ExtResource("13_v2wn2")
+metadata/_edit_lock_ = true
 
 [connection signal="pressed" from="Credits" to="." method="_on_credits_pressed"]
 [connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
