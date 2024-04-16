@@ -34,6 +34,7 @@ SceneTransition="*res://autoloads/scene_transition.tscn"
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
+window/stretch/mode="canvas_items"
 
 [dotnet]
 
@@ -134,8 +135,3 @@ interact={
 3d_physics/layer_2="Player"
 3d_physics/layer_3="Enemies"
 3d_physics/layer_4="Passables"
-
-[rendering]
-
-renderer/rendering_method="gl_compatibility"
-renderer/rendering_method.mobile="gl_compatibility"

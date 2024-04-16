@@ -106,6 +106,14 @@ min_value = -30.0
 max_value = 6.0
 step = 6.0
 
+[node name="FullscreenLabel" type="Label" parent="Fade/GridContainer"]
+layout_mode = 2
+text = "Fullscreen"
+
+[node name="FullscreenCheckBox" type="CheckBox" parent="Fade/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
 [node name="snd_music" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("2_odayp")
@@ -131,3 +139,4 @@ bus = &"Voices"
 [connection signal="drag_started" from="Fade/GridContainer/VoicesSlider" to="." method="_on_voices_slider_drag_started"]
 [connection signal="focus_entered" from="Fade/GridContainer/VoicesSlider" to="." method="_on_voices_slider_drag_started"]
 [connection signal="value_changed" from="Fade/GridContainer/VoicesSlider" to="." method="_on_voices_slider_value_changed"]
+[connection signal="toggled" from="Fade/GridContainer/FullscreenCheckBox" to="." method="_on_fullscreen_check_box_toggled"]

@@ -30,6 +30,8 @@ func _ready() -> void:
 	%MusicSlider.value = AudioServer.get_bus_volume_db(music_bus)
 	%SoundsSlider.value = AudioServer.get_bus_volume_db(sounds_bus)
 	%VoicesSlider.value = AudioServer.get_bus_volume_db(voices_bus)
+	
+	%FullscreenCheckBox.button_pressed = DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_FULLSCREEN
 
 
 func _on_music_slider_value_changed(value: float) -> void:
@@ -94,3 +96,10 @@ func _on_voices_slider_drag_started() -> void:
 func _on_fade_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		toggle()
+
+
+func _on_fullscreen_check_box_toggled(toggled_on: bool) -> void:
+	if toggled_on:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+	else:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)

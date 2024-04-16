@@ -500,7 +500,7 @@ var portal_would_collide: bool = true:
 		#print("setting value")
 		if value != portal_would_collide:
 			portal_would_collide = value
-			print("new value " + str(value))
+			#print("new value " + str(value))
 			if portal_would_collide:
 				%Hud.crosshair.modulate = Color(Color.RED, 0.2)
 			else:
